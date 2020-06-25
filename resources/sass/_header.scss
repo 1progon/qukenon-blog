@@ -1,0 +1,125 @@
+//Header
+header a {
+    color: $secondary;
+
+    &:hover {
+        color: $purple-light;
+
+    }
+}
+
+//Top Bar
+.top-bar {
+    font-size: 1.2rem;
+
+    .parts {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+
+    .left, .right {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+
+        & > a {
+            margin-right: 1rem;
+        }
+
+
+    }
+
+    .right {
+        justify-content: flex-end;
+    }
+
+
+}
+
+//Main Bar
+.main-bar {
+    display: flex;
+    line-height: 90px;
+
+    .container {
+        transition: .3s;
+    }
+
+
+    .parts {
+
+        clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%);
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background: linear-gradient(88deg, $dark-light, transparent);
+
+        > * {
+            padding: 0 2rem;
+        }
+
+
+    }
+
+    .logo {
+        color: #ffffff;
+        font-size: 2.2rem;
+        font-weight: 600;
+        flex-basis: 25%;
+    }
+
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+        align-items: center;
+        text-align: center;
+
+        > div {
+            flex: 1;
+            transition: .3s;
+        }
+
+        a {
+            display: block;
+        }
+
+        > div:hover {
+            background-color: $purple;
+            cursor: pointer;
+
+
+        }
+
+        > div:hover a {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+
+    }
+
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .main-bar {
+
+        .container {
+            width: 100%;
+        }
+
+        .parts {
+            clip-path: unset;
+        }
+    }
+
+
+}
+

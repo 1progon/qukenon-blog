@@ -1,0 +1,35 @@
+.container {
+    margin: 0 auto;
+    width: calc(100% - 3rem);
+    max-width: $max-width;
+
+}
+
+img {
+    vertical-align: middle;
+}
+
+.title, .subtitle {
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: $size * 6;
+}
+
+.subtitle {
+    font-size: $size * 2.4;
+}
+
+.btn {
+    color: #ffffff;
+    padding: $size $size-double;
+    background-color: $purple;
+    border-radius: $size;
+    &:hover {
+        color: #ffffff;
+        background-color: $purple-light;
+
+    }
+}
+
