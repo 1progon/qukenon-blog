@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PostImages extends Model
+class PostImage extends Model
 {
     public function post()
     {

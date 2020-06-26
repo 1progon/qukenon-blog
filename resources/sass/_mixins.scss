@@ -1,0 +1,20 @@
+@mixin btn {
+    color: #ffffff;
+    padding: $size $size-double;
+    background-color: $purple;
+    border-radius: $size;
+    cursor: pointer;
+    max-width: 15rem;
+
+    &:hover {
+        color: #ffffff;
+        background-color: $purple-light;
+
+    }
+
+    &.btn-fluid {
+        max-width: unset;
+    }
+}
+
+

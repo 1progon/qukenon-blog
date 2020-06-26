@@ -1,0 +1,43 @@
+.categories-list {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex: 1;
+        color: $dark;
+        padding: $size * 4;
+        background-color: $secondary;
+        border-radius: $size-double;
+        min-width: 200px;
+        margin: 1rem;
+
+        .subtitle {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $dark;
+            transition: .3s;
+
+        }
+
+        .card-description {
+            color: $violet;
+            transition: .3s;
+        }
+
+        &:hover {
+            background-color: $purple-light;
+        }
+
+        &:hover .subtitle, &:hover .card-description {
+            color: #ffffff;
+        }
+
+
+    }
+
+    .page-links {
+        width: 100%;
+    }
+}

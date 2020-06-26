@@ -1,0 +1,42 @@
+//Post single styles
+.post {
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        color: $red;
+
+
+        > div {
+            flex: 1;
+        }
+
+    }
+
+    .thumbnail {
+        margin: $size-double 0;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .small-images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+
+        > a {
+            padding: 0 $size;
+        }
+
+    }
+
+    article {
+        margin: $size-triple 0;
+        padding: 0 0 0 $size * 5;
+        border-left: $size solid $red;
+    }
+}
+
+

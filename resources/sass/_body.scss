@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 body {
     overflow-y: scroll;
     font-family: "Open Sans", sans-serif;
@@ -8,30 +12,42 @@ body {
 
 }
 
-a, p {
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+
+
+a, p, div {
     font-size: 1.2rem;
 }
 
 a {
-    color: $primary;
+    color: $secondary;
     cursor: pointer;
     transition: .3s;
+
+    &:hover {
+        color: $purple-light;
+    }
 }
 
-a:hover {
-    color: $purple-light;
-}
 
 a, a:hover, a:focus {
     text-decoration: none;
 }
 
 
-
 p {
     color: $secondary;
+    padding: 1rem 0;
 }
-
 
 
 h1 {

@@ -1,0 +1,94 @@
+//Posts list - category
+.posts-list {
+    .title {
+        font-size: $size * 3;
+    }
+
+    .media {
+        margin: 3rem 0;
+    }
+
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        color: $red;
+
+
+        > div {
+            flex: 1;
+        }
+
+    }
+
+    .content-block {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 1rem;
+
+
+        .description {
+            flex: 2;
+            min-width: 280px;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            border-bottom-left-radius: $size-double;
+            background: rgb(37, 47, 90);
+            background: -moz-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+            background: -webkit-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+            background: linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#252f5a", endColorstr="#070b28", GradientType=1);
+        }
+
+        .thumbnail {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            padding-right: 1rem;
+
+            img {
+                transition: .3s;
+                max-width: 100%;
+                min-width: 250px;
+            }
+
+
+            &:hover img {
+                opacity: .7;
+            }
+
+
+        }
+
+
+    }
+
+    .read-post-button {
+        display: flex;
+
+
+        a {
+
+            position: relative;
+            padding-right: 2rem;
+            padding-left: $size-double;
+
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: auto;
+                transform: translate(-50%, -50%);
+            }
+
+        }
+    }
+
+
+}

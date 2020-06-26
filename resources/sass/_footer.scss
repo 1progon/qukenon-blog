@@ -1,0 +1,32 @@
+footer {
+    min-height: 300px;
+
+    .container {
+        display: flex;
+        position: relative;
+        padding: $size-double;
+        flex-wrap: wrap;
+        height: 100%;
+        background-color: $dark-light;
+
+        > div {
+            flex: 1;
+
+            > div {
+                padding: $size 0;
+            }
+        }
+
+        //&::before {
+        //    content: '';
+        //    position: absolute;
+        //    left: -200px;
+        //    top: 0;
+        //    width: 200px;
+        //    height: 100%;
+        //    background: linear-gradient(90deg, rgba(255, 255, 255, 0), $dark-light);
+        //}
+
+
+    }
+}

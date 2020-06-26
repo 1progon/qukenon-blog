@@ -24,7 +24,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('article');
-            $table->string('image');
+            $table->string('image')->nullable();
 
 
             // Foreign

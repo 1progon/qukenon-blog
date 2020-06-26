@@ -1,0 +1,79 @@
+// Typography Fonts
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    src: local('Open Sans'),
+    url('./fonts/OpenSans-Regular.ttf'),
+    url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+}
+
+@import "reset-styles";
+
+@import "mixins";
+
+@import "variables";
+
+@import "boots";
+
+html, body {
+    height: 100%;
+}
+
+html {
+    background-color: $secondary;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+
+    color: $secondary;
+    font-size: $size * 2;
+}
+
+
+a {
+    text-decoration: none;
+    transition: .3s;
+    color: $primary;
+
+    &:hover {
+        color: $purple;
+    }
+}
+
+header {
+    background-color: $secondary;
+    padding: 1rem 0;
+
+}
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: $size;
+
+    .left-side, .right-side {
+        background-color: $dark;
+    }
+
+    .left-side {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            padding: $size;
+            background-color: $secondary;
+            margin-bottom: $size / 2;
+
+            &:hover {
+                background-color: $purple-light;
+                color: #ffffff;
+            }
+        }
+    }
+
+
+}
+
+
+

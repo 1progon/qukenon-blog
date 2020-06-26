@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    protected $fillable = [
+        "category_id", "user_id", "slug", "title", "description", "article", "image"
+    ];
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -23,7 +27,7 @@ class Post extends Model
 
     public function images()
     {
-        return $this->hasMany(PostImages::class);
+        return $this->hasMany(PostImage::class);
     }
 
 }

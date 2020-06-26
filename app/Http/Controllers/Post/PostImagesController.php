@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\PostImages;
+use App\PostImage;
 use Illuminate\Http\Request;
 
 class PostImagesController extends Controller
@@ -41,10 +41,10 @@ class PostImagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\PostImages  $postImages
+     * @param  \App\PostImage  $postImages
      * @return \Illuminate\Http\Response
      */
-    public function show(PostImages $postImages)
+    public function show(PostImage $postImages)
     {
         //
     }
@@ -52,10 +52,10 @@ class PostImagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PostImages  $postImages
+     * @param  \App\PostImage  $postImages
      * @return \Illuminate\Http\Response
      */
-    public function edit(PostImages $postImages)
+    public function edit(PostImage $postImages)
     {
         //
     }
@@ -64,10 +64,10 @@ class PostImagesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PostImages  $postImages
+     * @param  \App\PostImage  $postImages
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PostImages $postImages)
+    public function update(Request $request, PostImage $postImages)
     {
         //
     }
@@ -75,10 +75,10 @@ class PostImagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PostImages  $postImages
+     * @param  \App\PostImage  $postImages
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PostImages $postImages)
+    public function destroy(PostImage $postImages)
     {
         //
     }

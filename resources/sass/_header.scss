@@ -1,13 +1,3 @@
-//Header
-header a {
-    color: $secondary;
-
-    &:hover {
-        color: $purple-light;
-
-    }
-}
-
 //Top Bar
 .top-bar {
     font-size: 1.2rem;
@@ -17,6 +7,10 @@ header a {
         flex-wrap: wrap;
         align-items: center;
         padding: 1rem 0;
+    }
+
+    .left {
+        padding: 0 1rem;
     }
 
 
@@ -60,8 +54,10 @@ header a {
         background: linear-gradient(88deg, $dark-light, transparent);
 
         > * {
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
+
+
 
 
     }
@@ -80,6 +76,24 @@ header a {
         align-items: center;
         text-align: center;
 
+        .more-categories {
+            flex: .7;
+
+            a {
+                display: flex;
+                flex-wrap: wrap;
+
+                span {
+                    flex: 2;
+                    border: none;
+                }
+
+                img {
+                    max-width: $size-double;
+                }
+            }
+        }
+
         > div {
             flex: 1;
             transition: .3s;
@@ -87,6 +101,12 @@ header a {
 
         a {
             display: block;
+            position: relative;
+
+            span {
+                //border-bottom: 1px solid $red;
+            }
+
         }
 
         > div:hover {
@@ -103,6 +123,8 @@ header a {
 
 
     }
+
+
 
 
 }

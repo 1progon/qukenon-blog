@@ -3,9 +3,9 @@
 
 
 @section('main')
-    <div class="container">
-    </div>
-
+<div class="container">
+    <a href="/post">Все материалы</a>
+</div>
 
 @endsection
 
