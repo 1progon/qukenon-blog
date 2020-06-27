@@ -1,6 +1,10 @@
 @extends('layouts.layout')
 
-@section('title', 'Show post Page')
+@section('title', $post->title)
+
+@section('meta_keys', $post->meta_keys)
+@section('meta_description', $post->description)
+@section('canonical', url($post->slug))
 
 @section('main')
 
@@ -22,17 +26,19 @@
             <div class="description">{{ $post->description }}</div>
 
             @if( isset($firstImage))
-                <div class="thumbnail">
-                    <img src="{{ asset('storage/' . $firstImage->filepath) }}" alt="">
-                </div>
+                <div class="images-block">
+                    <div class="thumbnail">
+                        <img src="{{ asset('storage/' . $firstImage->filepath) }}" alt="">
+                    </div>
 
-                <div class="small-images">
-                    @forelse($images as $image)
-                        <a href="{{ asset('storage/' . $image->filepath) }}">
-                            <img src="{{ asset('storage/' . $image->filepath) }}" width="80" height="80" alt="">
-                        </a>
-                    @empty
-                    @endforelse
+                    <div class="small-images">
+                        @forelse($images as $image)
+                            <a data-fancybox="gallery" href="{{ asset('storage/' . $image->filepath) }}">
+                                <img src="{{ asset('storage/' . $image->filepath) }}" width="80" height="80" alt="">
+                            </a>
+                        @empty
+                        @endforelse
+                    </div>
                 </div>
             @endif
 

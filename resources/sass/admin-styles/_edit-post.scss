@@ -1,0 +1,29 @@
+.old-images {
+    display: flex;
+    flex-wrap: wrap;
+
+    .block {
+        display: flex;
+        flex-direction: column;
+        background-color: $dark-light;
+        padding: $size-double;
+        margin-right: $size-double;
+        margin-bottom: $size-double;
+
+        > * {
+            margin-bottom: $size;
+        }
+
+        &:hover {
+            opacity: .6;
+        }
+
+
+        input {
+            cursor: pointer;
+        }
+    }
+
+
+
+}

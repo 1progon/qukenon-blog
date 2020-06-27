@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use App\PostImage;
+use Carbon\Traits\Date;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -56,14 +58,16 @@ class PostsController extends Controller
         foreach ($images as $image) {
             $postImage = new PostImage();
 
-            $path = $image->store('post-images');
+
+            $path = $image->store('post-images/'
+                . date('Y' . '/' . date('m')));
 
             $postImage->filePath = $path;
 
             $post->images()->save($postImage);
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('post.index');
     }
 
     /**
@@ -86,11 +90,12 @@ class PostsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+        return view('user-admin.post.edit-post', compact('post', 'categories'));
     }
 
     /**
@@ -98,21 +103,68 @@ class PostsController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $category = Category::firstWhere('id', '=', $request->category_id);
+
+        $post->fill($request->except(['images', 'remove_images']));
+
+        $category->posts()->save($post);
+
+        if ($request->has('remove_images')) {
+
+            $imagesBeforeUpload = $post->images;
+
+            // Remove old selected images
+            foreach ($request->remove_images as $imageId) {
+
+                $image = $imagesBeforeUpload->firstWhere('id', '=', $imageId);
+
+
+                Storage::delete($image->filepath);
+
+                $image->delete();
+
+            }
+        }
+
+        // Save new uploaded images
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $image) {
+                $postImage = new PostImage();
+
+
+                $path = $image->store('post-images/'
+                    . date('Y' . '/' . date('m')));
+
+                $postImage->filePath = $path;
+
+                $post->images()->save($postImage);
+            }
+        }
+
+
+        return redirect()->route('post.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param \App\Post $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Post $post)
     {
-        //
+        foreach ($post->images as $image) {
+
+            Storage::delete($image->filepath);
+        }
+
+        $post->delete();
+
+        return redirect()->route('post.index');
     }
 }

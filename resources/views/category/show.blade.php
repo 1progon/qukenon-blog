@@ -1,6 +1,10 @@
 @extends('layouts.layout')
 
-@section('title', 'Страница категории')
+@section('title', 'Посты на тему ' . $category->title)
+
+@section('meta_keys', $category->meta_keys)
+@section('meta_description', $category->description)
+@section('canonical', url('category/' . $category->slug))
 
 @section('main')
     <div class="posts-list">

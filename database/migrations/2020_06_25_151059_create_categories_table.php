@@ -22,6 +22,8 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->boolean('main_bar')->default(0);
             $table->string('title');
+            $table->string('meta_keys')->nullable();
+
             $table->text('description');
             $table->string('image')->nullable();
 
