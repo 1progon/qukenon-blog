@@ -133,6 +133,8 @@ table tr td {
 
 img {
   vertical-align: middle;
+  max-width: 100%;
+  height: auto;
 }
 
 input,
@@ -221,6 +223,26 @@ textarea[type=file] {
   max-width: unset;
 }
 
+.btn-outline {
+  color: #ffffff;
+  padding: 0.625rem 1.25rem;
+  background-color: #d200c7;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  max-width: 15rem;
+  background-color: unset;
+  border: 1px solid #d200c7;
+}
+
+.btn-outline:hover {
+  color: #ffffff;
+  background-color: #ff00f2;
+}
+
+.btn-outline.btn-fluid {
+  max-width: unset;
+}
+
 .link,
 .link:active,
 .link:focus,
@@ -302,7 +324,7 @@ textarea[type=file] {
 .admin-posts-list .card {
   margin: 1rem;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: 70px 100px 1fr 100px repeat(5, 1fr);
   border-bottom: 1px solid #a1aed4;
   grid-gap: 0.625rem;
 }
@@ -333,6 +355,43 @@ textarea[type=file] {
   cursor: pointer;
 }
 
+.notify {
+  position: absolute;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  width: 40vw;
+  height: 50vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #a1aed4;
+  color: #0f143a;
+}
+
+.notify .response-message {
+  font-size: 1.875rem;
+}
+
+.notify p {
+  position: absolute;
+  min-width: 280px;
+  width: 100%;
+  padding: 1.875rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notify .btn-outline {
+  color: #0f143a;
+}
+
+.notify .action-buttons {
+  position: absolute;
+  bottom: 1.875rem;
+  right: 1.875rem;
+}
+
 html,
 body {
   height: 100%;
@@ -360,11 +419,13 @@ a:hover {
 
 .container {
   margin: 0 1.25rem;
+  max-width: unset;
 }
 
 header {
   background-color: #a1aed4;
   padding: 1rem 0;
+  border-bottom: 5px solid #8400ff;
 }
 
 .wrapper {

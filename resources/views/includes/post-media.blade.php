@@ -29,6 +29,7 @@
                             $imagePath = $firstImage->folder . '/' . $thumb['str'] . '_' . $firstImage->filename;
                         @endphp
 
+
                         <img src="{{ asset('storage/' . $imagePath )}}"
                              alt=""
                              width="{{ $thumb['w'] }}"

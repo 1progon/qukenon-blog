@@ -40,6 +40,8 @@ table {
 
 img {
     vertical-align: middle;
+    max-width: 100%;
+    height: auto;
 }
 
 input, select, textarea {
@@ -100,6 +102,10 @@ input, select, textarea {
 
 .btn {
     @include btn();
+}
+
+.btn-outline {
+    @include btn-outline();
 }
 
 .link, .link:active, .link:focus, .link:visited {

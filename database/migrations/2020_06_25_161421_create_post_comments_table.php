@@ -25,11 +25,13 @@ class CreatePostCommentsTable extends Migration
             // Foreign
             $table->foreign('user_id')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onUpdate('cascade');
 
             $table->foreign('post_id')
                 ->references('id')
                 ->on('posts')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
     }

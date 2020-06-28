@@ -18,3 +18,10 @@
 }
 
 
+@mixin btn-outline {
+    @include btn();
+    background-color: unset;
+    border: 1px solid $purple;
+}
+
+

@@ -16,6 +16,7 @@
 
 @import "admin-styles/posts-index";
 @import "admin-styles/edit-post";
+@import "admin-styles/category-index";
 
 html, body {
     height: 100%;
@@ -45,11 +46,13 @@ a {
 
 .container {
     margin: 0 $size-double;
+    max-width: unset;
 }
 
 header {
     background-color: $secondary;
     padding: 1rem 0;
+    border-bottom: 5px solid $violet;
 
 }
 

@@ -29,7 +29,7 @@ Route::resource('category', 'CategoriesController')
 // Front view List of Posts
 Route::get('post', 'PostsController@index');
 // Front view Single Post
-Route::get('/{post}', 'PostsController@show');
+Route::get('/{post}', 'PostsController@show')->name('post.front.show');
 
 Route::view('/', 'homepage');
 
@@ -74,6 +74,10 @@ Route::prefix('admin123123')
             ->only([
                 'create', 'store', 'edit', 'update', 'destroy'
             ]);
+
+
+        // Create, Store, Edit, Update, Destroy Category
+        Route::view('images-error', 'user-admin/images-error')->name('images.error');
 
 
         // Users

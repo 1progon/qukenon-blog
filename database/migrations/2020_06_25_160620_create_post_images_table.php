@@ -26,6 +26,7 @@ class CreatePostImagesTable extends Migration
             $table->foreign('post_id')
                 ->references('id')
                 ->on('posts')
+                ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
     }

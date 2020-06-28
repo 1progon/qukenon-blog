@@ -41,17 +41,13 @@ class CategoriesController extends Controller
         $user = Auth::user();
 
         $cat = new Category();
-        // $cat->image = $request->image->store('images');
-        // $cat->title = $request->title;
-        // $cat->slug = $request->slug;
-        // $cat->description = $request->description;
-        // $cat->main_bar = $request->main_bar;
+
 
         $cat->fill($request->all());
 
         $user->categories()->save($cat);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -82,21 +78,63 @@ class CategoriesController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Category $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Category $category)
     {
-        //
+
+
+        $category->fill($request->all());
+
+        if (!isset($request->main_bar) || is_null($request->main_bar)) {
+            $category->main_bar = 0;
+
+
+        }
+
+        $category->save();
+
+        return redirect()->route('category.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param \App\Category $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Category $category)
     {
-        //
+
+        $user = Auth::user();
+
+        $defaultCategory = Category::where('title', '=', 'default')
+            ->orWhere('slug', '=', 'default')->first();
+
+
+        if (!$defaultCategory) {
+            $defaultCategory = new Category();
+            $defaultCategory->title = 'Default';
+            $defaultCategory->slug = 'default';
+            $defaultCategory->slug = 'default';
+            $defaultCategory->description = '';
+            $user->categories()->save($defaultCategory);
+        }
+
+        if ($defaultCategory->id === $category->id) {
+            return redirect()->route('category.index');
+
+        }
+
+
+        $posts = $category->posts;
+        foreach ($posts as $post) {
+            $post->category_id = $defaultCategory->id;
+            $post->save();
+        }
+
+        $category->delete();
+
+        return redirect()->route('category.index');
     }
 }

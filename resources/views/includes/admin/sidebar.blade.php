@@ -15,6 +15,10 @@
     Все посты
 </a>
 
+<a class="" href="{{ route('images.error')}}">
+    Не удаленные картинки
+</a>
+
 
 {{--<a class=" -action"--}}
 {{--   href="{{ route('user.edit', [ Auth::user() ])}}">--}}

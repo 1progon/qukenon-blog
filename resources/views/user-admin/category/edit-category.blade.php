@@ -3,12 +3,13 @@
 @section('main')
 
     <div class="container">
-        <h2>Редактировать категорию
+        <h2>Редактировать категорию,
             <span>{{ $category->title }} {{ $category->id }}</span>
         </h2>
 
         <form action="{{ route('category.update', $category) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PATCH')
 
             <div class="input-group">
                 <label for="title" class="required">Title</label>
@@ -32,7 +33,7 @@
 
             <div class="input-group">
                 <label for="main-bar">Добавить в шапку</label>
-                <input @if( $category->main_bar === 1) checked="checked" @endif type="checkbox" name="main_bar"
+                <input {{ $category->main_bar == 1 ? 'checked="checked"' : '' }} type="checkbox" name="main_bar"
                        id="main-bar"
                        value="1">
             </div>
@@ -44,7 +45,7 @@
 
 
             <div class="input-group">
-                <input type="submit" value="Добавить">
+                <input type="submit" value="Обновить">
             </div>
 
 

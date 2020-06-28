@@ -37,6 +37,8 @@
             align-items: center;
             padding-right: 1rem;
             min-width: 272px;
+            overflow: hidden;
+            border-bottom-left-radius: $size;
 
             img {
                 transition: .3s;
@@ -45,7 +47,7 @@
 
 
             &:hover img {
-                opacity: .7;
+                opacity: .8;
             }
 
 

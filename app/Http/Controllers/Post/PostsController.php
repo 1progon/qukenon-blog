@@ -64,7 +64,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-        $category = Category::firstWhere('id', '=', $request->category_id);
+        $category = Category::find($request->category_id);
 
         $post = new Post();
 
@@ -120,7 +120,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $category = Category::firstWhere('id', '=', $request->category_id);
+        $category = Category::find($request->category_id);
 
         $post->fill($request->except(['images', 'remove_images']));
 
@@ -133,7 +133,7 @@ class PostsController extends Controller
             // Remove old selected images
             foreach ($request->remove_images as $imageId) {
 
-                $image = $imagesBeforeUpload->firstWhere('id', '=', $imageId);
+                $image = $imagesBeforeUpload->find($imageId);
 
 
                 $this->deleteImagesFilesFromFolder($image);

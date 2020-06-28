@@ -1,0 +1,148 @@
+.featured-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: $size;
+    margin: $size 0 $size 0;
+    padding-bottom: $size-triple;
+
+    border-bottom: $size solid $red;
+
+    a {
+        -webkit-border-radius: $size;
+        -moz-border-radius: $size;
+        border-radius: $size;
+        overflow: hidden;
+
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+
+        .image-wrapper {
+            overflow: hidden;
+        }
+
+        img {
+            transition: .5s;
+        }
+
+
+        .description {
+            .title {
+                font-size: $size * 1.5;
+                font-weight: 600;
+                color: $violet;
+            }
+
+            .text {
+                color: $secondary;
+                font-size: $size * 1.3;
+            }
+
+            .meta {
+                text-transform: uppercase;
+                color: #5068af;
+                font-size: $size;
+                font-weight: 600;
+                margin-top: $size / 2;
+
+            }
+        }
+
+        &:hover {
+            color: #ffffff;
+            background-color: $purple-light;
+        }
+
+        &:hover .text {
+            color: #ffffff;
+
+        }
+
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    .left-side {
+
+        a {
+            height: 100%;
+            background-color: $violet;
+
+            .title {
+                color: $dark;
+            }
+
+            .meta {
+                color: $dark-light;
+            }
+
+            &:hover {
+                background-color: $purple-light;
+            }
+
+            .image-wrapper {
+                align-self: flex-start;
+
+            }
+
+        }
+
+        .description {
+            padding: $size;
+
+            .title {
+                font-size: $size-triple;
+                margin-bottom: $size;
+            }
+
+            .text {
+                font-size: $size-double;
+            }
+
+            .meta {
+                font-size: $size * 1.2;
+                margin: $size 0;
+            }
+        }
+
+    }
+
+    .right-side {
+        //display: flex;
+        //flex-direction: column;
+        //justify-content: space-between;
+
+        display: grid;
+        grid-gap: 2px;
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+
+        a {
+            flex-wrap: unset;
+            margin-bottom: $size;
+            border-left: 1px solid $dark-light;
+
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        img {
+            border-top-right-radius: $size;
+            border-bottom-right-radius: $size;
+        }
+
+
+        .description {
+            min-width: 190px;
+            padding: 0 $size;
+            flex: 1;
+
+
+        }
+
+    }
+}

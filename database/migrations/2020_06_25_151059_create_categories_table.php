@@ -31,7 +31,8 @@ class CreateCategoriesTable extends Migration
             // Foreign
             $table->foreign('user_id')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onUpdate('cascade');
 
 
         });
