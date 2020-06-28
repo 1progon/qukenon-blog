@@ -15,17 +15,20 @@
         <div class="content">
             <div class="thumbnail">
 
-                @php
-                    $firstImage = $post->images()->first();
-
-                    $thumb = \App\Http\Controllers\PostsController::THUMB['small'];
-
-                    $imagePath = $firstImage->folder . '/' . $thumb['str'] . '_' . $firstImage->filename;
-                @endphp
 
                 <a href="/{{ $post->slug }}">
 
+
+                    @php
+                        $firstImage = $post->images()->first();
+                    @endphp
+
                     @if( isset( $firstImage))
+                        @php
+                            $thumb = \App\Http\Controllers\PostsController::THUMB['small'];
+                            $imagePath = $firstImage->folder . '/' . $thumb['str'] . '_' . $firstImage->filename;
+                        @endphp
+
                         <img src="{{ asset('storage/' . $imagePath )}}"
                              alt=""
                              width="{{ $thumb['w'] }}"
