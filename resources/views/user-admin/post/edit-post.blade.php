@@ -14,7 +14,7 @@
                 <select name="category_id" id="category" required>
                     @forelse( $categories as $category)
                         <option @if( $post->category->id == $category->id) selected @endif
-                        value="{{$category->id}}">{{$category->title }}</option>
+                        value="{{ $category->id}}">{{ $category->title }}</option>
                     @empty
                     @endforelse
 
@@ -50,12 +50,24 @@
             <div class="input-group">
                 <label for="">Картинки</label>
                 <div class="old-images">
+                    @php
+                        $thumb = \App\Http\Controllers\PostsController::THUMB['smallest'];
+                    @endphp
+
                     @forelse( $post->images as $image)
+                        @php
+                            $imagePath = $image->folder . '/' . $thumb['str'] .'_' . $image->filename;
+                        @endphp
+
                         <div class="block">
                             <div class="image">
-                                <a data-fancybox="gallery" href="{{ asset('storage/' . $image->filepath) }}">
-                                    <img src="{{ asset('storage/' . $image->filepath) }}" width="100" height="100"
-                                         alt="image">
+                                <a data-fancybox="gallery" href="{{ asset('storage/' . $image->folder . '/' .
+                                $image->filename) }}">
+                                    <img
+                                        src="{{ asset('storage/' . $imagePath )}}"
+                                        width="{{ $thumb['w'] }}"
+                                        height="{{ $thumb['h'] }}"
+                                        alt="image">
                                 </a>
                             </div>
 

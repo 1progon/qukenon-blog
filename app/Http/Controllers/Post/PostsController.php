@@ -3,16 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Controllers\Classes\ImageResizer;
 use App\Post;
 use App\PostImage;
-use Carbon\Traits\Date;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use stdClass;
 
 class PostsController extends Controller
 {
+
+    private string $imagesFolder;
+
+    const THUMB = [
+        'smallest' => ['w' => 80, 'h' => 80, 'str' => '80_80'],
+        'small' => ['w' => 256, 'h' => 144, 'str' => '256_144'],
+        'middle' => ['w' => 720, 'h' => 405, 'str' => '720_405'],
+        'maximum' => ['w' => 1140, 'h' => 0, 'str' => '1140_0'],
+    ];
+
+
+    public function __construct()
+    {
+        $this->imagesFolder = 'post-images/' . date('Y' . '/' . date('m'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +38,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('post.index', ['posts' => Post::paginate(10)]);
+        $posts = Post::latest()->paginate(10);
+
+        return view('post.index', compact('posts'));
     }
 
     /**
@@ -54,17 +74,10 @@ class PostsController extends Controller
 
         $category->posts()->save($post);
 
-        $images = $request->file('images');
-        foreach ($images as $image) {
-            $postImage = new PostImage();
 
-
-            $path = $image->store('post-images/'
-                . date('Y' . '/' . date('m')));
-
-            $postImage->filePath = $path;
-
-            $post->images()->save($postImage);
+        // Resize, create thumbs and save all images from upload
+        if ($request->hasFile('images')) {
+            $this->resizeUploadedImages($request, $post);
         }
 
         return redirect()->route('post.index');
@@ -123,27 +136,17 @@ class PostsController extends Controller
                 $image = $imagesBeforeUpload->firstWhere('id', '=', $imageId);
 
 
-                Storage::delete($image->filepath);
+                $this->deleteImagesFilesFromFolder($image);
+
 
                 $image->delete();
 
             }
         }
 
-        // Save new uploaded images
+        // Resize, create thumbs and save all images from upload
         if ($request->hasFile('images')) {
-            $images = $request->file('images');
-            foreach ($images as $image) {
-                $postImage = new PostImage();
-
-
-                $path = $image->store('post-images/'
-                    . date('Y' . '/' . date('m')));
-
-                $postImage->filePath = $path;
-
-                $post->images()->save($postImage);
-            }
+            $this->resizeUploadedImages($request, $post);
         }
 
 
@@ -158,13 +161,70 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        foreach ($post->images as $image) {
 
-            Storage::delete($image->filepath);
+        $images = $post->images;
+
+
+        if ($images) {
+            foreach ($images as $image) {
+
+                // Delete image file from folder and thumbnails
+
+                $this->deleteImagesFilesFromFolder($image);
+            }
         }
+
 
         $post->delete();
 
         return redirect()->route('post.index');
+    }
+
+
+    private function resizeUploadedImages(Request $request, Post $post)
+    {
+        $images = $request->file('images');
+        foreach ($images as $image) {
+            $postImage = new PostImage();
+
+
+            // Save uploaded image to folder
+            $path = $image->store($this->imagesFolder);
+
+            // Filename without extension
+            $fileName = File::name($path);
+            $newExtension = 'jpg';
+
+
+            $resizer = new ImageResizer();
+
+            // Scale Main image and get new path of it, because old image removed
+            $path = $resizer->scaleMainImage($path);
+
+
+            $resizer->createThumb($path, self::THUMB['smallest']);
+
+            $resizer->createThumb($path, self::THUMB['small']);
+
+
+            // Add main image to DB
+            $postImage->filename = $fileName . '.' . $newExtension;
+            $postImage->folder = $this->imagesFolder;
+            $post->images()->save($postImage);
+
+
+        }
+    }
+
+
+    private function deleteImagesFilesFromFolder($image)
+    {
+        Storage::delete($image->folder . '/' . $image->filename);
+
+        foreach (self::THUMB as $size) {
+            Storage::delete($image->folder . '/' . $size['str'] . '_' . $image->filename);
+        }
+
+
     }
 }

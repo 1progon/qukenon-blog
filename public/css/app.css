@@ -215,7 +215,7 @@ footer .container > div > div {
 
 table tr td {
   border-bottom: 1px solid;
-  padding: 0.625rem;
+  padding: 0.875rem;
 }
 
 img {
@@ -372,6 +372,7 @@ textarea[type=file] {
 }
 
 .pagination .page-item.disabled {
+  cursor: default;
   color: #252f5a;
   padding: 0.625rem 1.25rem;
 }
@@ -526,34 +527,34 @@ textarea[type=file] {
   display: flex;
   flex-wrap: wrap;
   margin-right: 1rem;
+  width: 100%;
+}
+
+.posts-list .content .thumbnail {
+  flex: 1;
+  align-items: center;
+  padding-right: 1rem;
+  min-width: 272px;
+}
+
+.posts-list .content .thumbnail img {
+  transition: 0.3s;
+  max-width: 100%;
+}
+
+.posts-list .content .thumbnail:hover img {
+  opacity: 0.7;
 }
 
 .posts-list .content .description {
-  flex: 2;
-  min-width: 280px;
+  flex: 3;
+  min-width: 300px;
   padding-right: 1rem;
   padding-left: 1rem;
   border-bottom-left-radius: 1.25rem;
   background: #252f5a;
   background: linear-gradient(90deg, #252f5a 0%, #070b28 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#252f5a", endColorstr="#070b28", GradientType=1);
-}
-
-.posts-list .content .thumbnail {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  padding-right: 1rem;
-}
-
-.posts-list .content .thumbnail img {
-  transition: 0.3s;
-  max-width: 100%;
-  min-width: 250px;
-}
-
-.posts-list .content .thumbnail:hover img {
-  opacity: 0.7;
 }
 
 .posts-list .read-post-button {

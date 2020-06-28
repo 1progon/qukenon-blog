@@ -1,0 +1,37 @@
+// Typography Fonts
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    src: local('Open Sans'),
+    url('./fonts/OpenSans-Regular.ttf'),
+    url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+}
+
+//Reset Styles
+@import "reset-styles";
+
+//Mixins
+@import "mixins";
+
+// Variables
+@import 'variables';
+
+//Body
+@import "body";
+
+//Footer
+@import "footer";
+
+//Boots
+@import "boots";
+
+//Header
+@import "header";
+
+//Posts list - category
+@import "posts";
+
+//Post single
+@import "post";
+
+//Categories List - list of categories
+@import "categories-list";

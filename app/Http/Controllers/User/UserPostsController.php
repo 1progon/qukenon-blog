@@ -15,7 +15,7 @@ class UserPostsController extends Controller
      */
     public function index()
     {
-        $posts = Auth::user()->posts;
+        $posts = Auth::user()->posts()->latest()->paginate(10);
         return view('user-admin.post.index', compact('posts'));
     }
 

@@ -10,7 +10,7 @@
     <div class="posts-list">
         <div class="container">
             @php
-                $posts = $category->posts()->paginate();
+                $posts = $category->posts()->paginate(10);
             @endphp
             <div>{{ $category->title }}</div>
             <div>{{ $category->description }}</div>

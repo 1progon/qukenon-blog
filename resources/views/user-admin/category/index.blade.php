@@ -16,9 +16,12 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Название</th>
+                <th scope="col">Редактировать</th>
+
                 <th scope="col">Создана</th>
                 <th scope="col">Обновлена</th>
-                <th scope="col"></th>
+
+
                 {{--TODO Delete should work--}}
                 <th scope="col">Пока не удаляет</th>
             </tr>
@@ -29,19 +32,22 @@
                 <tr>
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->title }}</td>
-                    <td>{{ $category->created_at }}</td>
-                    <td>{{ $category->updated_at }}</td>
 
+                    {{--Edit--}}
                     <td>
                         <a href="{{ route('category.edit', $category) }}">Редактировать</a>
                     </td>
+
+                    <td>{{ $category->created_at }}</td>
+                    <td>{{ $category->updated_at }}</td>
+
 
                     <td>
                         <form action="{{ route('category.destroy', $category) }}" method="post">
                             @csrf
                             @method('DELETE')
 
-                            <input type="submit" name="" id="" value="Удалить">
+                            <input class="link" type="submit" name="" id="" value="Удалить">
                         </form>
                     </td>
                 </tr>

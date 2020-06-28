@@ -128,7 +128,7 @@ select {
 
 table tr td {
   border-bottom: 1px solid;
-  padding: 0.625rem;
+  padding: 0.875rem;
 }
 
 img {
@@ -285,6 +285,7 @@ textarea[type=file] {
 }
 
 .pagination .page-item.disabled {
+  cursor: default;
   color: #252f5a;
   padding: 0.625rem 1.25rem;
 }

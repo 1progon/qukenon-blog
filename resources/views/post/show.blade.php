@@ -26,15 +26,26 @@
             <div class="description">{{ $post->description }}</div>
 
             @if( isset($firstImage))
+                @php
+
+                    $thumb = \App\Http\Controllers\PostsController::THUMB['smallest']
+
+                @endphp
+
                 <div class="images-block">
                     <div class="thumbnail">
-                        <img src="{{ asset('storage/' . $firstImage->filepath) }}" alt="">
+                        <img src="{{ asset('storage/' . $firstImage->folder . '/'. $firstImage->filename) }}" alt="">
                     </div>
 
                     <div class="small-images">
                         @forelse($images as $image)
-                            <a data-fancybox="gallery" href="{{ asset('storage/' . $image->filepath) }}">
-                                <img src="{{ asset('storage/' . $image->filepath) }}" width="80" height="80" alt="">
+                            <a data-fancybox="gallery"
+                               href="{{ asset('storage/' . $image->folder . '/'. $image->filename) }}">
+                                <img src="{{ asset('storage/' . $image->folder . '/'. $thumb['str'] . '_' .
+                                $image->filename) }}"
+                                     width="{{ $thumb['w'] }}"
+                                     height="{{ $thumb['h'] }}"
+                                     alt="">
                             </a>
                         @empty
                         @endforelse

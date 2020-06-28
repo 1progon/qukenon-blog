@@ -15,18 +15,23 @@
         <div class="content">
             <div class="thumbnail">
 
+                @php
+                    $firstImage = $post->images()->first();
+
+                    $thumb = \App\Http\Controllers\PostsController::THUMB['small'];
+
+                    $imagePath = $firstImage->folder . '/' . $thumb['str'] . '_' . $firstImage->filename;
+                @endphp
+
                 <a href="/{{ $post->slug }}">
-                    @php
-                        $postFirstImage = $post->images()->first();
-                    @endphp
 
-                    @if( isset($postFirstImage))
-
-                        <img src="{{ asset('storage/' . $postFirstImage->filepath) }}" alt="">
-
+                    @if( isset( $firstImage))
+                        <img src="{{ asset('storage/' . $imagePath )}}"
+                             alt=""
+                             width="{{ $thumb['w'] }}"
+                             height="{{ $thumb['h'] }}">
                     @else
-                        <img src="https://increasify.com.au/wp-content/uploads/2016/08/default-image.png"
-                             alt="default image">
+                        <img src="{{ asset('images/default-image.jpg') }}" alt="default image">
                     @endif
 
                 </a>

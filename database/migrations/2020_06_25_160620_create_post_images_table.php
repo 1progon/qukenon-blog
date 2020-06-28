@@ -19,7 +19,8 @@ class CreatePostImagesTable extends Migration
             $table->unsignedBigInteger('post_id');
 
 
-            $table->string('filepath');
+            $table->string('folder');
+            $table->string('filename');
 
             // Foreign
             $table->foreign('post_id')
