@@ -1,0 +1,27 @@
+#RewriteRule ^.*(gamenews/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+#RewriteRule ^.*(minecraft/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+#RewriteRule ^.*(csgo/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+#RewriteRule ^.*(gta-5/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+#RewriteRule ^.*(other-games/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+#RewriteRule ^.*(internet/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+
+
+
+<IfModule mod_rewrite.c>
+<IfModule mod_negotiation.c>
+   Options -MultiViews
+</IfModule>
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ ^$1 [N]
+
+RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
+RewriteRule ^(.*)$ public/$1
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php
+</IfModule>
+
