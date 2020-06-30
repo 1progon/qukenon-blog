@@ -15,7 +15,7 @@
     Все посты
 </a>
 
-<a class="" href="{{ route('images.error')}}">
+<a class="" href="{{ route('error.images')}}">
     Не удаленные картинки
 </a>
 

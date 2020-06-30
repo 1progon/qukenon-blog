@@ -2,9 +2,11 @@
 
 @section('main')
     <div class="container">
-        <h2>Редактировать пост
-            <span>{{ $post->title }}, {{ $post->id }}</span>
-        </h2>
+        <h2>Редактировать пост</h2>
+        <div class="post-meta">
+            <div class="post-title">{{ $post->title }}, id: {{ $post->id }}</div>
+            <a class="btn" target="_blank" href="{{ route('post.front.show', $post) }}">Открыть</a>
+        </div>
 
         <form action="{{ route('post.update', $post) }}" method="post" enctype="multipart/form-data">
             @csrf

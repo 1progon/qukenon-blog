@@ -1,3 +1,20 @@
+.container {
+    .post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        padding: $size;
+        justify-content: flex-end;
+        align-items: center;
+        border: 1px solid $secondary;
+    }
+
+    .post-title {
+        color: $purple;
+        font-size: $size-double;
+        margin-right: $size;
+    }
+}
+
 .old-images {
     display: flex;
     flex-wrap: wrap;

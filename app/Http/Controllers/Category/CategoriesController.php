@@ -121,11 +121,6 @@ class CategoriesController extends Controller
             $user->categories()->save($defaultCategory);
         }
 
-        if ($defaultCategory->id === $category->id) {
-            return redirect()->route('category.index');
-
-        }
-
 
         $posts = $category->posts;
         foreach ($posts as $post) {

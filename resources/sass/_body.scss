@@ -5,10 +5,31 @@ html, body {
 body {
     overflow-y: scroll;
     font-family: "Open Sans", sans-serif;
-    background-color: $deep-dark;
+    background-color: $dark-deep;
 
     color: $secondary;
-    font-size: $size;
+    font-size: $size-double;
+
+
+}
+
+.bg-image {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/bg/bg-lines.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .07;
+    z-index: -1;
+
+}
+
+.container {
+    margin: 0 auto;
+    width: calc(100% - 1rem);
+    max-width: $max-width;
 
 }
 
@@ -22,19 +43,19 @@ main {
     flex: 1;
 }
 
-
-
-a, p, div {
-    font-size: 1.2rem;
+.mobile-menu-button, .close-mobile-menu {
+    display: none;
 }
 
+
 a {
-    color: $secondary;
+    color: $purple;
     cursor: pointer;
     transition: .3s;
 
     &:hover {
-        color: $purple-light;
+        color: $aqua;
+        text-shadow: 0 0 10px;
     }
 }
 
@@ -45,25 +66,24 @@ a, a:hover, a:focus {
 
 
 p {
-    color: $secondary;
     padding: 1rem 0;
 }
 
 
-h1 {
-    font-size: $size * 6;
+h1, .title {
+    font-size: $size * 4;
 }
 
-h2 {
-    font-size: $size * 4.8;
+h2, .subtitle {
+    font-size: $size * 3.2;
 }
 
 h3 {
-    font-size: $size * 3.4;
+    font-size: $size * 2.6;
 }
 
 h4 {
-    font-size: $size * 2.8;
+    font-size: $size * 2.3;
 }
 
 

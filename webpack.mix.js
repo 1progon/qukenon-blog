@@ -14,8 +14,10 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/admin-tinymce.js', 'public/js')
     .js('resources/js/admin-vue-body.js', 'public/js')
+    .js('resources/js/main-vue-body.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/admin.scss', 'public/css')
+    .sourceMaps(false, 'source-map')
     .browserSync({
         proxy: 'localhost:8000',
         files: [

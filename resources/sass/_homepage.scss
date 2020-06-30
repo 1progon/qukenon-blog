@@ -1,6 +1,6 @@
 .featured-posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
     grid-gap: $size;
     margin: $size 0 $size 0;
     padding-bottom: $size-triple;
@@ -53,6 +53,7 @@
         &:hover {
             color: #ffffff;
             background-color: $purple-light;
+            text-shadow: unset;
         }
 
         &:hover .text {
@@ -85,6 +86,11 @@
 
             .image-wrapper {
                 align-self: flex-start;
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
 
             }
 
@@ -94,7 +100,7 @@
             padding: $size;
 
             .title {
-                font-size: $size-triple;
+                font-size: $size-double;
                 margin-bottom: $size;
             }
 
@@ -117,10 +123,10 @@
 
         display: grid;
         grid-gap: 2px;
-        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
 
         a {
-            flex-wrap: unset;
+            //flex-wrap: unset;
             margin-bottom: $size;
             border-left: 1px solid $dark-light;
 

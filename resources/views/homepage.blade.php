@@ -12,9 +12,14 @@
             use App\Post;
             use App\Http\Controllers\PostsController;
 
+            $stopShowFeatured = false;
             $posts = Post::latest()->paginate(15);
 
-            $stopShowFeatured = false;
+            if ($posts->count() <1 ) {
+                $stopShowFeatured = true;
+
+            }
+
 
             if(request()->has('page') && request()->page  > 1) {
                 $stopShowFeatured = true;
@@ -32,10 +37,14 @@
 
                     @php
                         $latestPost = Arr::pull($posts, 0);
+
                         $latestImage = $latestPost->images()->first();
+
                         if(isset($latestImage)) {
                             $imagePath = $latestImage->folder . '/' .  $latestImage->filename;
                         }
+
+
                     @endphp
 
                     <a href="{{ route('post.front.show', $latestPost->slug) }}">
@@ -57,7 +66,6 @@
                             <div class="meta">Создано: {{ $latestPost->created_at }},
                                 обновлено: {{ $latestPost->updated_at}}</div>
                         </div>
-
                     </a>
                 </div>
 
@@ -70,7 +78,7 @@
                             $post = Arr::pull($posts, $i);
 
                             if(!$post) {
-                                break 1;
+                                break;
                             }
 
                             $image = $post->images()->first();
@@ -143,8 +151,8 @@
 
 
         <div class="recent-posts">
-            <div class="posts-list">
-                <h3 class="title">Последние материалы</h3>
+            <div class="post-media-list">
+                <h3 class="title">Свежие записи</h3>
                 @forelse( $posts as $post)
                     @include('includes.post-media')
 

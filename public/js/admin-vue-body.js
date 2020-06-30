@@ -124,6 +124,19 @@ var bodyApp = new Vue({
       setTimeout(function () {
         _this.hideConfirmNotify(catId);
       }, 5000);
+    },
+    // Page images-error
+    // Check all images to remove
+    checkAll: function checkAll() {
+      var images = document.getElementsByClassName('images-to-remove');
+
+      for (i in images) {
+        if (images[i].checked) {
+          images[i].checked = false;
+        } else {
+          images[i].checked = true;
+        }
+      }
     }
   }
 });
@@ -143,3 +156,4 @@ module.exports = __webpack_require__(/*! E:\CodingProjects\PhpStormProjects\quke
 /***/ })
 
 /******/ });
+//# sourceMappingURL=admin-vue-body.js.map

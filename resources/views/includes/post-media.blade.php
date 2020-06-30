@@ -1,14 +1,7 @@
 <div class="media">
-    <h1 class="title">{{ $post->title }}</h1>
-
-    {{--Meta--}}
-    <div class="meta">
-        <div>Опубликовано: {{ $post->created_at }}</div>
-        @if( $post->created_at !== $post->updated_at)
-            <div>Обновлено: {{ $post->updated_at }}</div>
-        @endif
-        <div>Автор: {{ $post->user->name }}</div>
-    </div>
+    <a href="/{{ $post->slug }}">
+        <h1 class="subtitle">{{ $post->title }}</h1>
+    </a>
 
 
     <div class="content-block">
@@ -17,7 +10,6 @@
 
 
                 <a href="/{{ $post->slug }}">
-
 
                     @php
                         $firstImage = $post->images()->first();
@@ -46,18 +38,28 @@
 
             {{--Post description--}}
             <div class="description">
-                {{ $post->description }}
+
+                {{--Meta--}}
+                <div class="meta">
+                    <div>Опубликовано: {{ $post->created_at }}</div>
+                    @if( $post->created_at !== $post->updated_at)
+                        <div>Обновлено: {{ $post->updated_at }}</div>
+                    @endif
+                    <div>Автор: {{ $post->user->name }}</div>
+                </div>
+
+
+                {{--Description text--}}
+                <div>{{ $post->description }}</div>
             </div>
         </div>
 
 
         {{--Read post button--}}
         <div class="read-post-button">
-            {{--<div class="btn">--}}
             <a class="btn" href="/{{ $post->slug }}">
-                <span><img src="{{ asset('/images/arrow-right-white.svg') }}" alt=""></span>
+                <img src="{{ asset('/images/arrow-right-white.svg') }}" alt="">
             </a>
-            {{--</div>--}}
         </div>
 
 

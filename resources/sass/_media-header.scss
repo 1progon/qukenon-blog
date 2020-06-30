@@ -1,0 +1,108 @@
+@media screen and (max-width: 768px) {
+
+
+    .main-bar {
+
+        .logo {
+            width: $size * 9;
+            height: 100%;
+        }
+
+        .links {
+            display: grid;
+            visibility: hidden;
+            padding: $size*5 $size-double $size-double;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 0.625rem;
+            position: fixed;
+            min-height: 100vh;
+            max-width: 90vw;
+            grid-auto-rows: $size-triple;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #070b28;
+            transition: 0.3s;
+            line-height: 1.4;
+            color: transparent;
+            animation: slide-right-back .3s forwards;
+
+
+            &.open {
+                visibility: unset;
+                color: unset;
+                animation: slide-right .3s forwards;
+
+            }
+
+
+            > * {
+                width: 100%;
+                padding: 0 $size;
+
+
+            }
+
+            > div:hover {
+                background-color: unset;
+            }
+
+
+            .more-categories {
+                display: flex;
+                justify-content: center;
+            }
+
+
+        }
+
+        @keyframes slide-right {
+            from {
+                clip-path: polygon(100% 100%, 100% 100%, 100% 0, 100% 0);
+
+            }
+            to {
+                clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+
+            }
+        }
+
+
+        @keyframes slide-right-back {
+            from {
+                clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+
+            }
+            to {
+
+                clip-path: polygon(100% 100%, 100% 100%, 100% 0, 100% 0);
+            }
+        }
+
+        .mobile-menu-button {
+            display: block;
+
+            width: $size * 8;
+            height: auto;
+            cursor: pointer;
+
+        }
+
+        .close-mobile-menu {
+            display: block;
+            width: $size * 5.5;
+
+            position: absolute;
+            top: 7px;
+            right: 12px;
+
+
+        }
+
+
+    }
+
+    .top-bar {
+        display: none;
+    }
+}

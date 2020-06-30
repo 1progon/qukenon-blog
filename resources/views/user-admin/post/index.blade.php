@@ -6,30 +6,41 @@
     <div class="admin-posts-list">
         <div class="container">
             <h1>Все посты</h1>
-            <div class="posts">
-                <div class="card">
-                    <span>Id</span>
-                    <span>Edit</span>
-                    <span>Title</span>
-                    <span>Категория</span>
-                    <span>Кат ID</span>
-                    <span>Создано</span>
-                    <span>Изменено</span>
-                    <span class="remove-col">Удалить</span>
+            <table class="posts">
 
-                </div>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Edit</th>
+                    <th>Link</th>
+                    <th>Title</th>
+                    <th>Категория</th>
+                    <th>Кат ID</th>
+                    <th>Создано</th>
+                    <th>Изменено</th>
+                    <th>Удалить</th>
+                </tr>
 
+                </thead>
+
+                <tbody>
                 @forelse( $posts as $post)
-                    <div class="card">
-                        <span class="post-title">{{ $post->id }}</span>
-                        <a href="{{ route('post.edit', $post)}}">Edit</a>
+                    <tr>
+                        <td>{{ $post->id }}</td>
+                        <td>
+                            <a href="{{ route('post.edit', $post)}}">Edit</a>
+                        </td>
 
-                        <span>{{ $post->title }}</span>
-                        <span>{{ $post->category->title}}</span>
-                        <span>{{ $post->category->id}}</span>
-                        <span>{{ $post->created_at}}</span>
-                        <span>{{ $post->updated_at}}</span>
-                        <div class="remove-col">
+                        <td>
+                            <a target="_blank" href="{{ route('post.front.show', $post) }}">Open</a>
+                        </td>
+
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->category->title}}</td>
+                        <td>{{ $post->category->id}}</td>
+                        <td>{{ $post->created_at}}</td>
+                        <td>{{ $post->updated_at}}</td>
+                        <td>
                             <form id="form-{{ $post->id }}"
                                   action="{{ route('post.destroy', $post) }}"
                                   v-on:submit.prevent="showConfirmNotify($event)"
@@ -61,15 +72,14 @@
                                 <input class="link" id="delete-post-btn-{{ $post->id }}" type="submit" name=""
                                        value="Удалить">
                             </form>
-                        </div>
-
-                    </div>
-
+                        </td>
+                    </tr>
                 @empty
                 @endforelse
+                </tbody>
 
                 {{ $posts->links() }}
-            </div>
+            </table>
         </div>
     </div>
 

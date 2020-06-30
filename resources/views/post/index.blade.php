@@ -3,8 +3,7 @@
 @section('main')
 
 
-    <div class="posts-list">
-
+    <div class="post-media-list">
         <div class="container">
             <h3 class="title">Все материалы</h3>
             @forelse( $posts as $post)

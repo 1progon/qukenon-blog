@@ -25,6 +25,7 @@ blockquote,
 dl,
 dd {
     margin: 0;
+    font-weight: 300;
 }
 
 /* Выставляем основные настройки по-умолчанию для body */
@@ -49,6 +50,7 @@ a:not([class]) {
 /* Упрощаем работу с изображениями */
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 

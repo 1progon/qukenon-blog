@@ -16,7 +16,7 @@
 <body>
 
 <header>
-    <a href="/">На главную сайта</a>
+    <a target="_blank" href="/">На главную сайта | </a>
 
     <input class="link" type="submit" name="" id="" value="Выйти" form="logout-form">
 
@@ -30,7 +30,7 @@
 
     {{--Left Menu list--}}
     <aside class="left-side">
-        @include('includes.admin.sidebar')
+        @include('user-admin.include.sidebar')
     </aside>
 
 

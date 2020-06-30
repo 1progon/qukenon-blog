@@ -2,15 +2,17 @@ footer {
     min-height: 300px;
 
     .container {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        grid-gap: $size;
+
         position: relative;
         padding: $size-double;
-        flex-wrap: wrap;
+
         height: 100%;
         background-color: $dark-light;
 
         > div {
-            flex: 1;
 
             > div {
                 padding: $size 0;

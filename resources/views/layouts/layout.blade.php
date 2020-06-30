@@ -19,6 +19,7 @@
 
 </head>
 <body>
+<div class="bg-image"></div>
 
 <div class="wrapper">
     <header>
@@ -42,6 +43,12 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<!-- версия для разработки, отображает полезные предупреждения в консоли -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="{{ asset('js/main-vue-body.js') }}"></script>
+
 
 </body>
 </html>

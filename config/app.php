@@ -178,12 +178,6 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-        /*
-         * Helper Laravel IDE Provider
-         */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
-
     ],
 
     /*

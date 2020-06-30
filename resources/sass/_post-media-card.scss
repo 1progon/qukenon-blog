@@ -1,0 +1,122 @@
+//Posts list - category
+.post-media-card {
+
+    display: grid;
+    grid-gap: $size-triple;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+
+    .media {
+        transition: .3s;
+
+        &:hover {
+            transform: translateY(-10px);
+
+            .content {
+                box-shadow: 0 37px 29px -34px #37488b;
+            }
+        }
+    }
+
+    .title {
+        color: $yellow;
+        font-size: $size-double;
+        min-height: 100px;
+
+        &:hover {
+            color: $aqua;
+        }
+    }
+
+
+    .meta {
+
+        flex-direction: column;
+        font-size: $size;
+        margin-bottom: $size;
+
+    }
+
+    .content {
+        margin-bottom: $size-double;
+        transition: .3s;
+
+
+        .thumbnail {
+            align-items: unset;
+            padding-right: unset;
+            border-top-left-radius: $size;
+            border-top-right-radius: $size;
+            border-bottom-left-radius: unset;
+            width: 100%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                transition: .3s;
+                max-width: 100%;
+            }
+
+
+            &:hover img {
+                opacity: .8;
+            }
+
+
+        }
+
+        .description {
+            padding: $size-double $size;
+            border-right: 1px solid $yellow;
+            border-bottom-right-radius: $size-double;
+            font-size: $size * 1.7;
+            background: rgb(37, 47, 90);
+            background: -moz-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+            background: -webkit-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+            background: linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#252f5a", endColorstr="#070b28", GradientType=1);
+
+
+            > div {
+                border-left: 1px solid $yellow;
+
+                padding-left: $size;
+            }
+        }
+
+
+    }
+
+    .read-post-button {
+
+        margin-top: $size;
+
+        a {
+
+            display: block;
+            background-color: $yellow;
+
+            &:hover {
+                background-color: $yellow-light;
+
+                img {
+                    transform: rotate(90deg);
+                }
+            }
+
+
+            img {
+                transition: .3s;
+                width: $size-triple;
+                margin: 0 auto;
+            }
+
+            &.btn {
+                max-width: unset;
+            }
+
+
+        }
+    }
+
+
+}

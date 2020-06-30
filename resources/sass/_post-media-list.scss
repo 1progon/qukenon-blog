@@ -1,0 +1,118 @@
+//Posts list - category
+.post-media-list {
+    .title {
+        font-size: $size * 3;
+    }
+
+    .media {
+        margin: 3rem 0;
+        transition: .3s;
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 37px 29px -34px #37488b;
+            border-radius: $size-double;
+
+            .description {
+                background-color: transparent;
+            }
+        }
+    }
+
+
+    .content-block {
+        display: flex;
+        flex-wrap: wrap;
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: 1rem;
+            flex: 1;
+
+
+            .thumbnail {
+                flex: 1;
+                align-items: center;
+                padding-right: 1rem;
+                min-width: 272px;
+                overflow: hidden;
+                border-bottom-left-radius: $size-double;
+
+                img {
+                    transition: .3s;
+                    max-width: 100%;
+                }
+
+
+                &:hover img {
+                    opacity: .8;
+                }
+
+
+            }
+
+            .description {
+                flex: 3;
+                display: flex;
+                flex-direction: column;
+                min-width: 300px;
+                padding-right: 1rem;
+                padding-left: 1rem;
+                background: rgb(37, 47, 90);
+                background: -moz-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+                background: -webkit-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+                background: linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#252f5a", endColorstr="#070b28", GradientType=1);
+
+
+                .meta {
+                    display: flex;
+                    flex-wrap: wrap;
+                    color: $yellow;
+                    font-size: $size*1.4;
+                    padding: $size/3 $size;
+                    justify-content: flex-end;
+                    align-self: flex-end;
+
+
+                    > div {
+                        margin: 0 $size;
+                    }
+
+                }
+            }
+
+
+        }
+
+        .read-post-button {
+
+            display: flex;
+
+
+            a {
+
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: $size;
+
+
+                img {
+                    transition: transform .3s;
+                    width: $size-triple;
+
+                }
+
+                &:hover img {
+                    transform: rotate(90deg);
+                }
+
+            }
+        }
+    }
+
+
+}

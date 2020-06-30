@@ -7,7 +7,7 @@
 @section('canonical', url('category/' . $category->slug))
 
 @section('main')
-    <div class="posts-list">
+    <div class="post-media-list">
         <div class="container">
             @php
                 $posts = $category->posts()->paginate(10);

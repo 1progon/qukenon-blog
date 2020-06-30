@@ -6,11 +6,13 @@ use App\Category;
 use App\Http\Controllers\Classes\ImageResizer;
 use App\Post;
 use App\PostImage;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use stdClass;
 
 class PostsController extends Controller
@@ -51,8 +53,13 @@ class PostsController extends Controller
     public function create()
     {
 
+        $noCategories = false;
         $categories = Category::all();
-        return view('user-admin.post.add-post', compact('categories'));
+
+        if ($categories->count() < 1) {
+            $noCategories = true;
+        }
+        return view('user-admin.post.add-post', compact('categories', 'noCategories'));
     }
 
     /**
@@ -68,9 +75,25 @@ class PostsController extends Controller
 
         $post = new Post();
 
+
+        $generateSlug = Str::slug($request->title, '-');
+
+        $post->slug = $generateSlug;
+
+        $postsExist = Post::where('slug', '=', $generateSlug)->count();
+
+
+        if ($postsExist > 0) {
+            $postsExist = Post::where('slug', 'like', $generateSlug . '-%')->count();
+
+            $post->slug = $generateSlug . '-' . ($postsExist + 1);
+
+        }
+
+
         $post->user_id = Auth::id();
 
-        $post->fill($request->except('images'));
+        $post->fill($request->except(['images', 'slug', 'user_id']));
 
         $category->posts()->save($post);
 
@@ -95,8 +118,12 @@ class PostsController extends Controller
 
         $firstImage = Arr::pull($images, 0);
 
+        $postsCount = Post::count();
 
-        return view('post.show', compact('post', 'firstImage', 'images'));
+        $relatedPosts = Post::all()->random($postsCount > 3 ? 4 : $postsCount);
+
+
+        return view('post.show', compact('post', 'relatedPosts', 'firstImage', 'images'));
     }
 
     /**

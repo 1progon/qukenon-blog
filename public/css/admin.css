@@ -35,6 +35,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  font-weight: 300;
 }
 
 /* Выставляем основные настройки по-умолчанию для body */
@@ -64,6 +65,7 @@ a:not([class]) {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -102,17 +104,8 @@ select {
 }
 
 .title {
-  font-size: 3.75rem;
   color: #ffffff;
   text-transform: uppercase;
-}
-
-.subtitle {
-  font-size: 1.75rem;
-}
-
-.description {
-  font-size: 1.5rem;
 }
 
 .text-row {
@@ -120,21 +113,14 @@ select {
   margin: 0.625rem;
 }
 
-.container {
-  margin: 0 auto;
-  width: calc(100% - 3rem);
-  max-width: 1140px;
-}
-
-table tr td {
+table tr td,
+table tr th {
   border-bottom: 1px solid;
-  padding: 0.875rem;
+  padding: 0.875rem 0.625rem;
 }
 
 img {
   vertical-align: middle;
-  max-width: 100%;
-  height: auto;
 }
 
 input,
@@ -161,6 +147,18 @@ textarea[type=file] {
   background-color: unset;
   border: none;
   padding-left: 0;
+}
+
+input[type=radio],
+select[type=radio],
+textarea[type=radio] {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+select option {
+  margin: 1.875rem;
+  font-size: 1.6rem;
 }
 
 .input-group {
@@ -307,7 +305,7 @@ textarea[type=file] {
 }
 
 .pagination .page-item.disabled {
-  cursor: default;
+  cursor: not-allowed;
   color: #252f5a;
   padding: 0.625rem 1.25rem;
 }
@@ -316,17 +314,31 @@ textarea[type=file] {
   background-color: unset;
 }
 
-.admin-posts-list .posts {
-  display: flex;
-  flex-direction: column;
+.red {
+  color: #e82d44;
 }
 
-.admin-posts-list .card {
-  margin: 1rem;
-  display: grid;
-  grid-template-columns: 70px 100px 1fr 100px repeat(5, 1fr);
-  border-bottom: 1px solid #a1aed4;
-  grid-gap: 0.625rem;
+.green {
+  color: #00a292;
+}
+
+.admin-posts-list .posts tr:nth-child(even) {
+  background-color: #252f5a;
+}
+
+.container .post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.625rem;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid #a1aed4;
+}
+
+.container .post-title {
+  color: #d200c7;
+  font-size: 1.25rem;
+  margin-right: 0.625rem;
 }
 
 .old-images {
@@ -456,3 +468,5 @@ header {
   color: #ffffff;
 }
 
+
+/*# sourceMappingURL=admin.css.map*/

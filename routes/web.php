@@ -14,9 +14,15 @@
 
 // Auth::routes();
 
-Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register.form');
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
+
+Route::get('/login123123123123', 'Auth\LoginController@showLoginForm')->name('login.form');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 
+// Info pages
+Route::view('/about', 'pages.about')->name('page.about');
+Route::view('/contact', 'pages.contact')->name('page.contact');
 
 
 Route::get('/admin123123', 'HomeController@index')->name('home');
@@ -77,7 +83,10 @@ Route::prefix('admin123123')
 
 
         // Create, Store, Edit, Update, Destroy Category
-        Route::view('images-error', 'user-admin/images-error')->name('images.error');
+        Route::view('images-error', 'user-admin/images-error')->name('error.images');
+
+        Route::delete('remove-error-images', 'PostImagesController@removeErrorImages')
+            ->name('error.images.remove');
 
 
         // Users

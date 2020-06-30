@@ -44,6 +44,30 @@ let bodyApp = new Vue({
             }, 5000);
 
 
+        },
+
+        // Page images-error
+
+        // Check all images to remove
+        checkAll() {
+
+
+            let images = document.getElementsByClassName('images-to-remove');
+
+
+            for (i in images) {
+                if (images[i].checked) {
+
+                    images[i].checked = false;
+
+                } else {
+
+                    images[i].checked = true;
+                }
+
+            }
+
+
         }
     }
 })

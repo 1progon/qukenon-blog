@@ -3,6 +3,10 @@
     font-family: 'Open Sans', sans-serif;
     src: local('Open Sans'),
     url('./fonts/OpenSans-Regular.ttf'),
+    url('./fonts/OpenSans-Light.ttf'),
+    url('./fonts/OpenSans-Bold.ttf'),
+    url('./fonts/OpenSans-SemiBold.ttf'),
+    url('./fonts/OpenSans-ExtraBold.ttf'),
     url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 }
 
@@ -27,13 +31,30 @@
 //Header
 @import "header";
 
+//Forms
+@import "forms";
+
 //Homepage
 @import "homepage";
-//Posts list - category
-@import "posts";
 
 //Post single
 @import "post";
 
 //Categories List - list of categories
 @import "categories-list";
+
+//Posts list - category
+@import "post-media-list";
+
+//Media card style
+@import "post-media-card";
+
+//Media
+@import "media-homepage";
+@import "media-header";
+@import "media-post";
+@import "media-post-list";
+
+
+
+

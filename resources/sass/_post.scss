@@ -1,25 +1,51 @@
 //Post single styles
 .post {
+
+
     .meta {
         display: flex;
         flex-wrap: wrap;
-        color: $red;
+        color: $purple-dark;
 
 
         > div {
             flex: 1;
+            text-align: center;
+            margin: 0 $size;
+            border-bottom: 1px solid;
         }
 
+    }
+
+    .description {
+        margin-top: $size-double;
+        padding: $size;
+        -webkit-border-radius: $size;
+        -moz-border-radius: $size;
+        border-radius: $size;
+        text-align: center;
+        background-color: $violet;
+    }
+
+    .images-block, article {
+        margin: $size-double 0;
     }
 
     .images-block {
 
         .thumbnail {
-            margin: $size-double 0;
+
+            transition: .3s;
 
             img {
-                max-width: 100%;
+                margin: 0 auto;
             }
+
+            &.thumbnail-float {
+                float: left;
+                margin: $size-double;
+            }
+
         }
 
         .small-images {
@@ -36,12 +62,34 @@
     }
 
 
-
     article {
-        margin: $size-triple 0;
-        padding: 0 0 0 $size * 5;
+        padding-left: $size * 5;
         border-left: $size solid $red;
+        transition: .3s;
+    }
+
+    @media screen and (max-width: 768px) {
+        article {
+            padding-left: $size;
+            border-left: 1px solid $red;
+        }
+
+        .thumbnail.thumbnail-float {
+            margin-left: $size !important;
+        }
+
     }
 }
+
+.related-posts {
+
+    margin: $size-triple auto;
+
+    h3 {
+        margin: ($size * 5) 0 $size-double 0;
+    }
+}
+
+
 
 

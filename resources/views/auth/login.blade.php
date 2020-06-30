@@ -10,6 +10,9 @@
                 <div class="input-group">
                     <label for="email">E-mail</label>
                     <input type="text" name="email" id="email" placeholder="e-mail">
+                    @error('email')
+                    <div class='form-error-message'>{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="input-group">
