@@ -1,2 +1,13 @@
+User-agent: Yandex
+Disallow: /register*
+Disallow: /login*
+Disallow: /admin*
+Disallow: /public/
+
 User-agent: *
-Disallow:
+Disallow: /login*
+Disallow: /admin*
+Disallow: /register*
+Disallow: /public/
+
+Sitemap: https://qukenon.ru/sitemap.xml
