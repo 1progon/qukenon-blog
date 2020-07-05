@@ -10,12 +10,12 @@
 RewriteEngine On
 
 
-RewriteRule ^.*(gamenews/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(minecraft/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(csgo/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(gta-5/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(other-games/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(internet/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+RewriteRule ^.*(/gamenews/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+RewriteRule ^.*(/minecraft/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+RewriteRule ^.*(/csgo/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+RewriteRule ^.*(/gta-5/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+RewriteRule ^.*(/other-games/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+RewriteRule ^.*(/internet/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
 
 
 RewriteCond %{REQUEST_FILENAME} -d [OR]

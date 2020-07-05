@@ -9,16 +9,6 @@
     </a>
 
 
-    {{--Meta--}}
-    <div class="meta">
-        <div>Опубликовано: {{ $post->created_at }}</div>
-        @if( $post->created_at !== $post->updated_at)
-            <div>Обновлено: {{ $post->updated_at }}</div>
-        @endif
-        <div>Автор: {{ $post->user->name }}</div>
-    </div>
-
-
     <div class="content">
         <div class="thumbnail">
 
@@ -51,8 +41,24 @@
 
         {{--Post description--}}
         <div class="description">
+
+            {{--Meta--}}
+            <div class="meta">
+                <div>Опубликовано: {{ $post->created_at }}</div>
+                @if( $post->created_at !== $post->updated_at)
+                    <div>Обновлено: {{ $post->updated_at }}</div>
+                @endif
+                <div>Автор: {{ $post->user->name }}</div>
+            </div>
+
             <div>{{ $post->description }}</div>
+
+
+
+
         </div>
+
+
     </div>
 
 

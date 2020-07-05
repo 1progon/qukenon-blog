@@ -20,7 +20,8 @@
     .title {
         color: $yellow;
         font-size: $size-double;
-        min-height: 100px;
+        height: 130px;
+        overflow: hidden;
 
         &:hover {
             color: $aqua;
@@ -28,13 +29,7 @@
     }
 
 
-    .meta {
 
-        flex-direction: column;
-        font-size: $size;
-        margin-bottom: $size;
-
-    }
 
     .content {
         margin-bottom: $size-double;
@@ -69,6 +64,8 @@
             border-right: 1px solid $yellow;
             border-bottom-right-radius: $size-double;
             font-size: $size * 1.7;
+            height: 350px;
+            overflow: hidden;
             background: rgb(37, 47, 90);
             background: -moz-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
             background: -webkit-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
@@ -80,6 +77,15 @@
                 border-left: 1px solid $yellow;
 
                 padding-left: $size;
+            }
+
+            .meta {
+
+                flex-direction: column;
+                font-size: $size;
+                margin-top: $size;
+                margin-bottom: $size;
+
             }
         }
 

@@ -455,7 +455,6 @@ select option {
 
 .main-bar {
   display: flex;
-  line-height: 90px;
 }
 
 .main-bar .container {
@@ -463,6 +462,7 @@ select option {
 }
 
 .main-bar .parts {
+  height: 100%;
   -webkit-clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%);
           clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%);
   position: relative;
@@ -482,17 +482,19 @@ select option {
   font-size: 1.875rem;
   font-weight: 600;
   padding-left: 1.5rem;
+  max-height: 50px;
+}
+
+.main-bar .logo img {
+  height: 50px;
 }
 
 .main-bar .links {
   display: flex;
+  height: 100%;
   flex: 1;
   align-items: center;
   text-align: center;
-}
-
-.main-bar .links .more-categories {
-  flex: 0.7;
 }
 
 .main-bar .links .more-categories a {
@@ -509,6 +511,7 @@ select option {
 }
 
 .main-bar .links > div {
+  height: 100%;
   transition: 0.3s;
   padding: 0 0.625rem;
 }
@@ -516,6 +519,8 @@ select option {
 .main-bar .links a {
   display: block;
   position: relative;
+  text-transform: uppercase;
+  font-size: 1rem;
 }
 
 .main-bar .links > div:hover {
@@ -688,6 +693,7 @@ select option {
 }
 
 .post .description {
+  color: #FFFFFF;
   margin-top: 1.25rem;
   padding: 0.625rem;
   border-radius: 0.625rem;
@@ -906,17 +912,12 @@ select option {
 .post-media-card .title {
   color: #f0ad4e;
   font-size: 1.25rem;
-  min-height: 100px;
+  height: 130px;
+  overflow: hidden;
 }
 
 .post-media-card .title:hover {
   color: #05f3cf;
-}
-
-.post-media-card .meta {
-  flex-direction: column;
-  font-size: 0.625rem;
-  margin-bottom: 0.625rem;
 }
 
 .post-media-card .content {
@@ -949,6 +950,8 @@ select option {
   border-right: 1px solid #f0ad4e;
   border-bottom-right-radius: 1.25rem;
   font-size: 1.0625rem;
+  height: 350px;
+  overflow: hidden;
   background: #252f5a;
   background: linear-gradient(90deg, #252f5a 0%, #070b28 50%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#252f5a", endColorstr="#070b28", GradientType=1);
@@ -957,6 +960,13 @@ select option {
 .post-media-card .content .description > div {
   border-left: 1px solid #f0ad4e;
   padding-left: 0.625rem;
+}
+
+.post-media-card .content .description .meta {
+  flex-direction: column;
+  font-size: 0.625rem;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
 }
 
 .post-media-card .read-post-button {

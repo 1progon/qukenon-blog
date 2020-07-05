@@ -60,7 +60,7 @@
                 <div class="more-categories">
                     <a href="/category">
                         <span>Ещё</span>
-                        <img src="{{ asset('images/arrow-right-white.svg')}}" width="20" alt="">
+                        <img src="{{ asset('images/arrow-right-white.svg')}}" width="16" height="16" alt="">
                     </a>
                 </div>
 
