@@ -32,10 +32,10 @@ Route::get('/admin123123', 'HomeController@index')->name('home');
 Route::resource('category', 'CategoriesController')
     ->only(['index', 'show']);
 
-// Front view List of Posts
+// Front view: List of Posts
 Route::get('post', 'PostsController@index');
-// Front view Single Post
-Route::get('/{post}-0000{post_id}', 'PostsController@show')->name('post.front.show');
+// Front view: Single Post
+Route::get('post/{post}.0000{post_id}', 'PostsController@show')->name('post.front.show');
 
 Route::view('/', 'homepage');
 
@@ -54,13 +54,13 @@ Route::prefix('admin123123')
 
 
         // Posts
-        // User Posts Index
+        // User Posts: Index
         Route::resource('post', 'UserPostsController')
             ->only([
                 'index'
             ]);
 
-        // Create, Store, Edit, Update, Destroy Post
+        // User Posts: Create, Store, Edit, Update, Destroy
         Route::resource('post', 'PostsController')
             ->only([
                 'create', 'store', 'edit', 'update', 'destroy'
