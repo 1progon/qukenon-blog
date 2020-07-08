@@ -12,8 +12,8 @@
             @php
                 $posts = $category->posts()->paginate(10);
             @endphp
-            <div>{{ $category->title }}</div>
-            <div>{{ $category->description }}</div>
+            <div class="title">{{ $category->title }}</div>
+            <div class="description">{{ $category->description }}</div>
 
             @forelse( $posts as $post)
                 @include('includes.post-media')
