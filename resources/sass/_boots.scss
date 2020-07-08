@@ -19,6 +19,9 @@
     margin: $size;
 }
 
+iframe {
+    height: min(600px, 100vh);
+}
 
 table {
     tr {

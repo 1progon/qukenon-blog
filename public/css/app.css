@@ -216,6 +216,10 @@ footer .container > div > div {
   margin: 0.625rem;
 }
 
+iframe {
+  height: min(600px, 100vh);
+}
+
 table tr td,
 table tr th {
   border-bottom: 1px solid;
