@@ -5,7 +5,7 @@
         <h2>Редактировать пост</h2>
         <div class="post-meta">
             <div class="post-title">{{ $post->title }}, id: {{ $post->id }}</div>
-            <a class="btn" target="_blank" href="{{ route('post.front.show', [$post, $post->id]) }}">Открыть</a>
+            <a class="link" target="_blank" href="{{ route('post.front.show', [$post, $post->id]) }}">Открыть</a>
         </div>
 
         <form action="{{ route('post.update', $post) }}" method="post" enctype="multipart/form-data">

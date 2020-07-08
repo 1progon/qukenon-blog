@@ -47,7 +47,7 @@
 
                     @endphp
 
-                    <a href="{{ route('post.front.show', [$latestPost->slug, $latestPost->id]) }}">
+                    <a href="{{ route('post.front.show', [$latestPost, $latestPost->id]) }}">
                         <div class="image-wrapper">
                             @if( isset( $latestImage))
                                 <img
@@ -89,7 +89,7 @@
 
 
 
-                        <a href="{{ route('post.front.show', [$post->slug, $post->id]) }}">
+                        <a href="{{ route('post.front.show', [$post, $post->id]) }}">
                             <div class="description">
                                 <div class="title">{{ $post->title }}</div>
                                 <div class="text">{{ Str::limit($post->description, 80) }}</div>

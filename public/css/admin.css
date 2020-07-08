@@ -330,7 +330,6 @@ select option {
   display: flex;
   flex-wrap: wrap;
   padding: 0.625rem;
-  justify-content: flex-end;
   align-items: center;
   border: 1px solid #a1aed4;
 }
