@@ -12,6 +12,14 @@
 
         <h1 class="title">{{ $post->title }}</h1>
 
+        {{--Only for auth user--}}
+        {{--TODO Authorize edit--}}
+        <div>
+            @auth
+                <a target="_blank" href="{{ route('post.edit', $post) }}">Edit</a>
+            @endauth
+        </div>
+
         {{--Meta--}}
         <div class="meta">
             <div>Опубликовано: {{ $post->created_at }}</div>
@@ -19,6 +27,8 @@
                 <div>Обновлено: {{ $post->updated_at }}</div>
             @endif
             <div>Автор: {{ $post->user->name }}</div>
+
+
         </div>
 
 
