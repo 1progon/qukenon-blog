@@ -1,33 +1,31 @@
-
-
-
-
 <IfModule mod_rewrite.c>
-<IfModule mod_negotiation.c>
-   Options -MultiViews
-</IfModule>
+    <IfModule mod_negotiation.c>
+       Options -MultiViews
+    </IfModule>
 
 RewriteEngine On
 
-#Redirect /old-blog/gamenews/izvestny-podrobnosti-o-far-cry-6-000939 https://qukenon.ru/izvestny-podrobnosti-o-far-cry-6
-#Redirect /old-blog/csgo/kak-stat-bogom-awp-v-igre-csgo-ili-5-fishek-kotorye-sdelayut-vas-snaiperom-000289 https://qukenon.ru/kak-stat-bogom-awp-v-igre-csgo-ili-5-fishek-kotorye-sdelayut-vas-snaiperom
-RewriteRule ^.*(/gamenews/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(/minecraft/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(/csgo/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(/gta-5/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(/other-games/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
-RewriteRule ^.*(/internet/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
+Redirect /old-blog/gamenews/izvestny-podrobnosti-o-far-cry-6-000939 /izvestny-podrobnosti-o-far-cry-6.000049
+Redirect /gamenews/izvestny-podrobnosti-o-far-cry-6-000939 /izvestny-podrobnosti-o-far-cry-6.000049
+
+Redirect /csgo/besplatnye-skiny-csgo-kak-i-gde-ih-poluchit-ks-go-daryu-i-razygryvayu-skiny-000203 /besplatnye-skiny-csgo-kak-i-gde-ih-poluchit-ks-go-daryu-i-razygryvayu-skiny.000019
+Redirect /old-blog/csgo/besplatnye-skiny-csgo-kak-i-gde-ih-poluchit-ks-go-daryu-i-razygryvayu-skiny-000203 /besplatnye-skiny-csgo-kak-i-gde-ih-poluchit-ks-go-daryu-i-razygryvayu-skiny.000019
+
+Redirect /csgo/kak-stat-bogom-awp-v-igre-csgo-ili-5-fishek-kotorye-sdelayut-vas-snaiperom-000289 /kak-stat-bogom-awp-v-igre-csgo-ili-5-fishek-kotorye-sdelayut-vas-snaiperom.000025
+Redirect /old-blog/csgo/kak-stat-bogom-awp-v-igre-csgo-ili-5-fishek-kotorye-sdelayut-vas-snaiperom-000289 /kak-stat-bogom-awp-v-igre-csgo-ili-5-fishek-kotorye-sdelayut-vas-snaiperom.000025
+
+Redirect /internet/vkontakte-moya-stranica-zaiti-srazu-na-stranicu-000749 /vkontakte-moya-stranica-zaiti-srazu-na-stranicu.000045
+Redirect /old-blog/internet/vkontakte-moya-stranica-zaiti-srazu-na-stranicu-000749 /vkontakte-moya-stranica-zaiti-srazu-na-stranicu.000045
+
+Redirect /csgo/glavnye-oshibki-novichkov-v-ks-go-000179 /glavnye-oshibki-novichkov-v-ks-go.000018
+Redirect /old-blog/csgo/glavnye-oshibki-novichkov-v-ks-go-000179 /glavnye-oshibki-novichkov-v-ks-go.000018
+
+Redirect /csgo/skiny-nozhei-ks-go-besplatno-kak-poluchit-skiny-cs-go-besplatno-000271 /skiny-nozhei-ks-go-besplatno-kak-poluchit-skiny-cs-go-besplatno.000022
+Redirect /old-blog/csgo/skiny-nozhei-ks-go-besplatno-kak-poluchit-skiny-cs-go-besplatno-000271 /skiny-nozhei-ks-go-besplatno-kak-poluchit-skiny-cs-go-besplatno.000022
+
+Redirect /csgo/besplatnyi-skin-pistoleta-cs-go-desert-eagle-rzhavyi-kobalt-digl-dlya-podpischikov-000686 /besplatnyi-skin-pistoleta-cs-go-desert-eagle-rzhavyi-kobalt-digl-dlya-podpischikov.000042
+Redirect /old-blog/csgo/besplatnyi-skin-pistoleta-cs-go-desert-eagle-rzhavyi-kobalt-digl-dlya-podpischikov-000686 /besplatnyi-skin-pistoleta-cs-go-desert-eagle-rzhavyi-kobalt-digl-dlya-podpischikov.000042
 
 
-RewriteCond %{REQUEST_FILENAME} -d [OR]
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ ^$1 [N]
-
-RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
-RewriteRule ^(.*)$ public/$1
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.php
+    RewriteRule ^(.*)$ public/$1
 </IfModule>
-
