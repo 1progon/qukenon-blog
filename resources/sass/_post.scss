@@ -34,23 +34,25 @@
 
     .images-block {
 
-        .thumbnail {
+        &.images-block-float {
+            float: left;
+            margin: $size-double;
+        }
 
+        .thumbnail {
+            margin-bottom: $size;
             transition: .3s;
 
             img {
                 margin: 0 auto;
             }
 
-            &.thumbnail-float {
-                float: left;
-                margin: $size-double;
-            }
 
         }
 
         .small-images {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, $smallest-thumb);
             flex-wrap: wrap;
             justify-content: space-evenly;
             align-items: center;

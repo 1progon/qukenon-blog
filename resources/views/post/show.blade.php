@@ -37,28 +37,23 @@
         @if( isset($firstImage))
             @php
 
-                $thumb = \App\Http\Controllers\PostsController::THUMB['smallest']
+                $thumb = \App\Http\Controllers\PostsController::THUMB['smallest'];
+
+                $imSize = getimagesize(asset('storage/' . $firstImage->folder . '/'. $firstImage->filename));
 
             @endphp
 
-            <div class="images-block">
+            <div class="images-block @if( $imSize[0] < 720) images-block-float @endif ">
 
-                @php
-                    $imSize = getimagesize(asset('storage/' . $firstImage->folder . '/'.
-                    $firstImage->filename));
-
-                @endphp
-
-
-                <div class="thumbnail @if( $imSize[0] < 720)thumbnail-float @endif">
+                <div class="thumbnail">
 
                     <img src="{{ asset('storage/' . $firstImage->folder . '/'. $firstImage->filename) }}"
-                         alt="изображение для записи {{$post->title}}" width="{{ $imSize[0] }}" height="{{
+                         alt="изображение для записи {{ $post->title}}" width="{{ $imSize[0] }}" height="{{
                              $imSize[1] }}">
                 </div>
 
                 <div class="small-images">
-                    @forelse($images as $image)
+                    @forelse( $images as $image)
                         <a data-fancybox="gallery"
                            href="{{ asset('storage/' . $image->folder . '/'. $image->filename) }}">
                             <img src="{{ asset('storage/' . $image->folder . '/'. $thumb['str'] . '_' .

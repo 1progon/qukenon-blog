@@ -706,7 +706,13 @@ select option {
   margin: 1.25rem 0;
 }
 
+.post .images-block.images-block-float {
+  float: left;
+  margin: 1.25rem;
+}
+
 .post .images-block .thumbnail {
+  margin-bottom: 0.625rem;
   transition: 0.3s;
 }
 
@@ -714,13 +720,9 @@ select option {
   margin: 0 auto;
 }
 
-.post .images-block .thumbnail.thumbnail-float {
-  float: left;
-  margin: 1.25rem;
-}
-
 .post .images-block .small-images {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 80px);
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;

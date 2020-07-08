@@ -30,3 +30,12 @@ $max-width: 1140px;
 
 $header-height: 60px;
 
+//Thumbs
+
+$smallest-thumb: 80px;
+$small-thumb-w: 256px;
+$small-thumb-h: 144px;
+
+//'small' => ['w' => 256, 'h' => 144, 'str' => '256_144'],
+//'middle' => ['w' => 720, 'h' => 405, 'str' => '720_405'],
+//'maximum' => ['w' => 1140, 'h' => 0, 'str' => '1140_0'],
