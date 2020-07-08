@@ -26,6 +26,8 @@ Redirect /old-blog/csgo/skiny-nozhei-ks-go-besplatno-kak-poluchit-skiny-cs-go-be
 Redirect /csgo/besplatnyi-skin-pistoleta-cs-go-desert-eagle-rzhavyi-kobalt-digl-dlya-podpischikov-000686 /besplatnyi-skin-pistoleta-cs-go-desert-eagle-rzhavyi-kobalt-digl-dlya-podpischikov/000042
 Redirect /old-blog/csgo/besplatnyi-skin-pistoleta-cs-go-desert-eagle-rzhavyi-kobalt-digl-dlya-podpischikov-000686 /besplatnyi-skin-pistoleta-cs-go-desert-eagle-rzhavyi-kobalt-digl-dlya-podpischikov/000042
 
+Redirect /gamenews/sega-besplatno-vypystila-svoi-klassicheskie-igry-dlia-ios-i-android-000337 /sega-besplatno-vypystila-svoi-klassicheskie-igry-dlia-ios-i-android/000031
+Redirect /old-blog/gamenews/sega-besplatno-vypystila-svoi-klassicheskie-igry-dlia-ios-i-android-000337 /sega-besplatno-vypystila-svoi-klassicheskie-igry-dlia-ios-i-android/000031
 
     RewriteRule ^(.*)$ public/$1
 </IfModule>
