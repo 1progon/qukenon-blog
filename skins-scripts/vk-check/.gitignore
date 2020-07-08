@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+vendor
+node_modules
+config.php
+test
+resources/images/
+resources/cache/

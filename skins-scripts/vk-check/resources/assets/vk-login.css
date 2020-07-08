@@ -1,0 +1,60 @@
+
+form#vk-login-block-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+form#vk-login-block-form * {
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    text-transform: unset;
+    letter-spacing: unset;
+}
+
+#vk-login-block-form label {
+    display: none;
+}
+
+#vk-login-block-form input {
+    font-size: 14px;
+    padding: 6px 12px 8px;
+    box-sizing: border-box;
+
+    margin-bottom: 15px;
+    width: 270px;
+
+    height: 35px;
+    border: 1px solid #d3d9de;
+    border-radius: 3px;
+}
+
+#vk-login-block-form input[type=submit] {
+    cursor: pointer;
+    margin-right: 15px;
+    width: 100px;
+
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 3px;
+
+    padding: 7px 16px 8px;
+
+    text-align: center;
+    text-decoration: none;
+    background-color: #5181b8;
+    color: #fff;
+    border: 0;
+}
+
+.vk-link {
+    line-height: 20px;
+    color: #2a5885;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+
+#vk-result-info-block {
+    margin: 0;
+}
