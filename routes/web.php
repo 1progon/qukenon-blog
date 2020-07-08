@@ -35,7 +35,7 @@ Route::resource('category', 'CategoriesController')
 // Front view: List of Posts
 Route::get('post', 'PostsController@index');
 // Front view: Single Post
-Route::get('post/{post}.0000{post_id}', 'PostsController@show')->name('post.front.show');
+Route::get('{post}.0000{post_id}', 'PostsController@show')->name('post.front.show');
 
 Route::view('/', 'homepage');
 
