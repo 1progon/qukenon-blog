@@ -43,7 +43,6 @@
 
 
     .parts {
-        height: 100%;
         clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 0 100%);
         position: relative;
         display: flex;
@@ -65,17 +64,17 @@
         font-weight: 600;
         padding-left: 1.5rem;
 
-        $line-height: 50px;
-        max-height: $line-height;
+        max-height: $header-height;
 
         img {
-            height: $line-height;
+            height: $header-height;
         }
     }
 
     .links {
         display: flex;
-        height: 100%;
+        flex-wrap: wrap;
+        line-height: $header-height;
         flex: 1;
         align-items: center;
         text-align: center;
