@@ -4,7 +4,7 @@
 
 @section('meta_keys', $post->meta_keys)
 @section('meta_description', $post->description)
-@section('canonical', url($post->slug))
+@section('canonical', route('post.front.show', [$post, $post->id]))
 
 @section('main')
 

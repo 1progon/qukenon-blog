@@ -9,7 +9,8 @@
 
 RewriteEngine On
 
-
+#Redirect /old-blog/gamenews/izvestny-podrobnosti-o-far-cry-6-000939 https://qukenon.ru/izvestny-podrobnosti-o-far-cry-6
+#Redirect /old-blog/csgo/kak-stat-bogom-awp-v-igre-csgo-ili-5-fishek-kotorye-sdelayut-vas-snaiperom-000289 https://qukenon.ru/kak-stat-bogom-awp-v-igre-csgo-ili-5-fishek-kotorye-sdelayut-vas-snaiperom
 RewriteRule ^.*(/gamenews/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
 RewriteRule ^.*(/minecraft/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]
 RewriteRule ^.*(/csgo/.*)$ https://qukenon.ru/old\-blog/$1 [L,R=301]

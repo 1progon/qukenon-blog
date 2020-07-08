@@ -28,11 +28,11 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>
-                            <a href="{{ route('post.edit', $post)}}">Edit</a>
+                            <a href="{{ route('post.edit', [$post, $post->id])}}">Edit</a>
                         </td>
 
                         <td>
-                            <a target="_blank" href="{{ route('post.front.show', $post) }}">Open</a>
+                            <a target="_blank" href="{{ route('post.front.show', [$post, $post->id]) }}">Open</a>
                         </td>
 
                         <td>{{ $post->title }}</td>
