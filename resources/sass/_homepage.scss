@@ -106,6 +106,7 @@
 
             .text {
                 font-size: $size-double;
+                color: #FFFFFF;
             }
 
             .meta {
@@ -117,17 +118,11 @@
     }
 
     .right-side {
-        //display: flex;
-        //flex-direction: column;
-        //justify-content: space-between;
-
         display: grid;
-        grid-gap: 2px;
+        grid-gap: $size;
         grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
 
         a {
-            //flex-wrap: unset;
-            margin-bottom: $size;
             border-left: 1px solid $dark-light;
 
 

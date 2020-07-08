@@ -646,6 +646,7 @@ select option {
 
 .featured-posts-grid .left-side .description .text {
   font-size: 1.25rem;
+  color: #FFFFFF;
 }
 
 .featured-posts-grid .left-side .description .meta {
@@ -655,12 +656,11 @@ select option {
 
 .featured-posts-grid .right-side {
   display: grid;
-  grid-gap: 2px;
+  grid-gap: 0.625rem;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
 }
 
 .featured-posts-grid .right-side a {
-  margin-bottom: 0.625rem;
   border-left: 1px solid #252f5a;
 }
 
