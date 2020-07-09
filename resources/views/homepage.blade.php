@@ -1,43 +1,22 @@
 @extends('layouts.layout')
 
-@section('title', 'Главная домашняя блог Ютубера Qukenon (Кукенон)')
+@php
+    if(request()->has('page')) {
+        $page = request()->get('page');
+    }
+@endphp
+
+@section('title', 'Главная домашняя блог Ютубера Qukenon (Кукенон)' . (isset($page) ? ' - страница: ' . $page : ''))
 
 @section('meta_description', 'Всё интересное из мира игр и развлечений в блоге геймера ютубера Qukenon (Кукенона)')
 @section('meta_keys', 'игры, новости игр, летсплеи, записи видео игр, видео игры, прохождение игр, популярные игры,
 онлайн игры в интернете')
 
-@section('canonical', url(''))
-
-
-
+@section('canonical', url()->current())
 
 @section('main')
 
-
-
     <div class="container">
-
-        @php
-            use App\Post;
-            use App\Http\Controllers\PostsController;
-
-            $stopShowFeatured = false;
-            $posts = Post::latest()->paginate(15);
-
-            if ($posts->count() <1 ) {
-                $stopShowFeatured = true;
-
-            }
-
-
-            if(request()->has('page') && request()->page  > 1) {
-                $stopShowFeatured = true;
-            }
-
-            $thumb = PostsController::THUMB;
-        @endphp
-
-
         @if( !$stopShowFeatured)
             <div class="featured-posts-grid">
 

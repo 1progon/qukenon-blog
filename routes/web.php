@@ -14,18 +14,17 @@
 
 // Auth::routes();
 
-Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register.form');
-Route::post('/register', 'Auth\RegisterController@register')->name('register');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register.form');
+Route::post('register', 'Auth\RegisterController@register')->name('register');
 
-Route::get('/login123123123123', 'Auth\LoginController@showLoginForm')->name('login.form');
-Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::get('login123123123123', 'Auth\LoginController@showLoginForm')->name('login.form');
+Route::post('login', 'Auth\LoginController@login')->name('login');
 
 // Info pages
-Route::view('/about', 'pages.about')->name('page.about');
-Route::view('/contact', 'pages.contact')->name('page.contact');
+Route::view('about', 'pages.about')->name('page.about');
+Route::view('contact', 'pages.contact')->name('page.contact');
 
 
-Route::get('/admin123123', 'HomeController@index')->name('home');
 
 
 // Front view Category
@@ -37,7 +36,7 @@ Route::get('post', 'PostsController@index');
 // Front view: Single Post
 Route::get('{post}/0000{post_id}', 'PostsController@show')->name('post.front.show');
 
-Route::view('/', 'homepage');
+Route::get('/', 'HomepageController@index');
 
 
 // Admin user
@@ -46,7 +45,7 @@ Route::prefix('admin123123')
     ->group(function () {
 
         // Dashboard admin user
-        Route::view('/', '/user-admin/dashboard')->name('dashboard');
+        Route::view('', 'user-admin/dashboard')->name('dashboard');
 
         // Logout
         Route::post('/logout',
@@ -97,6 +96,8 @@ Route::prefix('admin123123')
             ]);
 
     });
+
+
 
 
 

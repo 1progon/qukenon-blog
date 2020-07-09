@@ -5,13 +5,14 @@
 @section('meta_keys', 'не найдена, страница не найдена, нет такой страницы, ошибочный урл')
 @section('meta_description', '404 ошибка, страница не найдена')
 
-@section('canonical', url()->current())
+@section('canonical', url()->current() . '/' . request()->getQueryString())
 
 
 @section('main')
-    <div class="container">
-        <p>404 ошибка</p>
-        <p>Страница <span class="red">{{ request()->path() }}</span> не найдена или перемещена.</p>
+    <div class="error-page container">
+        <p class="error-404-code">404 ошибка</p>
+        <p>Страница <span class="red">{{ rtrim(request()->path(), '/') . ' ' . request()->getQueryString() }}</span> не
+            найдена или перемещена.</p>
         <p>Приносим свои извинения!</p>
     </div>
 @endsection
