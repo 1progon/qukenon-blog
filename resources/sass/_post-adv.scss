@@ -1,4 +1,13 @@
 .adv-before-article {
     display: flex;
     justify-content: center;
+    margin: $size 0;
+
+    border: 1px solid;
+    padding: $size;
+    border-radius: $size-double;
+
+    img {
+        border-radius: $size-double;
+    }
 }
