@@ -696,6 +696,11 @@ select option {
   flex: 1;
 }
 
+.adv-before-article {
+  display: flex;
+  justify-content: center;
+}
+
 .post .meta {
   display: flex;
   flex-wrap: wrap;

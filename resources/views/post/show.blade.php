@@ -68,9 +68,11 @@
             </div>
         @endif
 
+        <div class="adv-before-article">
+            @include('includes.adv-header')
+        </div>
 
         <article>
-
 
             {{--TODO
             Need Sanitize data purifer--}}
