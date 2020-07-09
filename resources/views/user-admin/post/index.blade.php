@@ -1,5 +1,7 @@
 @extends('layouts.admin-layout')
 
+@section('title', 'Все Ваши записи')
+
 
 @section('main')
 

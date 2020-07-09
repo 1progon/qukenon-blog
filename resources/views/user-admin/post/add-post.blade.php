@@ -1,5 +1,7 @@
 @extends('layouts.admin-layout')
 
+@section('title', 'Добавление новой записи')
+
 @section('main')
     <div class="container">
         <h2>Создать пост</h2>

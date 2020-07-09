@@ -1,11 +1,12 @@
 @extends('layouts.layout')
 
-@section('title', '')
+@section('title', 'Контакты Ютубера Кукенон и как с ним связаться')
 
-@section('meta_keys', '')
-@section('meta_description', '')
+@section('meta_keys', 'контакты ютубера кукенон, как написать кукенону, где найти кукенона, как связаться с кукеноном')
+@section('meta_description', 'Страница контактов, где можно и как связаться с Ютубером Кукенон, где написать и где
+официальный сайт Ютубера Кукенон')
 
-@section('canonical', url(''))
+@section('canonical', url('/contact'))
 
 @section('main')
 

@@ -1,5 +1,7 @@
 @extends('layouts.admin-layout')
 
+@section('title', 'Редактирование ' . $post->id . ', ' . $post->title)
+
 @section('main')
     <div class="container">
         <h2>Редактировать пост</h2>

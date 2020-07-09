@@ -3,10 +3,10 @@
 @section('title', '404 страница ' . request()->path() . ' не найдена')
 
 @section('meta_keys', 'не найдена, страница не найдена, нет такой страницы, ошибочный урл')
+@section('meta_description', '404 ошибка, страница не найдена')
 
 @section('canonical', url()->current())
 
-@section('meta_description', '404 ошибка, страница не найдена')
 
 @section('main')
     <div class="container">

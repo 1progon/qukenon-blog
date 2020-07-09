@@ -1,11 +1,11 @@
 @extends('layouts.layout')
 
-@section('title', '')
+@section('title', 'О блогере ютубере (Кукенон) Qukenon')
 
-@section('meta_keys', '')
-@section('meta_description', '')
+@section('meta_keys', 'о блогере, информация о блогере кукенон, связаться с блогером кукеном, кто такой кукенон')
+@section('meta_description', 'Информация для читатей о том, кто на самом деле такой ютубер Кукенон, и что он делает')
 
-@section('canonical', url(''))
+@section('canonical', url('/about'))
 
 @section('main')
 

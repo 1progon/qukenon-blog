@@ -1,5 +1,14 @@
 @extends('layouts.layout')
 
+@section('title', 'Страница входа в блог Ютубера Кукенон Qukenon')
+
+@section('meta_keys', 'страница входа в блог, где войти в блог кукенон, как написать пост на кукенон, размещение
+постов на кукенон')
+@section('meta_description', 'Страница входа в Вашу учётную запись. В кабинете можно размещать свои записи, а также
+создавать свои геймерские странички')
+
+@section('canonical', url('/login'))
+
 @section('main')
     <div class="login-form">
         <div class="container">

@@ -1,10 +1,12 @@
 @extends('layouts.admin-layout')
 
+@section('title', 'Редактирование ' . $category->id . ', ' . $category->title)
+
 @section('main')
 
     <div class="container">
         <h2>Редактировать категорию,
-            <span>{{ $category->title }} {{ $category->id }}</span>
+            <span class="red">{{ $category->title }}, id: {{ $category->id }}</span>
         </h2>
 
         <form action="{{ route('category.update', $category) }}" method="post" enctype="multipart/form-data">
