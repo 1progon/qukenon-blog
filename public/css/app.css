@@ -97,6 +97,11 @@ select {
   }
 }
 
+.error-page .error-404-code {
+  font-size: 10vw;
+  text-align: center;
+}
+
 html,
 body {
   height: 100%;
@@ -187,17 +192,25 @@ footer {
 }
 
 footer .container {
+  padding: 1.25rem;
+  min-height: 100%;
+  background-color: #252f5a;
+}
+
+footer .container .widgets {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   grid-gap: 0.625rem;
   position: relative;
-  padding: 1.25rem;
-  height: 100%;
-  background-color: #252f5a;
+  min-height: 200px;
 }
 
-footer .container > div > div {
+footer .container .widgets > div > div {
   padding: 0.625rem 0;
+}
+
+footer .container .copyrights {
+  font-size: 0.8125rem;
 }
 
 .title,
