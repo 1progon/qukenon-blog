@@ -10,7 +10,7 @@
     <div class="post-media-list">
         <div class="container">
             @php
-                $posts = $category->posts()->paginate(10);
+                $posts = $category->posts()->latest()->paginate(10);
             @endphp
             <div class="title">{{ $category->title }}</div>
             <div class="description">{{ $category->description }}</div>
