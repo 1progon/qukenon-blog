@@ -10,6 +10,7 @@
 
 
     <div class="content">
+
         <div class="thumbnail">
 
 
@@ -51,9 +52,10 @@
                 <div>Автор: {{ $post->user->name }}</div>
             </div>
 
-            <div>{{ $post->description }}</div>
-
-
+            <div>{{ Str::limit($post->description, 150) }}</div>
+            <div class="read-more-link">
+                <a href="{{ route('post.front.show', [$post, $post->id]) }}">Читать...</a>
+            </div>
 
 
         </div>
@@ -68,6 +70,5 @@
             <img src="{{ asset('/images/arrow-right-white.svg') }}" alt="">
         </a>
     </div>
-
 
 </div>

@@ -19,9 +19,19 @@
 
     .title {
         color: $yellow;
-        font-size: $size-double;
-        height: 130px;
+        font-size: $size * 1.8;
         overflow: hidden;
+        min-height: 145px;
+
+        border-left: 1px solid;
+        border-top: 1px solid;
+
+        border-top-left-radius: $size-double;
+        border-top-right-radius: $size-double;
+
+        padding-top: $size;
+        padding-left: $size;
+        padding-right: $size;
 
         &:hover {
             color: $aqua;
@@ -60,16 +70,15 @@
         }
 
         .description {
+            display: flex;
+            flex-wrap: wrap;
             padding: $size-double $size;
             border-right: 1px solid $yellow;
             border-bottom-right-radius: $size-double;
             font-size: $size * 1.7;
-            height: 350px;
+            min-height: 300px;
             overflow: hidden;
-            background: rgb(37, 47, 90);
-            background: -moz-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
-            background: -webkit-linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
-            background: linear-gradient(90deg, rgba(37, 47, 90, 1) 0%, rgba(7, 11, 40, 1) 50%);
+            background: linear-gradient(180deg, #252f5a 0%, #ffffff00 70%);
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#252f5a", endColorstr="#070b28", GradientType=1);
 
 
@@ -86,6 +95,16 @@
                 margin-top: $size;
                 margin-bottom: $size;
 
+            }
+
+            .read-more-link {
+                align-self: flex-end;
+                width: 100%;
+                text-align: right;
+
+                a {
+                    text-align: right;
+                }
             }
         }
 

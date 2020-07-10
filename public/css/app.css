@@ -943,9 +943,16 @@ select option {
 
 .post-media-card .title {
   color: #f0ad4e;
-  font-size: 1.25rem;
-  height: 130px;
+  font-size: 1.125rem;
   overflow: hidden;
+  min-height: 145px;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1.25rem;
+  padding-top: 0.625rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
 }
 
 .post-media-card .title:hover {
@@ -978,14 +985,15 @@ select option {
 }
 
 .post-media-card .content .description {
+  display: flex;
+  flex-wrap: wrap;
   padding: 1.25rem 0.625rem;
   border-right: 1px solid #f0ad4e;
   border-bottom-right-radius: 1.25rem;
   font-size: 1.0625rem;
-  height: 350px;
+  min-height: 300px;
   overflow: hidden;
-  background: #252f5a;
-  background: linear-gradient(90deg, #252f5a 0%, #070b28 50%);
+  background: linear-gradient(180deg, #252f5a 0%, #ffffff00 70%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#252f5a", endColorstr="#070b28", GradientType=1);
 }
 
@@ -999,6 +1007,16 @@ select option {
   font-size: 0.625rem;
   margin-top: 0.625rem;
   margin-bottom: 0.625rem;
+}
+
+.post-media-card .content .description .read-more-link {
+  align-self: flex-end;
+  width: 100%;
+  text-align: right;
+}
+
+.post-media-card .content .description .read-more-link a {
+  text-align: right;
 }
 
 .post-media-card .read-post-button {
