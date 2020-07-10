@@ -3,7 +3,7 @@
 <div class="container">
     <div class="widgets">
         <div>
-            <div><a href="{{ route('page.about') }}">О нас</a></div>
+            <div><a href="{{ route('page.about') }}">О сайте</a></div>
             <div><a href="{{ route('page.contact') }}">Контакты</a></div>
 
         </div>

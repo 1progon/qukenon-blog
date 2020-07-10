@@ -6,7 +6,7 @@
     <div class="container">
         <div class="parts">
             <div class="left">
-                <a href="{{ route('page.about') }}">О нас</a>
+                <a href="{{ route('page.about') }}">О сайте</a>
                 <a href="{{ route('page.contact') }}">Контакты</a>
             </div>
             <div class="right">
