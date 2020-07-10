@@ -31,3 +31,26 @@ Redirect /old-blog/gamenews/sega-besplatno-vypystila-svoi-klassicheskie-igry-dli
 
     RewriteRule ^(.*)$ public/$1
 </IfModule>
+
+Order Allow,Deny
+Allow from all
+Deny from 5.227.15.222
+Deny from 31.43.113.215
+Deny from 31.173.0.0/18
+Deny from 31.173.80.0/21
+Deny from 62.118.139.74
+Deny from 78.81.129.214
+Deny from 85.140.23.62
+Deny from 91.193.176.0/24
+Deny from 91.193.177.0/24
+Deny from 91.193.178.0/24
+Deny from 91.193.179.0/24
+Deny from 176.59.48.0/24
+Deny from 176.59.50.0/24
+Deny from 176.59.64.0/24
+Deny from 197.43.58.237
+Deny from 213.87.86.0/24
+Deny from 213.87.136.0/24
+Deny from 213.87.137.0/24
+Deny from 213.87.158.0/24
+Deny from 213.87.160.0/24
