@@ -48,6 +48,7 @@ Deny from 91.193.179.0/24
 Deny from 176.59.48.0/24
 Deny from 176.59.50.0/24
 Deny from 176.59.64.0/24
+Deny from 178.176.96.0/19
 Deny from 197.43.58.237
 Deny from 213.87.86.0/24
 Deny from 213.87.136.0/24
