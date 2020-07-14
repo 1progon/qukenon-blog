@@ -77,8 +77,36 @@
             {{--TODO
             Need Sanitize data purifer--}}
 
+            {{--Adsense before Post--}}
+            <div class="adv-ads">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- qukenon 336-280 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:336px;height:280px"
+                     data-ad-client="ca-pub-8481515375748477"
+                     data-ad-slot="3239673640"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+
             {!! $post->article !!}
-            {{--                {{ $post->article }}--}}
+            {{--{{ $post->article }}--}}
+
+            {{--Adsense after Post - netboard--}}
+            <div class="adv-ads-after-article">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- qukenon netboard 580-400 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:580px;height:400px"
+                     data-ad-client="ca-pub-8481515375748477"
+                     data-ad-slot="4228008608"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
         </article>
 
 
