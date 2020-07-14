@@ -75,24 +75,17 @@
             max-width: 100%;
         }
 
-        .adv-ads-after-article {
-            text-align: center;
-            max-width: 100%;
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        article {
-            padding-left: $size;
-            border-left: 1px solid $red;
-        }
-
-        .thumbnail.thumbnail-float {
-            margin-left: $size !important;
-        }
 
     }
+
+    .adv-ads-after-article {
+        text-align: center;
+        max-width: 100%;
+    }
+
+
 }
+
 
 .related-posts {
 

@@ -793,20 +793,9 @@ select option {
   max-width: 100%;
 }
 
-.post article .adv-ads-after-article {
+.post .adv-ads-after-article {
   text-align: center;
   max-width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-  .post article {
-    padding-left: 0.625rem;
-    border-left: 1px solid #e82d44;
-  }
-
-  .post .thumbnail.thumbnail-float {
-    margin-left: 0.625rem !important;
-  }
 }
 
 .related-posts {
@@ -1199,10 +1188,19 @@ select option {
 }
 
 @media screen and (max-width: 768px) {
+  .post article {
+    padding-left: 0.625rem;
+    border-left: 1px solid #e82d44;
+  }
+
   .post article .adv-ads {
     float: unset;
     text-align: center;
     margin-right: 0;
+  }
+
+  .post .thumbnail.thumbnail-float {
+    margin-left: 0.625rem !important;
   }
 
   .post .title {

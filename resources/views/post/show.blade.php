@@ -6,6 +6,15 @@
 @section('meta_description', $post->description)
 @section('canonical', route('post.front.show', [$post, $post->id]))
 
+@section('head')
+    {{--Head script VK--}}
+    <script src="https://vk.com/js/api/openapi.js?168"></script>
+
+    <script>
+        VK.init({apiId: 7539161, onlyWidgets: true});
+    </script>
+@endsection
+
 @section('main')
 
     <div class="post container">
@@ -91,26 +100,48 @@
             </div>
 
 
+            {{--Article without escape chars--}}
             {!! $post->article !!}
-            {{--{{ $post->article }}--}}
 
-            {{--Adsense after Post - netboard--}}
-            <div class="adv-ads-after-article">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- qukenon netboard 580-400 -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:580px;height:400px"
-                     data-ad-client="ca-pub-8481515375748477"
-                     data-ad-slot="4228008608"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
 
         </article>
 
+        <section class="vk-comments-form">{{--VK Comment form--}}
+            <script>
+                VK.Widgets.Comments("vk_comments", {
+                    height: 'auto',
+                    limit: 15,
+                    attach: "*",
+                    autoPublish:
+                        1
+                });
+
+                // document.getElementById('vk_comments').style.width
+            </script>
+
+            <div id="vk_comments"
+                 style="margin-bottom: 50px; margin-left: auto; margin-right: auto; max-width: 70%;"></div>
+        </section>
+
+
+        {{--Adsense after Post - netboard--}}
+        <div class="adv-ads-after-article">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- qukenon netboard 580-400 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:580px;height:400px"
+                 data-ad-client="ca-pub-8481515375748477"
+                 data-ad-slot="4228008608"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
 
     </div>
+
+
+
+
 
     <div class="related-posts container">
         <h3>Другие записи</h3>

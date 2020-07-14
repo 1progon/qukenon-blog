@@ -2,11 +2,18 @@
     .post {
 
         article {
+            padding-left: $size;
+            border-left: 1px solid $red;
+
             .adv-ads {
                 float: unset;
                 text-align: center;
                 margin-right: 0;
             }
+        }
+
+        .thumbnail.thumbnail-float {
+            margin-left: $size !important;
         }
 
         .title {
@@ -15,6 +22,11 @@
 
 
     }
+
+}
+
+@media screen and (max-width: 768px) {
+
 
 }
 
