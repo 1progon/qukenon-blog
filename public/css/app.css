@@ -170,6 +170,28 @@ p {
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #d200c7;
+}
+
+h1:not(.subtitle):not(.title),
+h2:not(.subtitle):not(.title) {
+  background-color: #252f5a;
+  padding: 1.25rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  padding: 0.625rem;
+}
+
+h1,
 .title {
   font-size: 2.5rem;
 }
@@ -765,6 +787,17 @@ select option {
   transition: 0.3s;
 }
 
+.post article .adv-ads {
+  float: left;
+  margin: 0 1.25rem 1.25rem 0;
+  max-width: 100%;
+}
+
+.post article .adv-ads-after-article {
+  text-align: center;
+  max-width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .post article {
     padding-left: 0.625rem;
@@ -1166,6 +1199,12 @@ select option {
 }
 
 @media screen and (max-width: 768px) {
+  .post article .adv-ads {
+    float: unset;
+    text-align: center;
+    margin-right: 0;
+  }
+
   .post .title {
     font-size: 1.25rem;
   }

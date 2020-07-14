@@ -1,8 +1,19 @@
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
     .post {
+
+        article {
+            .adv-ads {
+                float: unset;
+                text-align: center;
+                margin-right: 0;
+            }
+        }
+
         .title {
             font-size: $size-double;
         }
+
+
     }
 
 }
