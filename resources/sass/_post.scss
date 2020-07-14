@@ -54,13 +54,11 @@
         .small-images {
             display: grid;
             grid-template-columns: repeat(auto-fit, $smallest-thumb);
+            grid-gap: $size-double;
             flex-wrap: wrap;
             justify-content: space-evenly;
             align-items: center;
 
-            > a {
-                padding: 0 $size;
-            }
 
         }
     }
