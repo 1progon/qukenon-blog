@@ -753,13 +753,10 @@ select option {
 .post .images-block .small-images {
   display: grid;
   grid-template-columns: repeat(auto-fit, 80px);
+  grid-gap: 1.25rem;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-}
-
-.post .images-block .small-images > a {
-  padding: 0 0.625rem;
 }
 
 .post article {
