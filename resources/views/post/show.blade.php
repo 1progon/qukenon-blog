@@ -37,17 +37,38 @@
 
         {{--Meta--}}
         <div class="meta">
-            <div>Опубликовано: {{ $post->created_at }}</div>
+            <div>
+                <div>Опубликовано:</div>
+                {{ $post->created_at }}
+            </div>
             @if( $post->created_at !== $post->updated_at)
-                <div>Обновлено: {{ $post->updated_at }}</div>
+                <div>
+                    <div>Обновлено:</div>
+                    {{ $post->updated_at }}
+                </div>
             @endif
-            <div>Автор: {{ $post->user->name }}</div>
 
+            <div>
+                <div>Автор:</div>
+                {{ $post->user->name }}
+            </div>
 
+            <div>
+                <a href="#social-buttons">Поделиться</a>
+            </div>
+
+            <div>
+                <a href="#comments">Комментарии</a>
+            </div>
+
+            <div>
+                <a href="#related-posts">Другие записи</a>
+            </div>
         </div>
 
 
         <div class="description">{{ $post->description }}</div>
+
 
         @if( isset($firstImage))
             @php
@@ -87,6 +108,7 @@
             @include('includes.adv-header')
         </div>
 
+
         <article>
 
             {{--TODO
@@ -110,22 +132,53 @@
             {!! $post->article !!}
 
 
+            <div>
+                {{--Adsense after Post - netboard - only non-mobile--}}
+                <div class="adv-ads-after-article">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- qukenon netboard 580-400 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:580px;height:400px"
+                         data-ad-client="ca-pub-8481515375748477"
+                         data-ad-slot="4228008608"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                {{--Adsense after Post - 336-280 - only on Mobile--}}
+                <div class="adv-ads-after-article-for-mobile">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- qukenon 336-280 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:336px;height:280px"
+                         data-ad-client="ca-pub-8481515375748477"
+                         data-ad-slot="3239673640"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+
+                </div>
+            </div>
+
         </article>
 
-        <section class="yandex-social-buttons">
+        <section id="social-buttons" class="social-buttons">
+            <h2>Поделитесь записью пожалуйста:)</h2>
             <!-- uSocial -->
             <div class="uSocial-Share"
                  data-pid="036170a8c570dc8744afa895767c86a2"
                  data-type="share"
-                 data-options="rect,style1,default,absolute,horizontal,size48,eachCounter1,counter0,nomobile"
-                 data-social="vk,fb,telegram,vi,wa,mail,ok,twi,pinterest">
+                 data-options="round-rect,style1,default,absolute,horizontal,size48,eachCounter1,counter0,nomobile"
+                 data-social="vk,fb,telegram,vi,wa,mail,ok,twi">
             </div>
             <!-- /uSocial -->
 
         </section>
 
 
-        <section class="vk-comments-form">
+        <section id="comments" class="vk-comments-form">
+            <h2>Оставьте пожалуйста комментарий:)</h2>
 
             {{--VK Comment form--}}
             <script>
@@ -145,41 +198,14 @@
         </section>
 
 
-        {{--Adsense after Post - netboard - only non-mobile--}}
-        <div class="adv-ads-after-article">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- qukenon netboard 580-400 -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:580px;height:400px"
-                 data-ad-client="ca-pub-8481515375748477"
-                 data-ad-slot="4228008608"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        {{--Adsense after Post - 336-280 - only on Mobile--}}
-        <div class="adv-ads-after-article-for-mobile">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- qukenon 336-280 -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:336px;height:280px"
-                 data-ad-client="ca-pub-8481515375748477"
-                 data-ad-slot="3239673640"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-
-        </div>
-
     </div>
 
 
 
 
 
-    <div class="related-posts container">
-        <h3>Другие записи</h3>
+    <div id="related-posts" class="related-posts container">
+        <h2>Что ещё почитать из мира геймеров и интернета</h2>
 
         <div class="post-media-card">
             @php

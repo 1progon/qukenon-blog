@@ -739,6 +739,9 @@ select option {
 
 .post .meta > div {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   margin: 0 0.625rem;
   border-bottom: 1px solid;
@@ -759,8 +762,10 @@ select option {
 }
 
 .post .images-block.images-block-float {
-  float: left;
-  margin: 1.25rem;
+  float: right;
+  margin-left: 0.625rem;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
 }
 
 .post .images-block .thumbnail {
@@ -793,7 +798,40 @@ select option {
   max-width: 100%;
 }
 
-.post section.yandex-social-buttons {
+.post article .adv-ads-after-article {
+  text-align: center;
+  max-width: 100%;
+}
+
+.post article .adv-ads-after-article-for-mobile {
+  display: none;
+}
+
+.post section.social-buttons {
+  margin: 1.25rem 0;
+}
+
+.post section.social-buttons h2 {
+  margin: 1.25rem 0;
+}
+
+.post section.social-buttons .uSocial-Share {
+  margin-left: -5px;
+}
+
+.post section.social-buttons .uSocial-Share .uscl-bar {
+  width: 100%;
+}
+
+.post section.social-buttons .uSocial-Share .uscl-bar .uscl-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.post section.vk-comments-form h2 {
   margin: 1.25rem 0;
 }
 
@@ -804,20 +842,11 @@ select option {
   max-width: 70%;
 }
 
-.post .adv-ads-after-article {
-  text-align: center;
-  max-width: 100%;
-}
-
-.post .adv-ads-after-article-for-mobile {
-  display: none;
-}
-
 .related-posts {
   margin: 1.875rem auto;
 }
 
-.related-posts h3 {
+.related-posts h2 {
   margin: 3.125rem 0 1.25rem 0;
 }
 
@@ -1228,11 +1257,11 @@ select option {
 }
 
 @media screen and (max-width: 576px) {
-  .post .adv-ads-after-article {
+  .post article .adv-ads-after-article {
     display: none;
   }
 
-  .post .adv-ads-after-article-for-mobile {
+  .post article .adv-ads-after-article-for-mobile {
     display: block;
     text-align: center;
     max-width: 100%;

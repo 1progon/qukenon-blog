@@ -36,15 +36,20 @@
 @media screen and (max-width: 576px) {
 
     .post {
-        .adv-ads-after-article {
-            display: none;
+
+        article {
+            .adv-ads-after-article {
+                display: none;
+            }
+
+            .adv-ads-after-article-for-mobile {
+                display: block;
+                text-align: center;
+                max-width: 100%;
+            }
         }
 
-        .adv-ads-after-article-for-mobile {
-            display: block;
-            text-align: center;
-            max-width: 100%;
-        }
+
     }
 }
 

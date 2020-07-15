@@ -12,6 +12,9 @@
 
         > div {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             text-align: center;
             margin: 0 $size;
             border-bottom: 1px solid;
@@ -37,8 +40,10 @@
     .images-block {
 
         &.images-block-float {
-            float: left;
-            margin: $size-double;
+            float: right;
+            margin-left: $size;
+            margin-top: $size;
+            margin-bottom: $size;
         }
 
         .thumbnail {
@@ -76,29 +81,60 @@
             max-width: 100%;
         }
 
+        .adv-ads-after-article {
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .adv-ads-after-article-for-mobile {
+            display: none;
+        }
+
 
     }
 
-    section.yandex-social-buttons {
+    section.social-buttons {
         margin: $size-double 0;
+
+        h2 {
+            margin: $size-double 0;
+        }
+
+
+        .uSocial-Share {
+            margin-left: -5px;
+
+            //Class from remote script
+            .uscl-bar {
+                width: 100%;
+
+                .uscl-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    width: 100%;
+                }
+            }
+
+
+        }
+
+
     }
 
     section.vk-comments-form {
+
+        h2 {
+            margin: $size-double 0;
+        }
+
         #vk_comments {
             margin-bottom: 50px;
             margin-left: auto;
             margin-right: auto;
             max-width: 70%;
         }
-    }
-
-    .adv-ads-after-article {
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .adv-ads-after-article-for-mobile {
-        display: none;
     }
 
 
@@ -109,7 +145,7 @@
 
     margin: $size-triple auto;
 
-    h3 {
+    h2 {
         margin: ($size * 5) 0 $size-double 0;
     }
 }
