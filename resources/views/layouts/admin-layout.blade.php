@@ -7,10 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'Dashboard') | Q.Dashboard</title>
 
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, nofollow"/>
 
 
-    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
+
+    <link rel="icon" href="{{ asset('images/ico/favicon.ico') }}" type="image/x-icon">
 
     @yield('head')
 
@@ -49,10 +51,9 @@
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
-
 <!-- версия для разработки, отображает полезные предупреждения в консоли -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="/js/admin-vue-body.js"></script>
+<script src="{{ asset('/js/admin-vue-body.js') }}"></script>
 
 
 @yield('script')

@@ -16,7 +16,10 @@
     <meta name="google-site-verification" content="aKHzYLwFCQ7xuGQ0GXicAwk_4jeyAmJzR6kQE2YFGic"/>
 
 
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <link rel="icon" href="{{ asset('images/ico/favicon.ico') }}" type="image/x-icon">
+
 
     @yield('head')
 
@@ -47,10 +50,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-<!-- production version, optimized for size and speed -->
+{{--VUE Production--}}
 {{--<script src="https://cdn.jsdelivr.net/npm/vue"></script>--}}
 
-<!-- версия для разработки, отображает полезные предупреждения в консоли -->
+{{--VUE Development--}}
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="{{ asset('js/main-vue-body.js') }}"></script>
 
