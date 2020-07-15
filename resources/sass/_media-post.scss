@@ -12,6 +12,12 @@
             }
         }
 
+        section.vk-comments-form {
+            #vk_comments {
+                max-width: unset;
+            }
+        }
+
         .thumbnail.thumbnail-float {
             margin-left: $size !important;
         }

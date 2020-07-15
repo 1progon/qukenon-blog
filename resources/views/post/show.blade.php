@@ -106,7 +106,10 @@
 
         </article>
 
-        <section class="vk-comments-form">{{--VK Comment form--}}
+
+        <section class="vk-comments-form">
+
+            {{--VK Comment form--}}
             <script>
                 VK.Widgets.Comments("vk_comments", {
                     height: 'auto',
@@ -116,11 +119,11 @@
                         1
                 });
 
-                // document.getElementById('vk_comments').style.width
             </script>
 
-            <div id="vk_comments"
-                 style="margin-bottom: 50px; margin-left: auto; margin-right: auto; max-width: 70%;"></div>
+            <div id="vk_comments"></div>
+
+
         </section>
 
 
