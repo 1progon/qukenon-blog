@@ -79,6 +79,10 @@
 
     }
 
+    section.yandex-social-buttons {
+        margin: $size-double 0;
+    }
+
     section.vk-comments-form {
         #vk_comments {
             margin-bottom: 50px;
@@ -91,6 +95,10 @@
     .adv-ads-after-article {
         text-align: center;
         max-width: 100%;
+    }
+
+    .adv-ads-after-article-for-mobile {
+        display: none;
     }
 
 

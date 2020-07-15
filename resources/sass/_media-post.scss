@@ -18,6 +18,7 @@
             }
         }
 
+
         .thumbnail.thumbnail-float {
             margin-left: $size !important;
         }
@@ -31,9 +32,22 @@
 
 }
 
-@media screen and (max-width: 768px) {
 
+@media screen and (max-width: 576px) {
 
+    .post {
+        .adv-ads-after-article {
+            display: none;
+        }
+
+        .adv-ads-after-article-for-mobile {
+            display: block;
+            text-align: center;
+            max-width: 100%;
+        }
+    }
 }
+
+
 
 

@@ -793,6 +793,10 @@ select option {
   max-width: 100%;
 }
 
+.post section.yandex-social-buttons {
+  margin: 1.25rem 0;
+}
+
 .post section.vk-comments-form #vk_comments {
   margin-bottom: 50px;
   margin-left: auto;
@@ -803,6 +807,10 @@ select option {
 .post .adv-ads-after-article {
   text-align: center;
   max-width: 100%;
+}
+
+.post .adv-ads-after-article-for-mobile {
+  display: none;
 }
 
 .related-posts {
@@ -1216,6 +1224,18 @@ select option {
 
   .post .title {
     font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .post .adv-ads-after-article {
+    display: none;
+  }
+
+  .post .adv-ads-after-article-for-mobile {
+    display: block;
+    text-align: center;
+    max-width: 100%;
   }
 }
 
