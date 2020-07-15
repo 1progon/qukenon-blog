@@ -13,6 +13,12 @@
     <script>
         VK.init({apiId: 7539161, onlyWidgets: true});
     </script>
+
+
+    <script async src="https://usocial.pro/usocial/usocial.js?v=6.1.4"
+            data-script="usocial"
+            charset="utf-8">
+    </script>
 @endsection
 
 @section('main')
@@ -107,11 +113,14 @@
         </article>
 
         <section class="yandex-social-buttons">
-            <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-            <script src="https://yastatic.net/share2/share.js"></script>
-            <div class="ya-share2"
-                 data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,viber,whatsapp,telegram"
-            ></div>
+            <!-- uSocial -->
+            <div class="uSocial-Share"
+                 data-pid="036170a8c570dc8744afa895767c86a2"
+                 data-type="share"
+                 data-options="rect,style1,default,absolute,horizontal,size48,eachCounter1,counter0"
+                 data-social="vk,fb,telegram,vi,wa,mail,ok,twi,pinterest"></div>
+            <!-- /uSocial -->
+
         </section>
 
 
