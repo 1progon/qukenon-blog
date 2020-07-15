@@ -117,7 +117,7 @@
             <div class="uSocial-Share"
                  data-pid="036170a8c570dc8744afa895767c86a2"
                  data-type="share"
-                 data-options="rect,style1,default,absolute,horizontal,size48,eachCounter1,counter0,upArrow-right,nomobile"
+                 data-options="rect,style1,default,absolute,horizontal,size48,eachCounter1,counter0,nomobile"
                  data-social="vk,fb,telegram,vi,wa,mail,ok,twi,pinterest">
             </div>
             <!-- /uSocial -->
