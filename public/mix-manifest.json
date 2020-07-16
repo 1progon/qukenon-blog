@@ -4,5 +4,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/admin.css": "/css/admin.css",
-    "/js/main-vue-body.js": "/js/main-vue-body.js"
+    "/js/main-vue-body.js": "/js/main-vue-body.js",
+    "/js/scrollToTop.js": "/js/scrollToTop.js"
 }

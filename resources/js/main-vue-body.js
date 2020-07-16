@@ -9,5 +9,7 @@ let app = new Vue({
 
     methods: {
 
+    },
+    mounted() {
     }
 });

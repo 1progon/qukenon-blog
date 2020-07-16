@@ -25,6 +25,8 @@
 
     <div class="post container">
 
+
+
         <h1 class="title">{{ $post->title }}</h1>
 
         {{--Only for auth user--}}
@@ -220,8 +222,3 @@
         </div>
     </div>
 @endsection
-
-
-
-
-

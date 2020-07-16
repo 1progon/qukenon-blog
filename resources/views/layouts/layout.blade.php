@@ -25,6 +25,7 @@
 
 </head>
 <body>
+<div id="bodyAnchor"></div>
 <div class="bg-image"></div>
 
 <div class="wrapper">
@@ -34,6 +35,12 @@
 
     <main>
         @yield('main')
+
+        {{--To Top Button--}}
+        <div class="container">
+            <a class="to-top-button" href="#bodyAnchor">
+                <img src="{{ asset('images/to-top.svg') }}" alt="На верх кнопка">
+            </a></div>
     </main>
 
 
@@ -56,6 +63,9 @@
 {{--VUE Development--}}
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="{{ asset('js/main-vue-body.js') }}"></script>
+<script src="{{ asset('js/scrollToTop.js') }}"></script>
+
+@yield('script')
 
 
 </body>
