@@ -15,16 +15,16 @@
     </script>
 
 
-    <script async src="https://usocial.pro/usocial/usocial.js?v=6.1.4"
-            data-script="usocial"
-            charset="utf-8">
-    </script>
+    {{--Social buttons--}}
+    <script type="text/javascript"
+            src="https://platform-api.sharethis.com/js/sharethis.js#property=5f102b37c0b69e00123ab475&product=inline-share-buttons"
+            async="async"></script>
+
 @endsection
 
 @section('main')
 
     <div class="post container">
-
 
 
         <h1 class="title">{{ $post->title }}</h1>
@@ -167,14 +167,9 @@
 
         <section id="social-buttons" class="social-buttons">
             <h2>Поделитесь записью пожалуйста:)</h2>
-            <!-- uSocial -->
-            <div class="uSocial-Share"
-                 data-pid="036170a8c570dc8744afa895767c86a2"
-                 data-type="share"
-                 data-options="round-rect,style1,default,absolute,horizontal,size48,eachCounter1,counter0,nomobile"
-                 data-social="vk,fb,telegram,vi,wa,mail,ok,twi">
-            </div>
-            <!-- /uSocial -->
+
+            {{--sharethis.com--}}
+            <div class="sharethis-inline-share-buttons"></div>
 
         </section>
 
