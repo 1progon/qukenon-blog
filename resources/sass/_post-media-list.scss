@@ -17,6 +17,11 @@
                 background-color: transparent;
             }
         }
+
+
+        &:hover .read-post-button img {
+            transform: rotate(90deg);
+        }
     }
 
 
@@ -106,9 +111,6 @@
 
                 }
 
-                &:hover img {
-                    transform: rotate(90deg);
-                }
 
             }
         }

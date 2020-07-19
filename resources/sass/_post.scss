@@ -4,6 +4,10 @@
 .post {
 
 
+    h1, h2, h3, h4, h5, h6 {
+        color: $purple;
+
+    }
 
 
     .meta {
@@ -103,23 +107,15 @@
         }
 
 
-        .uSocial-Share {
-            margin-left: -5px;
+        #st-1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
 
-            //Class from remote script
-            .uscl-bar {
-                width: 100%;
-
-                .uscl-list {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    width: 100%;
-                }
+            > div {
+                display: block !important;
+                margin: $size;
             }
-
-
         }
 
 
