@@ -68,7 +68,7 @@ main {
         }
 
         &:hover img {
-            opacity: .8;
+            opacity: .6;
         }
     }
 }
@@ -99,6 +99,10 @@ p {
     padding: 1rem 0;
 }
 
+ul li, ol li {
+    margin: $size-double 0 $size-double $size-double;
+
+}
 
 
 h1:not(.subtitle):not(.title), h2:not(.subtitle):not(.title) {

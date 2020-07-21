@@ -170,7 +170,7 @@ main .to-top-button img {
 }
 
 main .to-top-button:hover img {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .mobile-menu-button,
@@ -197,6 +197,11 @@ a:focus {
 
 p {
   padding: 1rem 0;
+}
+
+ul li,
+ol li {
+  margin: 1.25rem 0 1.25rem 1.25rem;
 }
 
 h1:not(.subtitle):not(.title),
