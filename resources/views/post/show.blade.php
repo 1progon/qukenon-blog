@@ -197,7 +197,17 @@
 
     </div>
 
+    {{--TODO Доделать комментарии--}}
+    {{--<div class="comments container">--}}
 
+    {{--    <div class="add-comment">--}}
+    {{--        <h3>Оставить комментарии</h3>--}}
+    {{--        @include('post.comments.add-comment')--}}
+
+    {{--    </div>--}}
+
+    {{--    @include('post.comments.single-comment')--}}
+    {{--</div>--}}
 
 
 

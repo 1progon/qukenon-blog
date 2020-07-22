@@ -30,4 +30,9 @@ class Post extends Model
         return $this->hasMany(PostImage::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(PostComment::class);
+    }
+
 }
