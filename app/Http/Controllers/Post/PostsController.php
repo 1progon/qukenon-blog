@@ -114,16 +114,29 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $images = $post->images;
+
+        $images = cache()->remember('post_images_' . $post->id,
+            86400,
+            function () use ($post) {
+                return $post->images;
+            });
 
         $firstImage = Arr::pull($images, 0);
 
-        $postsCount = Post::count();
+        $comments = $post->comments;
 
-        $relatedPosts = Post::all()->random($postsCount > 3 ? 4 : $postsCount);
+        $postsCount = cache()->remember('post_posts_count_' . $post->id,
+            86400,
+            function () {
+                return Post::count();
+            });
 
 
-        return view('post.show', compact('post', 'relatedPosts', 'firstImage', 'images'));
+        $relatedPosts = Post::all()
+            ->random($postsCount > 3 ? 4 : $postsCount);
+
+
+        return view('post.show', compact('post', 'comments', 'relatedPosts', 'firstImage', 'images'));
     }
 
     /**
