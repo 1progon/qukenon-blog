@@ -133,6 +133,7 @@ select {
 
 .pagination {
     display: flex;
+    flex-wrap: wrap;
     margin: $size-double 0;
 
     .page-item {
