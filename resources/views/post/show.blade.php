@@ -91,14 +91,16 @@
                 </div>
 
                 <div class="small-images">
-                    @forelse( $images as $image)
+
+                    @forelse( $images as $key => $image)
+
                         <a data-fancybox="gallery"
                            href="{{ asset('storage/' . $image->folder . '/'. $image->filename) }}">
                             <img src="{{ asset('storage/' . $image->folder . '/'. $thumb['str'] . '_' .
                                 $image->filename) }}"
                                  width="{{ $thumb['w'] }}"
                                  height="{{ $thumb['h'] }}"
-                                 alt="">
+                                 alt="маленькая фотография картинка {{ mb_strtolower($post->title) }} - {{ $key }}">
                         </a>
                     @empty
                     @endforelse

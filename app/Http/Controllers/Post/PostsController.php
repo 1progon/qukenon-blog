@@ -160,6 +160,9 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
+
+
         $category = Category::find($request->category_id);
 
         $post->fill($request->except(['images', 'remove_images']));
@@ -167,6 +170,7 @@ class PostsController extends Controller
         $category->posts()->save($post);
 
         if ($request->has('remove_images')) {
+            cache()->forget('post_images_' . $post->id);
 
             $imagesBeforeUpload = $post->images;
 
@@ -186,6 +190,7 @@ class PostsController extends Controller
 
         // Resize, create thumbs and save all images from upload
         if ($request->hasFile('images')) {
+            cache()->forget('post_images_' . $post->id);
             $this->resizeUploadedImages($request, $post);
         }
 
