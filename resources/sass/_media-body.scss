@@ -7,4 +7,11 @@
         }
     }
 
+
+}
+
+@media screen and (max-width: 768px) {
+    .input-group {
+        grid-template-columns: 1fr;
+    }
 }

@@ -9,6 +9,34 @@
 
     }
 
+    .breadcrumbs {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: $size * 1.2;
+        margin: $size-double 0;
+
+        > * {
+            padding: $size;
+            margin-right: $size;
+            background-color: $violet;
+            color: #ffffff;
+
+            &:hover {
+                color: #ffffff;
+                background-color: $pink;
+                text-shadow: unset;
+            }
+
+            &.this-page {
+                background-color: $secondary;
+                color: $dark;
+            }
+
+        }
+
+
+    }
+
 
     .meta {
         display: flex;

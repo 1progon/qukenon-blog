@@ -767,6 +767,31 @@ select option {
   color: #d200c7;
 }
 
+.post .breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.post .breadcrumbs > * {
+  padding: 0.625rem;
+  margin-right: 0.625rem;
+  background-color: #8400ff;
+  color: #ffffff;
+}
+
+.post .breadcrumbs > *:hover {
+  color: #ffffff;
+  background-color: #ff1493;
+  text-shadow: unset;
+}
+
+.post .breadcrumbs > *.this-page {
+  background-color: #a1aed4;
+  color: #0f143a;
+}
+
 .post .meta {
   display: flex;
   flex-wrap: wrap;
@@ -1149,6 +1174,12 @@ select option {
 @media screen and (max-width: 1270px) {
   main .to-top-button img {
     transform: translateX(-90px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .input-group {
+    grid-template-columns: 1fr;
   }
 }
 
