@@ -125,15 +125,10 @@ class PostsController extends Controller
 
         $comments = $post->comments;
 
-        $postsCount = cache()->remember('post_posts_count_' . $post->id,
-            86400,
-            function () {
-                return Post::count();
-            });
-
-
-        $relatedPosts = Post::all()
-            ->random($postsCount > 3 ? 4 : $postsCount);
+        $relatedPosts = Post::where('id', '!=', $post->id)
+            ->where('category_id', '=', $post->category->id)
+            ->inRandomOrder()
+            ->limit(4)->get();
 
 
         return view('post.show', compact('post', 'comments', 'relatedPosts', 'firstImage', 'images'));
@@ -160,7 +155,6 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-
 
 
         $category = Category::find($request->category_id);

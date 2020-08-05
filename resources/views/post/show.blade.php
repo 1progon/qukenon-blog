@@ -211,18 +211,14 @@
             </script>
 
             <div id="vk_comments"></div>
-
-
         </section>
-
-
     </div>
 
     {{--TODO Доделать комментарии--}}
     {{--<div class="comments container">--}}
 
     {{--    <div class="add-comment">--}}
-    {{--        <h3>Оставить комментарии</h3>--}}
+    {{--        <h3>Оставить комментарий</h3>--}}
     {{--        @include('post.comments.add-comment')--}}
 
     {{--    </div>--}}
@@ -231,20 +227,6 @@
     {{--</div>--}}
 
 
+    @include('post.related-posts')
 
-    <div id="related-posts" class="related-posts container">
-        <h2>Что ещё почитать из мира геймеров и интернета</h2>
-
-        <div class="post-media-card">
-            @php
-                $related = true;
-            @endphp
-
-
-            @forelse( $relatedPosts as $post)
-                @include('includes.post-media-card', compact($related))
-            @empty
-            @endforelse
-        </div>
-    </div>
 @endsection
