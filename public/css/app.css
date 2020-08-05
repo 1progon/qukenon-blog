@@ -851,6 +851,7 @@ select option {
   padding-left: 3.125rem;
   border-left: 0.625rem solid #e82d44;
   transition: 0.3s;
+  min-height: 400px;
 }
 
 .post article .adv-ads {
@@ -870,6 +871,7 @@ select option {
 
 .post section.social-buttons {
   margin: 1.25rem 0;
+  clear: both;
 }
 
 .post section.social-buttons h2 {

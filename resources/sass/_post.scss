@@ -108,6 +108,7 @@
         padding-left: $size * 5;
         border-left: $size solid $red;
         transition: .3s;
+        min-height: 400px;
 
         .adv-ads {
             float: left;
@@ -129,6 +130,7 @@
 
     section.social-buttons {
         margin: $size-double 0;
+        clear: both;
 
         h2 {
             margin: $size-double 0;
