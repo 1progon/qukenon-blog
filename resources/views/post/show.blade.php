@@ -115,11 +115,11 @@
             </div>
         @endif
 
-        @if($post->category->id !== 12)
-            <div class="adv-before-article">
-                @include('includes.adv-header')
-            </div>
-        @endif
+{{--        @if($post->category->id !== 12)--}}
+{{--            <div class="adv-before-article">--}}
+{{--                @include('includes.adv-header')--}}
+{{--            </div>--}}
+{{--        @endif--}}
 
 
         <article>
