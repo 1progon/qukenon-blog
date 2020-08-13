@@ -8,7 +8,6 @@
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
-        webvisor:true,
         trackHash:true
     });
 </script>

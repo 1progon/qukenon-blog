@@ -115,11 +115,26 @@
             </div>
         @endif
 
-{{--        @if($post->category->id !== 12)--}}
-{{--            <div class="adv-before-article">--}}
-{{--                @include('includes.adv-header')--}}
-{{--            </div>--}}
-{{--        @endif--}}
+        {{--        @if($post->category->id !== 12)--}}
+        {{--            <div class="adv-before-article">--}}
+        {{--                @include('includes.adv-header')--}}
+        {{--            </div>--}}
+        {{--        @endif--}}
+
+
+        @verbatim
+            <section v-if="postTitles && postTitles.length > 1" id="contents">
+                <h4>Содержание</h4>
+                <template v-for="title in postTitles">
+                    <div class="title-contents-h2">
+                        <a :href="'#' + title.id" v-if="title.tagName == 'H2'">{{ title.innerHTML }}</a>
+                    </div>
+                    <div class="title-contents-h3">
+                        <a :href="'#' + title.id" v-if="title.tagName == 'H3'">{{ title.innerHTML }}</a>
+                    </div>
+                </template>
+            </section>
+        @endverbatim
 
 
         <article>
@@ -204,8 +219,7 @@
                     height: 'auto',
                     limit: 15,
                     attach: "*",
-                    autoPublish:
-                        1
+                    autoPublish: 1
                 });
 
             </script>

@@ -81,57 +81,33 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/main-vue-body.js":
+/***/ "./resources/js/post-contents.js":
 /*!***************************************!*\
-  !*** ./resources/js/main-vue-body.js ***!
+  !*** ./resources/js/post-contents.js ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var wrapper = document.querySelector('.wrapper');
-var app = new Vue({
-  el: wrapper,
-  data: {
-    // mobile menu
-    showMobileMenu: false,
-    // posts contents
-    postTitles: []
-  },
-  methods: {
-    getTitles: function getTitles() {
-      var _this = this;
-
-      var titles = document.querySelectorAll('article h2, article h3');
-      titles.forEach(function (item, i) {
-        item.id = 'contents-id-' + i;
-
-        _this.postTitles.push(item);
-      });
-    }
-  },
-  created: function created() {
-    this.getTitles();
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'E:\\CodingProjects\\PhpStormProjects\\qukenon-blog\\resources\\js\\post-contents.js'");
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!*********************************************!*\
-  !*** multi ./resources/js/main-vue-body.js ***!
+  !*** multi ./resources/js/post-contents.js ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\CodingProjects\PhpStormProjects\qukenon-blog\resources\js\main-vue-body.js */"./resources/js/main-vue-body.js");
+module.exports = __webpack_require__(/*! E:\CodingProjects\PhpStormProjects\qukenon-blog\resources\js\post-contents.js */"./resources/js/post-contents.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main-vue-body.js.map
+//# sourceMappingURL=post-contents.js.map

@@ -104,6 +104,40 @@
     }
 
 
+    #contents {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid $secondary;
+        border-bottom: 1px solid $secondary;
+        padding-top: $size;
+        padding-bottom: $size-double;
+        margin-top: $size-double;
+        margin-bottom: $size-double;
+
+        .title-contents-h2 {
+            margin-left: $size-double;
+
+            a {
+                &::before {
+                    content: '- ';
+                }
+            }
+        }
+
+        .title-contents-h3 {
+            margin-left: $size-double * 2;
+
+            a {
+                &::before {
+                    content: '...  ';
+                }
+            }
+
+        }
+
+    }
+
+
     article {
         padding-left: $size * 5;
         border-left: $size solid $red;
