@@ -202,6 +202,16 @@
 
         </article>
 
+        <section class="post-tags">
+            <h2>Теги</h2>
+            <div>
+                @forelse( $tags as $tag)
+                    <a class="badge" href="{{ route('tag.show', $tag) }}">{{ $tag->name }}</a>
+                @empty
+                @endforelse
+            </div>
+        </section>
+
         <section id="social-buttons" class="social-buttons">
             {{--            @if($post->category->id !== 12)--}}
             <h2>Поделитесь записью пожалуйста:)</h2>

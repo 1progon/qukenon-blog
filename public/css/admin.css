@@ -213,44 +213,6 @@ select option {
   max-width: unset;
 }
 
-.btn {
-  color: #ffffff;
-  padding: 0.625rem 1.25rem;
-  background-color: #d200c7;
-  border-radius: 0.625rem;
-  cursor: pointer;
-  max-width: 15rem;
-}
-
-.btn:hover {
-  color: #ffffff;
-  background-color: #ff00f2;
-}
-
-.btn.btn-fluid {
-  max-width: unset;
-}
-
-.btn-outline {
-  color: #ffffff;
-  padding: 0.625rem 1.25rem;
-  background-color: #d200c7;
-  border-radius: 0.625rem;
-  cursor: pointer;
-  max-width: 15rem;
-  background-color: unset;
-  border: 1px solid #d200c7;
-}
-
-.btn-outline:hover {
-  color: #ffffff;
-  background-color: #ff00f2;
-}
-
-.btn-outline.btn-fluid {
-  max-width: unset;
-}
-
 .link,
 .link:active,
 .link:focus,
@@ -337,6 +299,50 @@ select option {
 .error {
   background-color: #a1aed4;
   padding: 1.25rem;
+  border-radius: 0.625rem;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.625rem 1.25rem;
+  background-color: #d200c7;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  max-width: 15rem;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background-color: #ff00f2;
+}
+
+.btn.btn-fluid {
+  max-width: unset;
+}
+
+.btn-outline {
+  color: #ffffff;
+  padding: 0.625rem 1.25rem;
+  background-color: #d200c7;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  max-width: 15rem;
+  background-color: unset;
+  border: 1px solid #d200c7;
+}
+
+.btn-outline:hover {
+  color: #ffffff;
+  background-color: #ff00f2;
+}
+
+.btn-outline.btn-fluid {
+  max-width: unset;
+}
+
+.badge {
+  background-color: #a1aed4;
+  padding: 0.625rem 1.25rem;
   border-radius: 0.625rem;
 }
 

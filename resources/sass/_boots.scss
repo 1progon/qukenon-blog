@@ -109,14 +109,6 @@ select {
 }
 
 
-.btn {
-    @include btn();
-}
-
-.btn-outline {
-    @include btn-outline();
-}
-
 .link, .link:active, .link:focus, .link:visited {
     padding: 0;
     margin: 0;
@@ -183,8 +175,27 @@ select {
     color: $green;
 }
 
+//Errors
 .error {
     background-color: $secondary;
     padding: $size-double;
+    border-radius: $size;
+}
+
+
+//Buttons
+.btn {
+    @include btn();
+}
+
+.btn-outline {
+    @include btn-outline();
+}
+
+
+//Badge
+.badge {
+    background-color: $secondary;
+    padding: $size $size-double;
     border-radius: $size;
 }

@@ -12,7 +12,7 @@
             @php
                 $posts = $category->posts()->latest()->paginate(10);
             @endphp
-            <div class="title">{{ $category->title }}</div>
+            <h1 class="title">{{ $category->title }}</h1>
             <div class="description">{{ $category->description }}</div>
 
             @forelse( $posts as $post)

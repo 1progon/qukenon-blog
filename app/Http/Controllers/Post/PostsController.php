@@ -135,8 +135,11 @@ class PostsController extends Controller
             ->inRandomOrder()
             ->limit(4)->get();
 
+        $tags = $post->tags;
 
-        return view('post.show', compact('post', 'comments', 'relatedPosts', 'firstImage', 'images'));
+
+        return view('post.show',
+            compact('post', 'comments', 'tags', 'relatedPosts', 'firstImage', 'images'));
     }
 
     /**
