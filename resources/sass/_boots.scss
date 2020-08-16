@@ -62,10 +62,8 @@ input, select, textarea {
 }
 
 select {
-
     option {
-        margin: $size-triple;
-        font-size: 1.6rem;
+        font-size: $size-double;
     }
 }
 
@@ -75,6 +73,13 @@ select {
     grid-template-columns: 200px 2fr;
     justify-content: space-evenly;
     align-items: center;
+
+    > div.f-column {
+        display: flex;
+        flex-direction: column;
+        max-height: 200px;
+        overflow-y: scroll
+    }
 
     label {
         cursor: pointer;
@@ -170,7 +175,7 @@ select {
 }
 
 //Colors
-.red {
+.red, .error {
     color: $red;
 }
 
@@ -178,3 +183,8 @@ select {
     color: $green;
 }
 
+.error {
+    background-color: $secondary;
+    padding: $size-double;
+    border-radius: $size;
+}

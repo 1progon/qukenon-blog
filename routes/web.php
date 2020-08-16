@@ -25,14 +25,17 @@ Route::view('about', 'pages.about')->name('page.about');
 Route::view('contact', 'pages.contact')->name('page.contact');
 
 
-
-
 // Front view Category
 Route::resource('category', 'CategoriesController')
     ->only(['index', 'show']);
 
 // Front view: List of Posts
 Route::get('post', 'PostsController@index');
+
+//Tags
+Route::resource('tag', 'TagController')
+    ->only(['index', 'show']);
+
 // Front view: Single Post
 Route::get('{post}/0000{post_id}', 'PostsController@show')->name('post.front.show');
 
@@ -55,30 +58,29 @@ Route::prefix('admin123123')
         // Posts
         // User Posts: Index
         Route::resource('post', 'UserPostsController')
-            ->only([
-                'index'
-            ]);
+            ->only(['index']);
 
         // User Posts: Create, Store, Edit, Update, Destroy
         Route::resource('post', 'PostsController')
-            ->only([
-                'create', 'store', 'edit', 'update', 'destroy'
-            ]);
+            ->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 
         // Categories
         // User Categories Index
         Route::resource('category', 'UserCategoriesController')
-            ->only([
-                'index'
-            ]);
+            ->only(['index']);
 
+        //Tags
+        Route::resource('tag', 'TagController')
+            ->only(['create', 'edit', 'store', 'update', 'destroy']);
+
+        //User tags controller
+        Route::resource('tag', 'UserTagsController')
+            ->only('index');
 
         // Create, Store, Edit, Update, Destroy Category
         Route::resource('category', 'CategoriesController')
-            ->only([
-                'create', 'store', 'edit', 'update', 'destroy'
-            ]);
+            ->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 
         // Create, Store, Edit, Update, Destroy Category

@@ -81,11 +81,16 @@
 
         @if( isset($firstImage))
             @php
-
                 $thumb = \App\Http\Controllers\PostsController::THUMB['smallest'];
+                /** @var \App\PostImage $firstImage */
+                $pathToImage = storage_path('app/public/' . $firstImage->folder . '/'. $firstImage->filename);
 
-                $imSize = getimagesize(asset('storage/' . $firstImage->folder . '/'. $firstImage->filename));
-
+                try {
+                    $imSize = getimagesize($pathToImage);
+                } catch (Exception $exception) {
+                    $imSize[0] = 1000;
+                    $imSize[1] = 500;
+                }
             @endphp
 
             <div class="images-block @if( $imSize[0] < 720) images-block-float @endif ">
@@ -143,19 +148,19 @@
             Need Sanitize data purifer--}}
 
             {{--Adsense before Post--}}
-            @if($post->category->id !== 12)
-                <div class="adv-ads">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- qukenon 336-280 -->
-                    <ins class="adsbygoogle"
-                         style="display:inline-block;width:336px;height:280px"
-                         data-ad-client="ca-pub-8481515375748477"
-                         data-ad-slot="3239673640"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            @endif
+            {{--            @if($post->category->id !== 12)--}}
+            <div class="adv-ads">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- qukenon 336-280 -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:336px;height:280px"
+                     data-ad-client="ca-pub-8481515375748477"
+                     data-ad-slot="3239673640"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {{--            @endif--}}
 
 
 
@@ -165,42 +170,42 @@
 
             <div>
 
-                @if($post->category->id !== 12)
-                    {{--Adsense after Post - netboard - only non-mobile--}}
-                    <div class="adv-ads-after-article">
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- qukenon netboard 580-400 -->
-                        <ins class="adsbygoogle"
-                             style="display:inline-block;width:580px;height:400px"
-                             data-ad-client="ca-pub-8481515375748477"
-                             data-ad-slot="4228008608"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
+                {{--                @if($post->category->id !== 12)--}}
+                {{--Adsense after Post - netboard - only non-mobile--}}
+                <div class="adv-ads-after-article">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- qukenon netboard 580-400 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:580px;height:400px"
+                         data-ad-client="ca-pub-8481515375748477"
+                         data-ad-slot="4228008608"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
 
-                    {{--Adsense after Post - 336-280 - only on Mobile--}}
-                    <div class="adv-ads-after-article-for-mobile">
-                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- qukenon 336-280 -->
-                        <ins class="adsbygoogle"
-                             style="display:inline-block;width:336px;height:280px"
-                             data-ad-client="ca-pub-8481515375748477"
-                             data-ad-slot="3239673640"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
+                {{--Adsense after Post - 336-280 - only on Mobile--}}
+                <div class="adv-ads-after-article-for-mobile">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- qukenon 336-280 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:336px;height:280px"
+                         data-ad-client="ca-pub-8481515375748477"
+                         data-ad-slot="3239673640"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
 
-                    </div>
-                @endif
+                </div>
+                {{--                @endif--}}
             </div>
 
         </article>
 
         <section id="social-buttons" class="social-buttons">
-            @if($post->category->id !== 12)
-                <h2>Поделитесь записью пожалуйста:)</h2>
-            @endif
+            {{--            @if($post->category->id !== 12)--}}
+            <h2>Поделитесь записью пожалуйста:)</h2>
+            {{--            @endif--}}
 
             {{--sharethis.com--}}
             <div class="sharethis-inline-share-buttons"></div>
@@ -209,9 +214,9 @@
 
 
         <section id="comments" class="vk-comments-form">
-            @if($post->category->id !== 12)
-                <h2>Оставьте пожалуйста комментарий:)</h2>
-            @endif
+            {{--            @if($post->category->id !== 12)--}}
+            <h2>Оставьте пожалуйста комментарий:)</h2>
+            {{--            @endif--}}
 
             {{--VK Comment form--}}
             <script>

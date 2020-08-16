@@ -16,9 +16,7 @@ class HomepageController extends Controller
     {
 
         $stopShowFeatured = false;
-        $posts = Post::where('category_id', '!=', 12)
-            ->latest()
-            ->paginate(15);
+        $posts = Post::latest()->paginate();
 
         if ($posts->count() < 1) {
             return abort(404);

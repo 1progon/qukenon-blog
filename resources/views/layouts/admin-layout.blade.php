@@ -8,6 +8,7 @@
     <title>@yield('title', 'Dashboard') | Q.Dashboard</title>
 
     <meta name="robots" content="noindex, nofollow"/>
+    <meta name="l_token" content="{{ csrf_token() }}">
 
 
     <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">

@@ -1,7 +1,7 @@
 @extends('layouts.admin-layout')
 
 @section('main')
-    <div class="container" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div class="container">
         <h1>Все категории</h1>
         {{--        @forelse( $categories as $category)--}}
         {{--            <div class="text-row">--}}
