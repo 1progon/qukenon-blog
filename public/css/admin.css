@@ -161,8 +161,7 @@ textarea[type=radio] {
 }
 
 select option {
-  margin: 1.875rem;
-  font-size: 1.6rem;
+  font-size: 1.25rem;
 }
 
 .input-group {
@@ -171,6 +170,13 @@ select option {
   grid-template-columns: 200px 2fr;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.input-group > div.f-column {
+  display: flex;
+  flex-direction: column;
+  max-height: 200px;
+  overflow-y: scroll;
 }
 
 .input-group label {
@@ -319,12 +325,19 @@ select option {
   background-color: unset;
 }
 
-.red {
+.red,
+.error {
   color: #e82d44;
 }
 
 .green {
   color: #00a292;
+}
+
+.error {
+  background-color: #a1aed4;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
 }
 
 .admin-posts-list .posts tr:nth-child(even) {
@@ -343,6 +356,17 @@ select option {
   color: #d200c7;
   font-size: 1.25rem;
   margin-right: 0.625rem;
+}
+
+.container form .tags-list .group-name {
+  font-weight: bold;
+  color: darkgoldenrod;
+}
+
+.container form .tags-list #select-tag-group {
+  position: absolute;
+  z-index: 1;
+  max-width: 280px;
 }
 
 .old-images {

@@ -12,6 +12,25 @@
         font-size: $size-double;
         margin-right: $size;
     }
+
+    form {
+        .tags-list {
+
+            .group-name {
+                font-weight: bold;
+                color: darkgoldenrod
+            }
+        }
+
+
+        .tags-list #select-tag-group {
+            position: absolute;
+            z-index: 1;
+            max-width: 280px;
+        }
+    }
+
+
 }
 
 .old-images {
@@ -39,7 +58,6 @@
             cursor: pointer;
         }
     }
-
 
 
 }

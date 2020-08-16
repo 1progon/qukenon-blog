@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Classes\ImageResizer;
 use App\Post;
 use App\PostImage;
+use App\Tag;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -55,11 +56,12 @@ class PostsController extends Controller
 
         $noCategories = false;
         $categories = Category::all();
+        $tags = Tag::latest()->get();
 
         if ($categories->count() < 1) {
             $noCategories = true;
         }
-        return view('user-admin.post.add-post', compact('categories', 'noCategories'));
+        return view('user-admin.post.add-post', compact('categories', 'noCategories', 'tags'));
     }
 
     /**
@@ -70,15 +72,18 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request->tags);
+
         $user = Auth::user();
         $category = Category::find($request->category_id);
 
         $post = new Post();
 
-
         $generateSlug = Str::slug($request->title, '-');
 
         $post->slug = $generateSlug;
+        $post->tags()->sync($request->tags);
 
         $postsExist = Post::where('slug', '=', $generateSlug)->count();
 
@@ -143,7 +148,8 @@ class PostsController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('user-admin.post.edit-post', compact('post', 'categories'));
+        $tags = Tag::latest()->get();
+        return view('user-admin.post.edit-post', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -156,10 +162,11 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
 
-
         $category = Category::find($request->category_id);
 
         $post->fill($request->except(['images', 'remove_images']));
+
+        $post->tags()->sync($request->tags);
 
         $category->posts()->save($post);
 
@@ -213,7 +220,7 @@ class PostsController extends Controller
             }
         }
 
-
+        $post->tags()->sync([]);
         $post->delete();
 
         return redirect()->route('post.index');

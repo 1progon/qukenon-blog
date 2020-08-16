@@ -42,7 +42,6 @@ class CategoriesController extends Controller
 
         $cat = new Category();
 
-
         $cat->fill($request->all());
 
         $user->categories()->save($cat);

@@ -5,9 +5,6 @@
 @section('main')
     <div class="container">
         <h2>Создать пост</h2>
-        <span>Теперь Slug делается сам, можно изменить будет при редактировании</span>
-
-
 
 
         @if( $noCategories)
@@ -30,6 +27,25 @@
                     </select>
                 </div>
 
+                <div class="input-group">
+                    <label for="select-tag-group">Фильтр тегов</label>
+                    <input @keyup="filterGroups" type="text" name="" id="select-tag-group" class="select-tag-group">
+                </div>
+                <div class="input-group tags-list">
+                    <label>Теги</label>
+                    <div class="f-column">
+                        @forelse( $tags as $tag )
+                            <div>
+                                <input type="checkbox" name="tags[]" id="tag_{{ $tag->id }}" value="{{ $tag->id }}">
+                                <label for="tag_{{ $tag->id }}">
+                                    {{ $tag->name }}
+                                    <span class="group-name">(гр.: {{ $tag->group }})</span>
+                                </label>
+                            </div>
+                        @empty
+                        @endforelse
+                    </div>
+                </div>
 
                 <div class="input-group">
                     <label for="title" class="required">Title</label>
