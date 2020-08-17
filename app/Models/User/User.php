@@ -1,8 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models\User;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Category\Category;
+use App\Models\Post\Post;
+use App\Models\Post\PostComment;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -11,9 +13,7 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * @var array|string[]
      */
     protected $fillable = [
         'name', 'email', 'password',

@@ -16,13 +16,13 @@
 
             <a href="{{ route('post.front.show', [$post, $post->id]) }}">
                 @php
-                    $firstImage = $post->images()->first();
+                    $firstImage = $post->images()->first()
                 @endphp
 
                 @if( isset( $firstImage))
                     @php
-                        $thumb = \App\Http\Controllers\PostsController::THUMB['small'];
-                        $imagePath = $firstImage->folder . '/' . $thumb['str'] . '_' . $firstImage->filename;
+                        $thumb = \App\Http\Controllers\Post\PostsController::THUMB['small'];
+                        $imagePath = $firstImage->folder . '/' . $thumb['str'] . '_' . $firstImage->filename
                     @endphp
 
 

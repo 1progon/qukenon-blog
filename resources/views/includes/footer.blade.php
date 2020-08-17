@@ -29,7 +29,7 @@
 
     <div class="copyrights">
         @php
-            $date = date('Y');
+            $date = date('Y')
         @endphp
 
         <div>

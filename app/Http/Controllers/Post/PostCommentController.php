@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Post;
 
-use App\PostComment;
+use App\Http\Controllers\Controller;
+use App\Models\Post\PostComment;
 use Illuminate\Http\Request;
 
 class PostCommentController extends Controller
@@ -10,7 +11,7 @@ class PostCommentController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
@@ -20,7 +21,7 @@ class PostCommentController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function create()
     {
@@ -30,8 +31,8 @@ class PostCommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return void
      */
     public function store(Request $request)
     {
@@ -41,8 +42,8 @@ class PostCommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\PostComment  $comment
-     * @return \Illuminate\Http\Response
+     * @param PostComment $comment
+     * @return void
      */
     public function show(PostComment $comment)
     {
@@ -52,8 +53,8 @@ class PostCommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PostComment  $comment
-     * @return \Illuminate\Http\Response
+     * @param PostComment $comment
+     * @return void
      */
     public function edit(PostComment $comment)
     {
@@ -63,9 +64,9 @@ class PostCommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PostComment  $comment
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param PostComment $comment
+     * @return void
      */
     public function update(Request $request, PostComment $comment)
     {
@@ -75,8 +76,8 @@ class PostCommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PostComment  $comment
-     * @return \Illuminate\Http\Response
+     * @param PostComment $comment
+     * @return void
      */
     public function destroy(PostComment $comment)
     {

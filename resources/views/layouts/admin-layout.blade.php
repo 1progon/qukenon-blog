@@ -52,8 +52,6 @@
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
-<!-- версия для разработки, отображает полезные предупреждения в консоли -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="{{ asset('/js/admin-vue-body.js') }}"></script>
 
 

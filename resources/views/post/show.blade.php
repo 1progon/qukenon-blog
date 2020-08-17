@@ -7,6 +7,10 @@
 @section('canonical', route('post.front.show', [$post, $post->id]))
 
 @section('head')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+@endsection
+
+@section('head')
     {{--Head script VK--}}
     <script src="https://vk.com/js/api/openapi.js?168"></script>
 
@@ -81,8 +85,12 @@
 
         @if( isset($firstImage))
             @php
-                $thumb = \App\Http\Controllers\PostsController::THUMB['smallest'];
-                /** @var \App\PostImage $firstImage */
+
+
+
+                $thumb = \App\Http\Controllers\Post\PostsController::THUMB['smallest'];
+
+                /** @var \App\Models\Post\PostImage $firstImage */
                 $pathToImage = storage_path('app/public/' . $firstImage->folder . '/'. $firstImage->filename);
 
                 try {
@@ -127,40 +135,22 @@
         {{--        @endif--}}
 
 
-        @verbatim
-            <section v-if="postTitles && postTitles.length > 1" id="contents">
-                <h4>Содержание</h4>
-                <template v-for="title in postTitles">
-                    <div class="title-contents-h2">
-                        <a :href="'#' + title.id" v-if="title.tagName == 'H2'">{{ title.innerHTML }}</a>
-                    </div>
-                    <div class="title-contents-h3">
-                        <a :href="'#' + title.id" v-if="title.tagName == 'H3'">{{ title.innerHTML }}</a>
-                    </div>
-                </template>
-            </section>
-        @endverbatim
-
+        <post-contents></post-contents>
 
         <article>
 
-            {{--TODO
-            Need Sanitize data purifer--}}
+            {{--TODO Need Sanitize data purifer--}}
 
             {{--Adsense before Post--}}
-            {{--            @if($post->category->id !== 12)--}}
+            {{--@if($post->category->id !== 12)--}}
             <div class="adv-ads">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- qukenon 336-280 -->
                 <ins class="adsbygoogle"
                      style="display:inline-block;width:336px;height:280px"
                      data-ad-client="ca-pub-8481515375748477"
                      data-ad-slot="3239673640"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
             </div>
-            {{--            @endif--}}
+            {{--@endif--}}
 
 
 
@@ -170,34 +160,26 @@
 
             <div>
 
-                {{--                @if($post->category->id !== 12)--}}
+                {{--@if($post->category->id !== 12)--}}
                 {{--Adsense after Post - netboard - only non-mobile--}}
                 <div class="adv-ads-after-article">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- qukenon netboard 580-400 -->
                     <ins class="adsbygoogle"
                          style="display:inline-block;width:580px;height:400px"
                          data-ad-client="ca-pub-8481515375748477"
                          data-ad-slot="4228008608"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+
                 </div>
 
                 {{--Adsense after Post - 336-280 - only on Mobile--}}
                 <div class="adv-ads-after-article-for-mobile">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- qukenon 336-280 -->
                     <ins class="adsbygoogle"
                          style="display:inline-block;width:336px;height:280px"
                          data-ad-client="ca-pub-8481515375748477"
                          data-ad-slot="3239673640"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-
                 </div>
-                {{--                @endif--}}
+                {{--@endif--}}
             </div>
 
         </article>
@@ -229,16 +211,6 @@
             {{--            @endif--}}
 
             {{--VK Comment form--}}
-            <script>
-                VK.Widgets.Comments("vk_comments", {
-                    height: 'auto',
-                    limit: 15,
-                    attach: "*",
-                    autoPublish: 1
-                });
-
-            </script>
-
             <div id="vk_comments"></div>
         </section>
     </div>
@@ -258,4 +230,28 @@
 
     @include('post.related-posts')
 
+@endsection
+
+@section('script')
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <script>
+        VK.Widgets.Comments("vk_comments", {
+            height: 'auto',
+            limit: 15,
+            attach: "*",
+            autoPublish: 1
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        $('[data-fancybox="gallery"]').fancybox({
+            hideScrollbar: false,
+        });
+    </script>
 @endsection

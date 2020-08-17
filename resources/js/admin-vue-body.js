@@ -1,3 +1,4 @@
+import Vue from "vue/dist/vue.esm.browser";
 let body = document.querySelector('.wrapper');
 
 let bodyApp = new Vue({

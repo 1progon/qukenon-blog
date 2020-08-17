@@ -41,7 +41,7 @@
 
 
                 @php
-                    $categories = \App\Category::where('main_bar', '=', 1)->get();
+                    $categories = \App\Models\Category\Category::where('main_bar', '=', 1)->get()
                 @endphp
 
                 @for($i = 0; $i < 6; $i++)

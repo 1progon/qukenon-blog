@@ -14,7 +14,7 @@
 
             <div class="description">{{ $tag->description }}</div>
             @php
-                $posts = $tag->posts()->paginate();
+                $posts = $tag->posts()->paginate()
             @endphp
 
 

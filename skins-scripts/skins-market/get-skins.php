@@ -5,9 +5,9 @@ session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 defined('ABS_PATH') or die('У Вас нет доступа');
 
-use App\Classes\Cache;
-use App\Classes\Currency;
-use App\Classes\GetSkins;
+use App\Models\User\Classes\Cache;
+use App\Models\User\Classes\Currency;
+use App\Models\User\Classes\GetSkins;
 use GuzzleHttp\Client;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

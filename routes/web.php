@@ -14,6 +14,7 @@
 
 // Auth::routes();
 
+
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register.form');
 Route::post('register', 'Auth\RegisterController@register')->name('register');
 
@@ -26,18 +27,18 @@ Route::view('contact', 'pages.contact')->name('page.contact');
 
 
 // Front view Category
-Route::resource('category', 'CategoriesController')
+Route::resource('category', 'Category\CategoriesController')
     ->only(['index', 'show']);
 
 // Front view: List of Posts
-Route::get('post', 'PostsController@index');
+Route::get('post', 'Post\PostsController@index');
 
 //Tags
 Route::resource('tag', 'TagController')
     ->only(['index', 'show']);
 
 // Front view: Single Post
-Route::get('{post}/0000{post_id}', 'PostsController@show')->name('post.front.show');
+Route::get('{post}/0000{post_id}', 'Post\PostsController@show')->name('post.front.show');
 
 Route::get('/', 'HomepageController@index');
 
@@ -57,17 +58,17 @@ Route::prefix('admin123123')
 
         // Posts
         // User Posts: Index
-        Route::resource('post', 'UserPostsController')
+        Route::resource('post', 'User\UserPostsController')
             ->only(['index']);
 
         // User Posts: Create, Store, Edit, Update, Destroy
-        Route::resource('post', 'PostsController')
+        Route::resource('post', 'Post\PostsController')
             ->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 
         // Categories
         // User Categories Index
-        Route::resource('category', 'UserCategoriesController')
+        Route::resource('category', 'User\UserCategoriesController')
             ->only(['index']);
 
         //Tags
@@ -75,24 +76,24 @@ Route::prefix('admin123123')
             ->only(['create', 'edit', 'store', 'update', 'destroy']);
 
         //User tags controller
-        Route::resource('tag', 'UserTagsController')
+        Route::resource('tag', 'User\UserTagsController')
             ->only('index');
 
         // Create, Store, Edit, Update, Destroy Category
-        Route::resource('category', 'CategoriesController')
+        Route::resource('category', 'Category\CategoriesController')
             ->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 
         // Create, Store, Edit, Update, Destroy Category
         Route::view('images-error', 'user-admin/images-error')->name('error.images');
 
-        Route::delete('remove-error-images', 'PostImagesController@removeErrorImages')
+        Route::delete('remove-error-images', 'Post\PostImagesController@removeErrorImages')
             ->name('error.images.remove');
 
 
         // Users
         // User edit & Update
-        Route::resource('user', 'UsersController')
+        Route::resource('user', 'User\UsersController')
             ->only([
                 'edit', 'update'
             ]);

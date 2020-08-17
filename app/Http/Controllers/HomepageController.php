@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\Http\Controllers\Post\PostsController;
+use App\Models\Post\Post;
+use Illuminate\Contracts\Support\Renderable;
 
 class HomepageController extends Controller
 {
 
     /**
      * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable|void
+     * @return Renderable|void
      */
     public function index()
     {
@@ -18,7 +19,7 @@ class HomepageController extends Controller
         $stopShowFeatured = false;
         $posts = Post::latest()->paginate();
 
-        if ($posts->count() < 1) {
+        if (Post::count() < 1) {
             return abort(404);
         }
 

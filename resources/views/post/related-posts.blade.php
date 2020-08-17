@@ -5,7 +5,7 @@
 
     <div class="post-media-card">
         @php
-            $related = true;
+            $related = true
         @endphp
 
         @forelse( $relatedPosts as $post)

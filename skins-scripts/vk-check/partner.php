@@ -2,8 +2,8 @@
 
 require_once './vendor/autoload.php';
 
-use App\Classes\Database;
-use App\Classes\UsersController;
+use App\Models\User\Classes\Database;
+use App\Models\User\Classes\UsersController;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userData = $_POST;

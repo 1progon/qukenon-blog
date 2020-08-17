@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Post;
 
-use App\PostImage;
+use App\Http\Controllers\Controller;
+use App\Models\Post\PostImage;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,7 +13,6 @@ class PostImagesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -21,7 +22,6 @@ class PostImagesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -31,8 +31,7 @@ class PostImagesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
      */
     public function store(Request $request)
     {
@@ -42,8 +41,8 @@ class PostImagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\PostImage $postImages
-     * @return \Illuminate\Http\Response
+     * @param PostImage $postImages
+     * @return void
      */
     public function show(PostImage $postImages)
     {
@@ -53,8 +52,8 @@ class PostImagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\PostImage $postImages
-     * @return \Illuminate\Http\Response
+     * @param PostImage $postImages
+     * @return void
      */
     public function edit(PostImage $postImages)
     {
@@ -64,9 +63,9 @@ class PostImagesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\PostImage $postImages
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param PostImage $postImages
+     * @return void
      */
     public function update(Request $request, PostImage $postImages)
     {
@@ -76,8 +75,8 @@ class PostImagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\PostImage $postImages
-     * @return \Illuminate\Http\Response
+     * @param PostImage $postImages
+     * @return void
      */
     public function destroy(PostImage $postImages)
     {
@@ -89,7 +88,7 @@ class PostImagesController extends Controller
      * Используется для удаления ошибочных фото в route error.images
      *
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function removeErrorImages(Request $request)
     {

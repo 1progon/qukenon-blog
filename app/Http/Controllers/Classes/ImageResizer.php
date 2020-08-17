@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Classes;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Imagick;
+use ImagickException;
 
 class ImageResizer
 {
@@ -18,7 +19,11 @@ class ImageResizer
     public function __construct($path = null)
     {
         if (isset($path)) {
-            $this->initImagick($path);
+            try {
+                $this->initImagick($path);
+            } catch (ImagickException $e) {
+
+            }
 
 
         }
@@ -30,7 +35,7 @@ class ImageResizer
      * @param int $compression
      * @param int $scheme
      * @return Imagick
-     * @throws \ImagickException
+     * @throws ImagickException
      */
     private function initImagick(string $path,
                                  string $extension = 'jpg',
@@ -70,7 +75,7 @@ class ImageResizer
         $newPath .= File::dirname($path);
         $newPath .= '/';
 
-        // if width and height issset create path for thumbs
+        // if width and height isset create path for thumbs
         $newPath .= isset($width, $height) ? $width . '_' . $height . '_' : '';
 
         $newPath .= File::name($path);
@@ -88,7 +93,7 @@ class ImageResizer
      * @param int $width
      * @param int $height
      * @return string
-     * @throws \ImagickException
+     * @throws ImagickException
      */
     public function scaleMainImage(string $path, int $width = 1140, int $height = 0): string
     {
@@ -122,8 +127,8 @@ class ImageResizer
     /**
      * @param string $path
      * @param int|array $widthOrArr
-     * @param int $height
-     * @throws \ImagickException
+     * @param int|null $height
+     * @throws ImagickException
      */
     public function createThumb(string $path, array $widthOrArr, int $height = null)
     {

@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models\Post;
 
+use App\Models\User\User;
 use Illuminate\Database\Eloquent\Model;
 
 class PostComment extends Model

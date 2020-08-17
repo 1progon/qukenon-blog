@@ -82,12 +82,12 @@
                 <label for="">Картинки</label>
                 <div class="old-images">
                     @php
-                        $thumb = \App\Http\Controllers\PostsController::THUMB['smallest'];
+                        $thumb = \App\Http\Controllers\Post\PostsController::THUMB['smallest']
                     @endphp
 
                     @forelse( $post->images as $image)
                         @php
-                            $imagePath = $image->folder . '/' . $thumb['str'] .'_' . $image->filename;
+                            $imagePath = $image->folder . '/' . $thumb['str'] .'_' . $image->filename
                         @endphp
 
                         <div class="block">

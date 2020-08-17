@@ -54,16 +54,8 @@
 
 @include('includes.counter')
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-{{--VUE Production--}}
-{{--<script src="https://cdn.jsdelivr.net/npm/vue"></script>--}}
-
-{{--VUE Development--}}
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="{{ asset('js/main-vue-body.js') }}"></script>
 <script src="{{ asset('js/scrollToTop.js') }}"></script>
 

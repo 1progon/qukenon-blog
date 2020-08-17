@@ -1,7 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models\Post;
 
+use App\Models\Category\Category;
+use App\Models\Tag\Tag;
+use App\Models\User\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model

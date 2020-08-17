@@ -46,7 +46,8 @@ $(document).ready(function () {
                 skinsButton.remove();
                 window.scrollTo(0, 0);
 
-                $("#skinsForm").html('Поиск доступных скинов в базе данных, ожидайте, поиск может занять какое-то время... <br /><img src="/free-skins/tail-spin.svg" /><br />');
+                $("#skinsForm").html('Поиск доступных скинов в базе данных, ожидайте, поиск может занять какое-то' +
+                    ' время... <br /><img alt="" src="/free-skins/tail-spin.svg" /><br />');
 
                 let params = {
                     url: "/free-skins/skins-from-db.php",
@@ -63,7 +64,8 @@ $(document).ready(function () {
             });
         }
 
-        $("#getFreeSkins").html('<img src="/free-skins/tail-spin.svg" /> Смотреть скины, которые можно получить бесплатно, <br />подождите пожалуйста, кнопка скоро будет доступна: <span style="font-size: 25px; color: blue">' + beforeButtonActive + '<\/span>');
+        $("#getFreeSkins").html('<img alt="" src="/free-skins/tail-spin.svg" /> Смотреть скины, которые можно получить' +
+            ' бесплатно, <br />подождите пожалуйста, кнопка скоро будет доступна: <span style="font-size: 25px; color: blue">' + beforeButtonActive + '<\/span>');
 
         beforeButtonActive--;
     }, 1000);
@@ -78,7 +80,10 @@ $(document).ready(function () {
 
 
         function foundSkinsCount(foundSkinsCounter) {
-            $("#skinsForm").html('Поиск доступных скинов в базе данных, ожидайте, поиск может занять какое-то время... <br /><img src="/free-skins/tail-spin.svg" /><br />Найдено скинов: <span style="text-size: 40px; font-weight: 700; color: blue">' + foundSkinsCounter + '<\/span>');
+            $("#skinsForm").html('Поиск доступных скинов в базе данных, ожидайте, поиск может занять какое-то' +
+                ' время... <br /><img alt="" src="/free-skins/tail-spin.svg" /><br />Найдено скинов: <span' +
+                ' style="font-size: 40px;' +
+                ' font-weight: 700; color: blue">' + foundSkinsCounter + '<\/span>');
         }
 
         var wasFoundSkins = setInterval(() => {
@@ -156,7 +161,7 @@ $(document).ready(function () {
                 }
             }
 
-            $("#skinsForm").html("Найдено скинов <span style='text-size: 40px; font-weight: 700; color: blue'>" + skinsCount + "<\/span>, уррраа.<br />Подождите, идёт загрузка бесплатных скинов...<br />Пока бежит время...., пожалуйста, потратьте его с пользой на просмотр контента на этой странице! Никуда не уходите, и не переключайтесь...<br />Осталось секунд: <span style='text-size: 40px; font-weight: 700; color: red'>" + counter + "<\/span>!");
+            $("#skinsForm").html("Найдено скинов <span style='font-size: 40px; font-weight: 700; color: blue'>" + skinsCount + "<\/span>, уррраа.<br />Подождите, идёт загрузка бесплатных скинов...<br />Пока бежит время...., пожалуйста, потратьте его с пользой на просмотр контента на этой странице! Никуда не уходите, и не переключайтесь...<br />Осталось секунд: <span style='font-size: 40px; font-weight: 700; color: red'>" + counter + "<\/span>!");
 
             windowActive = document.hasFocus();
             if (windowActive) {
@@ -168,7 +173,7 @@ $(document).ready(function () {
                     isAlerted = true;
                 }
 
-                $("#skinsForm").html("Найдено скинов <span style='text-size: 40px; font-weight: 700; color: blue'>" + skinsCount + "<\/span>, уррраа.<br />Подождите, идёт загрузка бесплатных скинов...<br />Пока бежит время...., пожалуйста, потратьте его с пользой на просмотр контента на этой странице! Никуда не уходите, и не переключайтесь...<br /><span style='text-size: 40px; font-weight: 700; color: red'>Счётчик временно остановлен. Как только Вы вернётесь к просмотру страницы или нажмёте здесь, счетчик будет восстановлен. Спасибо<\/span>!");
+                $("#skinsForm").html("Найдено скинов <span style='font-size: 40px; font-weight: 700; color: blue'>" + skinsCount + "<\/span>, уррраа.<br />Подождите, идёт загрузка бесплатных скинов...<br />Пока бежит время...., пожалуйста, потратьте его с пользой на просмотр контента на этой странице! Никуда не уходите, и не переключайтесь...<br /><span style='font-size: 40px; font-weight: 700; color: red'>Счётчик временно остановлен. Как только Вы вернётесь к просмотру страницы или нажмёте здесь, счетчик будет восстановлен. Спасибо<\/span>!");
             }
         }, 1000);
     }

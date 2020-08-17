@@ -1,29 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Category;
 
-use App\Category;
+use App\Http\Controllers\Controller;
+use App\Models\Category\Category;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class CategoriesController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function index()
     {
 
-        $categories = Category::paginate(15);
+        $categories = Category::paginate();
         return view('category.index', compact('categories'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -33,8 +37,8 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -52,8 +56,8 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Category $category
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Category $category
+     * @return Application|Factory|View
      */
     public function show(Category $category)
     {
@@ -64,8 +68,8 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Category $category
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Category $category
+     * @return Application|Factory|View
      */
     public function edit(Category $category)
     {
@@ -75,9 +79,9 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Category $category
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @param Category $category
+     * @return RedirectResponse
      */
     public function update(Request $request, Category $category)
     {
@@ -99,8 +103,9 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Category $category
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Category $category
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function destroy(Category $category)
     {

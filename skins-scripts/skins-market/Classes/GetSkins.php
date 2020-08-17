@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Classes;
+namespace App\Models\User\Classes;
 
 defined('ABS_PATH') or die('У Вас нет доступа');
 

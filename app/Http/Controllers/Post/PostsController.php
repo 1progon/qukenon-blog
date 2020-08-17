@@ -1,24 +1,32 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Post;
 
-use App\Category;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Classes\ImageResizer;
-use App\Post;
-use App\PostImage;
-use App\Tag;
+use App\Models\Category\Category;
+use App\Models\Post\Post;
+use App\Models\Post\PostImage;
+use App\Models\Tag\Tag;
 use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use stdClass;
+use Illuminate\View\View;
+use ImagickException;
 
 class PostsController extends Controller
 {
 
+    /**
+     * @var string
+     */
     private string $imagesFolder;
 
     const THUMB = [
@@ -37,11 +45,11 @@ class PostsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(10);
+        $posts = Post::latest()->paginate();
 
         return view('post.index', compact('posts'));
     }
@@ -49,7 +57,7 @@ class PostsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -67,15 +75,12 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
 
-        dd($request->tags);
-
-        $user = Auth::user();
         $category = Category::find($request->category_id);
 
         $post = new Post();
@@ -114,8 +119,9 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Post $post
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Post $post
+     * @return Application|Factory|View
+     * @throws Exception
      */
     public function show(Post $post)
     {
@@ -145,8 +151,8 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Post $post
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Post $post
+     * @return Application|Factory|View
      */
     public function edit(Post $post)
     {
@@ -158,9 +164,10 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Post $post
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @param Post $post
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function update(Request $request, Post $post)
     {
@@ -205,8 +212,9 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Post $post
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Post $post
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function destroy(Post $post)
     {
@@ -248,13 +256,12 @@ class PostsController extends Controller
             $resizer = new ImageResizer();
 
             // Scale Main image and get new path of it, because old image removed
-            $path = $resizer->scaleMainImage($path);
-
-
-            $resizer->createThumb($path, self::THUMB['smallest']);
-
-            $resizer->createThumb($path, self::THUMB['small']);
-
+            try {
+                $path = $resizer->scaleMainImage($path);
+                $resizer->createThumb($path, self::THUMB['smallest']);
+                $resizer->createThumb($path, self::THUMB['small']);
+            } catch (ImagickException $e) {
+            }
 
             // Add main image to DB
             $postImage->filename = $fileName . '.' . $newExtension;

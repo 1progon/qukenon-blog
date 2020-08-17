@@ -2,18 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Tag;
+use App\Models\Tag\Tag;
 use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 use Str;
 
+/**
+ * Class TagController
+ * @package App\Http\Controllers
+ */
 class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return void
      */
     public function index(Request $request)
     {
@@ -24,7 +33,7 @@ class TagController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @return Application|Factory|Response|View
      */
     public function create()
     {
@@ -37,8 +46,8 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     * @param Request $request
+     * @return Application|Factory|RedirectResponse|View
      */
     public function store(Request $request)
     {
@@ -62,7 +71,7 @@ class TagController extends Controller
         ]);
 
         $tag = new Tag();
-        $tag->fill($request->all());
+        $tag->fill($validated);
 
 
         $tag->save();
@@ -73,8 +82,8 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Tag $tag
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @param Tag $tag
+     * @return Application|Factory|Response|View
      */
     public function show(Tag $tag)
     {
@@ -84,8 +93,8 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Tag $tag
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @param Tag $tag
+     * @return Application|Factory|Response|View
      */
     public function edit(Tag $tag)
     {
@@ -98,9 +107,9 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Tag $tag
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @param Tag $tag
+     * @return RedirectResponse
      */
     public function update(Request $request, Tag $tag)
     {
@@ -115,7 +124,7 @@ class TagController extends Controller
             'unique' => 'Уже есть такой в базе'
         ]);
 
-        $tag->fill($request->all());
+        $tag->fill($validated);
         $tag->save();
 
         return redirect()->route('tag.index');
@@ -124,8 +133,9 @@ class TagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Tag $tag
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Tag $tag
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function destroy(Tag $tag)
     {
