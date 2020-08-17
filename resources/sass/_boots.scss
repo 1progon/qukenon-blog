@@ -1,3 +1,5 @@
+@use "mixins" as *;
+@use "variables" as *;
 .title, .description, .subtitle {
     padding: .3rem 0;
 }

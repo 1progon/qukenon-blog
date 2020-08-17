@@ -1,3 +1,47 @@
+//Reset Styles
+@use "reset-styles";
+
+//Errors
+@use "errors-404";
+
+//Body
+@use "body";
+
+//Footer
+@use "footer";
+
+//Boots
+@use "boots";
+
+//Header
+@use "header";
+
+//Forms
+@use "forms";
+
+//Homepage
+@use "homepage";
+
+//Post single
+@use "post";
+
+//Categories List - list of categories
+@use "categories-list";
+
+//Posts list - category
+@use "post-media-list";
+
+//Media card style
+@use "post-media-card";
+
+//Media
+@use "media-homepage";
+@use "media-body";
+@use "media-header";
+@use "media-post";
+@use "media-post-list";
+
+
 // Typography Fonts
 @font-face {
     font-family: 'Open Sans', sans-serif;
@@ -9,55 +53,6 @@
     url('./fonts/OpenSans-ExtraBold.ttf'),
     url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 }
-
-//Reset Styles
-@import "reset-styles";
-
-//Mixins
-@import "mixins";
-
-// Variables
-@import 'variables';
-
-//Errors
-@import "errors-404";
-
-//Body
-@import "body";
-
-//Footer
-@import "footer";
-
-//Boots
-@import "boots";
-
-//Header
-@import "header";
-
-//Forms
-@import "forms";
-
-//Homepage
-@import "homepage";
-
-//Post single
-@import "post";
-
-//Categories List - list of categories
-@import "categories-list";
-
-//Posts list - category
-@import "post-media-list";
-
-//Media card style
-@import "post-media-card";
-
-//Media
-@import "media-homepage";
-@import "media-body";
-@import "media-header";
-@import "media-post";
-@import "media-post-list";
 
 
 

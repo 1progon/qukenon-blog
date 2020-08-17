@@ -1,3 +1,11 @@
+@use "variables" as *;
+@use "reset-styles";
+@use "boots";
+
+@use "admin-styles/posts-index";
+@use "admin-styles/edit-post";
+@use "admin-styles/category-index";
+
 // Typography Fonts
 @font-face {
     font-family: 'Open Sans', sans-serif;
@@ -5,18 +13,6 @@
     url('./fonts/OpenSans-Regular.ttf'),
     url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 }
-
-@import "reset-styles";
-
-@import "mixins";
-
-@import "variables";
-
-@import "boots";
-
-@import "admin-styles/posts-index";
-@import "admin-styles/edit-post";
-@import "admin-styles/category-index";
 
 html, body {
     height: 100%;
