@@ -80,10 +80,15 @@ class TagController extends Controller
      * Display the specified resource.
      *
      * @param Tag $tag
-     * @return Application|Factory|Response|View
+     * @return Application|Factory|RedirectResponse|Response|View
      */
     public function show(Tag $tag)
     {
+        if (!$tag->posts()->count()) {
+            return redirect()->route('error404');
+
+        }
+
         return view('tags.show', compact('tag'));
     }
 

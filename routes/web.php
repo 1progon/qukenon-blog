@@ -14,6 +14,7 @@
 
 // Auth::routes();
 
+Route::view('404', 'errors.404')->name('error404');
 
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register.form');
 Route::post('register', 'Auth\RegisterController@register')->name('register');

@@ -57,10 +57,15 @@ class CategoriesController extends Controller
      * Display the specified resource.
      *
      * @param Category $category
-     * @return Application|Factory|View
+     * @return Application|Factory|RedirectResponse|View
      */
     public function show(Category $category)
     {
+
+        if (!$category->posts()->count()) {
+            return redirect()->route('error404');
+
+        }
 
         return view('category.show', compact('category'));
     }
