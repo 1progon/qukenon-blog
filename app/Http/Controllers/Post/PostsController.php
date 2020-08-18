@@ -33,6 +33,7 @@ class PostsController extends Controller
     const THUMB = [
         'smallest' => ['w' => 80, 'h' => 80, 'str' => '80_80'],
         'small' => ['w' => 256, 'h' => 144, 'str' => '256_144'],
+        'small2' => ['w' => 320, 'h' => 180, 'str' => '320_180'],
         'middle' => ['w' => 720, 'h' => 405, 'str' => '720_405'],
         'maximum' => ['w' => 1140, 'h' => 0, 'str' => '1140_0'],
     ];
@@ -134,11 +135,23 @@ class PostsController extends Controller
      * Display the specified resource.
      *
      * @param Post $post
-     * @return Application|Factory|View
+     * @return Application|Factory|RedirectResponse|View
      * @throws Exception
      */
     public function show(Post $post)
     {
+
+
+        //TODO Move hardcoded tag group and tag category to separate env constant
+        if ($post->category()->first()->id === 12) {
+            return redirect()
+                ->route('tag.show',
+                    [
+                        $post->tags()
+                            ->where('group', '=', 'download-minecraft-skins')
+                            ->first()
+                    ]);
+        }
 
         $images = cache()->remember('post_images_' . $post->id,
             86400,

@@ -85,8 +85,8 @@
                 <hr>
 
                 <div class="input-group">
-                    <label for="spec_file" class="required">Files</label>
-                    <input type="file" name="spec_files[]" id="spec_file" multiple required>
+                    <label for="spec_file">Files</label>
+                    <input type="file" name="spec_files[]" id="spec_file" multiple>
                 </div>
 
                 <hr>

@@ -197,7 +197,14 @@ select {
 
 //Badge
 .badge {
+    font-size: $size * 1.3;
+    display: inline-block;
+    margin: $size $size-double;
     background-color: $secondary;
     padding: $size $size-double;
-    border-radius: $size;
+    border-radius: $size * 5;
+
+    &:hover {
+        background-color: $purple;
+    }
 }

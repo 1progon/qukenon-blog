@@ -6,6 +6,10 @@
 @section('meta_description', $tag->description)
 @section('canonical', url('tag/' . $tag->slug))
 
+@section('head')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+@endsection
+
 @section('main')
     <div class="post-media-list">
         <div class="container">
@@ -33,4 +37,15 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    <script>
+        $('[data-fancybox="gallery"]').fancybox({
+            hideScrollbar: false,
+        });
+    </script>
 @endsection

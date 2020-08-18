@@ -49,7 +49,7 @@
                 <div>Опубликовано:</div>
                 {{ $post->created_at }}
             </div>
-            @if( $post->created_at !== $post->updated_at)
+            @if( $post->created_at != $post->updated_at)
                 <div>
                     <div>Обновлено:</div>
                     {{ $post->updated_at }}
@@ -81,8 +81,6 @@
         @if( isset($firstImage))
             @php
 
-
-
                 $thumb = \App\Http\Controllers\Post\PostsController::THUMB['smallest'];
 
                 /** @var \App\Models\Post\PostImage $firstImage */
@@ -96,13 +94,14 @@
                 }
             @endphp
 
-            <div class="images-block @if( $imSize[0] < 720) images-block-float @endif ">
+            <div class="images-block @if( $imSize[0] < 720 && $post->files->count() <= 0) images-block-float @endif ">
 
                 <div class="thumbnail">
 
                     <img src="{{ asset('storage/' . $firstImage->folder . '/'. $firstImage->filename) }}"
-                         alt="изображение для записи {{ $post->title}}" width="{{ $imSize[0] }}" height="{{
-                             $imSize[1] }}">
+                         alt="изображение для записи {{ $post->title}}"
+                         width="{{ $imSize[0] }}"
+                         height="{{$imSize[1] }}">
                 </div>
 
                 <div class="small-images">
@@ -119,9 +118,24 @@
                         </a>
                     @empty
                     @endforelse
+
+
+                </div>
+
+                <div class="post-files">
+                    @forelse( $post->files as $file)
+                        <a class="btn"
+                           download
+                           href="{{ asset('storage/' . $file->folder . '/' . $file->name) }}">
+                            Скачать {{ $file->name }}
+                        </a>
+                    @empty
+                    @endforelse
                 </div>
             </div>
         @endif
+
+
 
         {{--<div class="adv-before-article">--}}
         {{--@include('includes.adv-header')--}}
@@ -129,6 +143,7 @@
 
 
         <post-contents></post-contents>
+
 
         <article>
 

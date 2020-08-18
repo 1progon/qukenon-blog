@@ -9,7 +9,42 @@
         margin: 3rem 0;
         transition: .3s;
 
-        &:hover {
+        &.with-buttons {
+            .thumbnail {
+                position: relative;
+
+
+                .image-overlay {
+                    background-color: $dark-deep;
+                    opacity: .5;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+
+                }
+
+
+                .enlarge-image {
+                    width: $size * 10;
+                    height: $size * 10;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-60%, -50%);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    z-index: 1;
+                    content: "";
+                }
+
+            }
+
+        }
+
+
+        &:hover:not(.with-buttons) {
             transform: translateY(-10px);
             box-shadow: 0 37px 29px -34px #37488b;
             border-radius: $size-double;
@@ -23,6 +58,8 @@
         &:hover .read-post-button img {
             transform: rotate(90deg);
         }
+
+
     }
 
 
@@ -38,6 +75,8 @@
 
 
             .thumbnail {
+
+
                 flex: 1;
                 align-items: center;
                 padding-right: 1rem;
@@ -57,6 +96,7 @@
 
 
             }
+
 
             .description {
                 flex: 3;

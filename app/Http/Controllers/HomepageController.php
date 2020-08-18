@@ -17,7 +17,8 @@ class HomepageController extends Controller
     {
 
         $stopShowFeatured = false;
-        $posts = Post::latest()->paginate();
+        //TODO Hardcoded category remove
+        $posts = Post::where('category_id', '!=', 12)->latest()->paginate();
 
         if (Post::count() < 1) {
             return abort(404);
