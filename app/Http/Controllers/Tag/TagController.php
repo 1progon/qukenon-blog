@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tag;
 
+use App\Http\Controllers\Controller;
 use App\Models\Tag\Tag;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -12,10 +13,6 @@ use Illuminate\Http\Response;
 use Illuminate\View\View;
 use Str;
 
-/**
- * Class TagController
- * @package App\Http\Controllers
- */
 class TagController extends Controller
 {
     /**

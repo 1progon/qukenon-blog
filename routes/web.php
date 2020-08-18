@@ -34,7 +34,7 @@ Route::resource('category', 'Category\CategoriesController')
 Route::get('post', 'Post\PostsController@index');
 
 //Tags
-Route::resource('tag', 'TagController')
+Route::resource('tag', 'Tag\TagController')
     ->only(['index', 'show']);
 
 // Front view: Single Post
@@ -72,7 +72,7 @@ Route::prefix('admin123123')
             ->only(['index']);
 
         //Tags
-        Route::resource('tag', 'TagController')
+        Route::resource('tag', 'Tag\TagController')
             ->only(['create', 'edit', 'store', 'update', 'destroy']);
 
         //User tags controller
