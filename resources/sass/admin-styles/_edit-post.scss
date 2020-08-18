@@ -1,4 +1,5 @@
 @use "../variables" as *;
+
 .container {
     .post-meta {
         display: flex;
@@ -34,7 +35,7 @@
 
 }
 
-.old-images {
+.old-images, .old-files {
     display: flex;
     flex-wrap: wrap;
 
@@ -51,12 +52,19 @@
         }
 
         &:hover {
-            opacity: .6;
+            opacity: .8;
         }
 
 
         input {
             cursor: pointer;
+        }
+
+        .file-info {
+            span {
+                color: $yellow;
+            }
+
         }
     }
 
