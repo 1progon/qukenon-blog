@@ -8,21 +8,16 @@
 
 @section('head')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
-@endsection
 
-@section('head')
     {{--Head script VK--}}
     <script src="https://vk.com/js/api/openapi.js?168"></script>
-
-    <script>
-        VK.init({apiId: 7539161, onlyWidgets: true});
-    </script>
+    <script>VK.init({apiId: 7539161, onlyWidgets: true});</script>
 
 
     {{--Social buttons--}}
-    <script type="text/javascript"
-            src="https://platform-api.sharethis.com/js/sharethis.js#property=5f102b37c0b69e00123ab475&product=inline-share-buttons"
-            async="async"></script>
+    <script async
+            src="https://platform-api.sharethis.com/js/sharethis.js#property=5f102b37c0b69e00123ab475&product=inline-share-buttons"></script>
+
 
 @endsection
 
@@ -128,11 +123,9 @@
             </div>
         @endif
 
-        {{--        @if($post->category->id !== 12)--}}
-        {{--            <div class="adv-before-article">--}}
-        {{--                @include('includes.adv-header')--}}
-        {{--            </div>--}}
-        {{--        @endif--}}
+        {{--<div class="adv-before-article">--}}
+        {{--@include('includes.adv-header')--}}
+        {{--</div>--}}
 
 
         <post-contents></post-contents>
@@ -142,7 +135,6 @@
             {{--TODO Need Sanitize data purifer--}}
 
             {{--Adsense before Post--}}
-            {{--@if($post->category->id !== 12)--}}
             <div class="adv-ads">
                 <!-- qukenon 336-280 -->
                 <ins class="adsbygoogle"
@@ -150,8 +142,6 @@
                      data-ad-client="ca-pub-8481515375748477"
                      data-ad-slot="3239673640"></ins>
             </div>
-            {{--@endif--}}
-
 
 
             {{--Article without escape chars--}}
@@ -160,7 +150,6 @@
 
             <div>
 
-                {{--@if($post->category->id !== 12)--}}
                 {{--Adsense after Post - netboard - only non-mobile--}}
                 <div class="adv-ads-after-article">
                     <!-- qukenon netboard 580-400 -->
@@ -179,25 +168,25 @@
                          data-ad-client="ca-pub-8481515375748477"
                          data-ad-slot="3239673640"></ins>
                 </div>
-                {{--@endif--}}
             </div>
 
         </article>
 
-        <section class="post-tags">
-            <h2>Теги</h2>
-            <div>
-                @forelse( $tags as $tag)
-                    <a class="badge" href="{{ route('tag.show', $tag) }}">{{ $tag->name }}</a>
-                @empty
-                @endforelse
-            </div>
-        </section>
+        @if( $tags->count())
+            <section class="post-tags">
+                <h2>Теги</h2>
+                <div>
+                    @forelse( $tags as $tag)
+                        <a class="badge" href="{{ route('tag.show', $tag) }}">{{ $tag->name }}</a>
+                    @empty
+                        <span>Нет тегов</span>
+                    @endforelse
+                </div>
+            </section>
+        @endif
 
         <section id="social-buttons" class="social-buttons">
-            {{--            @if($post->category->id !== 12)--}}
             <h2>Поделитесь записью пожалуйста:)</h2>
-            {{--            @endif--}}
 
             {{--sharethis.com--}}
             <div class="sharethis-inline-share-buttons"></div>
@@ -206,12 +195,12 @@
 
 
         <section id="comments" class="vk-comments-form">
-            {{--            @if($post->category->id !== 12)--}}
             <h2>Оставьте пожалуйста комментарий:)</h2>
-            {{--            @endif--}}
 
             {{--VK Comment form--}}
             <div id="vk_comments"></div>
+
+
         </section>
     </div>
 
@@ -233,9 +222,6 @@
 @endsection
 
 @section('script')
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
     <script>
         VK.Widgets.Comments("vk_comments", {
             height: 'auto',
@@ -243,8 +229,13 @@
             attach: "*",
             autoPublish: 1
         });
-
     </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

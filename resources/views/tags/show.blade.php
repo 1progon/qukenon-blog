@@ -20,7 +20,7 @@
 
 
             @forelse( $posts as $post)
-                @if( $tag->group === 'minecraft-skins')
+                @if( $tag->group === 'download-minecraft-skins')
                     @include('includes.post-media-with-buttons')
                 @else
                     @include('includes.post-media')

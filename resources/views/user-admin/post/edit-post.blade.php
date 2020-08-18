@@ -26,10 +26,13 @@
             </div>
 
 
-            <div class="input-group">
-                <label for="select-tag-group">Фильтр тегов</label>
-                <input @keyup="filterGroups" type="text" name="" id="select-tag-group" class="select-tag-group">
-            </div>
+            @if( $tags->count())
+                <div class="input-group">
+                    <label for="select-tag-group">Фильтр тегов</label>
+                    <input @keyup="filterGroups" type="text" name="" id="select-tag-group" class="select-tag-group">
+                </div>
+
+            @endif
 
             <div class="input-group tags-list">
                 <label>Теги</label>
@@ -38,7 +41,8 @@
                     @forelse( $tags as $tag )
                         <div>
                             <input type="checkbox"
-                                   @if( in_array($tag->id, $post->tags()->allRelatedIds()->toArray() )) checked @endif
+                                   @if( in_array($tag->id, $post->tags()->allRelatedIds()->toArray() )) checked
+                                   @endif
                                    name="tags[]"
                                    id="tag_{{ $tag->id }}"
                                    value="{{ $tag->id }}">
@@ -48,6 +52,7 @@
                             </label>
                         </div>
                     @empty
+                        <span>Нет тегов, нужно добавить теги</span> - <a href="{{ route('tag.create') }}">Добавить</a>
                     @endforelse
                 </div>
             </div>

@@ -22,9 +22,6 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "child_process": "^1.0.2",
-        "fs": "0.0.1-security",
-        "module": "^1.2.5",
         "vue": "^2.6.11"
     }
 }

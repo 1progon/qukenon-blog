@@ -27,10 +27,14 @@
                     </select>
                 </div>
 
-                <div class="input-group">
-                    <label for="select-tag-group">Фильтр тегов</label>
-                    <input @keyup="filterGroups" type="text" name="" id="select-tag-group" class="select-tag-group">
-                </div>
+
+                @if( $tags->count())
+                    <div class="input-group">
+                        <label for="select-tag-group">Фильтр тегов</label>
+                        <input @keyup="filterGroups" type="text" name="" id="select-tag-group" class="select-tag-group">
+                    </div>
+                @endif
+
                 <div class="input-group tags-list">
                     <label>Теги</label>
                     <div class="f-column">
@@ -43,9 +47,12 @@
                                 </label>
                             </div>
                         @empty
+                            <span>Нет тегов, нужно добавить теги</span> - <a
+                                href="{{ route('tag.create') }}">Добавить</a>
                         @endforelse
                     </div>
                 </div>
+
 
                 <div class="input-group">
                     <label for="title" class="required">Title</label>
