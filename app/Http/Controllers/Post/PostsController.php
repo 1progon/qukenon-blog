@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Classes\ImageResizer;
 use App\Models\Category\Category;
 use App\Models\Post\Post;
+use App\Models\Post\PostFile;
 use App\Models\Post\PostImage;
 use App\Models\Tag\Tag;
 use Exception;
@@ -88,7 +89,7 @@ class PostsController extends Controller
         $generateSlug = Str::slug($request->title, '-');
 
         $post->slug = $generateSlug;
-        $post->tags()->sync($request->tags);
+
 
         $postsExist = Post::where('slug', '=', $generateSlug)->count();
 
@@ -107,10 +108,23 @@ class PostsController extends Controller
 
         $category->posts()->save($post);
 
+        $post->tags()->sync($request->tags);
+
 
         // Resize, create thumbs and save all images from upload
         if ($request->hasFile('images')) {
             $this->resizeUploadedImages($request, $post);
+        }
+
+        //Files to upload
+        if ($request->has('spec_files')) {
+            $fileContr = new PostFileController();
+            $res = $fileContr->store($request, $post);
+
+            if (!$res) {
+                //TODO Create error response
+            }
+
         }
 
         return redirect()->route('post.index');
@@ -183,19 +197,22 @@ class PostsController extends Controller
         if ($request->has('remove_images')) {
             cache()->forget('post_images_' . $post->id);
 
-            $imagesBeforeUpload = $post->images;
-
             // Remove old selected images
             foreach ($request->remove_images as $imageId) {
-
-                $image = $imagesBeforeUpload->find($imageId);
-
-
+                $image = PostImage::find($imageId);
                 $this->deleteImagesFilesFromFolder($image);
-
 
                 $image->delete();
 
+            }
+        }
+
+        if ($request->has('remove_files')) {
+            foreach ($request->remove_files as $fileId) {
+                $postFile = PostFile::find($fileId);
+
+                $ctrl = new PostFileController();
+                $ctrl->destroy($postFile);
             }
         }
 
@@ -203,6 +220,17 @@ class PostsController extends Controller
         if ($request->hasFile('images')) {
             cache()->forget('post_images_' . $post->id);
             $this->resizeUploadedImages($request, $post);
+        }
+
+        //Files to upload
+        if ($request->has('spec_files')) {
+            $fileContr = new PostFileController();
+            $res = $fileContr->store($request, $post);
+
+            if (!$res) {
+                //TODO Create error response
+            }
+
         }
 
 
@@ -220,15 +248,24 @@ class PostsController extends Controller
     {
 
         $images = $post->images;
+        $files = $post->files;
 
-
+        //Remove images from DB and disk
         if ($images) {
             foreach ($images as $image) {
 
                 // Delete image file from folder and thumbnails
-
                 $this->deleteImagesFilesFromFolder($image);
             }
+        }
+
+        //Remove files from DB and disk
+        if ($files) {
+            foreach ($files as $file) {
+                $ctrl = new PostFileController();
+                $ctrl->destroy($file);
+            }
+
         }
 
         $post->tags()->sync([]);

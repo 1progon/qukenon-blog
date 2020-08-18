@@ -16,6 +16,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Название</th>
+                <th>Открыть</th>
                 <th scope="col">Редактировать</th>
 
                 <th scope="col">Создана</th>
@@ -35,6 +36,9 @@
                 <tr>
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->title }}</td>
+                    <td>
+                        <a target="_blank" href="{{ route('category.show', $category) }}">Открыть</a>
+                    </td>
 
                     {{--Edit--}}
                     <td>

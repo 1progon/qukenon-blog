@@ -12,6 +12,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Название</th>
+                <th>Открыть</th>
                 <th scope="col">Редактировать</th>
 
                 <th scope="col">Группа</th>
@@ -31,6 +32,10 @@
                 <tr>
                     <td>{{ $tag->id }}</td>
                     <td>{{ $tag->name }}</td>
+
+                    <td>
+                        <a target="_blank" href="{{ route('tag.show', $tag) }}">Открыть</a>
+                    </td>
 
                     {{--Edit--}}
                     <td>

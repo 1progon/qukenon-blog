@@ -2,7 +2,7 @@
     {{--<a href="{{ route('post.front.show', [$post, $post->id]) }}">--}}
     {{--    <h1 class="subtitle">{{ $post->title }}</h1>--}}
     {{--</a>--}}
-        <h1 class="subtitle">{{ $post->title }}</h1>
+    <h1 class="subtitle">{{ $post->title }}</h1>
 
 
     <div class="content-block">
@@ -50,7 +50,14 @@
 
                 {{--Buttons--}}
                 <div class="special-buttons">
-                    <a class="btn" href="#">Скачать скин</a>
+                    @forelse( $post->files as $file )
+
+                        <a class="btn"
+                           download
+                           href="{{ asset('storage/' . $file->folder . '/' . $file->name ) }}">Скачать
+                            скин</a>
+                    @empty
+                    @endforelse
                     <a class="btn" href="#">Смотреть фото</a>
                     <a class="btn" href="#">Написать отзыв</a>
                 </div>

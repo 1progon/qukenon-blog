@@ -120,10 +120,55 @@
                 </div>
             </div>
 
+
+            <div class="input-group">
+                <label>Файлы</label>
+                <div class="old-files">
+                    @forelse( $post->files as $postFile)
+                        <div class="block">
+                            @php
+                                $fullFilePath = Storage::path( $postFile->folder . '/' . $postFile->name);
+                                $filePath = asset( 'storage/' . $postFile->folder . '/' . $postFile->name)
+                            @endphp
+
+                            <div class="file-info">
+                                <div><span>Type:</span> {{ mime_content_type($fullFilePath) }}</div>
+                                <div><span>Folder:</span> {{ $postFile->folder }}</div>
+                                <div><span>Name:</span> {{  $postFile->name }}</div>
+                                <div><span>Size:</span> {{ round(filesize($fullFilePath) / 1000, 2) . 'kb' }}</div>
+                                <div>
+                                    <span>Download:</span>
+                                    <a download href="{{ $filePath }}">{{ $postFile->name}}</a>
+                                </div>
+                            </div>
+
+
+                            <div class="remove-block">
+                                <label for="remove-image-{{ $postFile->id }}">Удалить</label>
+                                <input type="checkbox" name="remove_files[]" id="remove-image-{{ $postFile->id }}"
+                                       value="{{ $postFile->id }}">
+                            </div>
+                        </div>
+                    @empty
+                    @endforelse
+                </div>
+            </div>
+
+            <hr>
+
             <div class="input-group">
                 <label for="image">Images</label>
                 <input type="file" name="images[]" id="image" multiple>
             </div>
+
+            <hr>
+
+            <div class="input-group">
+                <label for="spec_file">Files</label>
+                <input type="file" name="spec_files[]" id="spec_file" multiple>
+            </div>
+
+            <hr>
 
 
             <div class="input-group">

@@ -13,9 +13,9 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Edit</th>
-                    <th>Link</th>
-                    <th>Title</th>
+                    <th>Название</th>
+                    <th>Открыть</th>
+                    <th>Редактировать</th>
                     <th>Категория</th>
                     <th>Кат ID</th>
                     <th>Создано</th>
@@ -29,15 +29,16 @@
                 @forelse( $posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
-                        <td>
-                            <a href="{{ route('post.edit', [$post, $post->id])}}">Edit</a>
-                        </td>
-
-                        <td>
-                            <a target="_blank" href="{{ route('post.front.show', [$post, $post->id]) }}">Open</a>
-                        </td>
-
                         <td>{{ $post->title }}</td>
+
+                        <td>
+                            <a target="_blank" href="{{ route('post.front.show', [$post, $post->id]) }}">Открыть</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('post.edit', [$post, $post->id])}}">Редактировать</a>
+                        </td>
+
+
                         <td>{{ $post->category->title}}</td>
                         <td>{{ $post->category->id}}</td>
                         <td>{{ $post->created_at}}</td>

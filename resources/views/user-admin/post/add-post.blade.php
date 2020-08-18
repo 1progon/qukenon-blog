@@ -75,10 +75,21 @@
                     <textarea name="article" id="article" rows="10"></textarea>
                 </div>
 
+                <hr>
+
                 <div class="input-group">
                     <label for="image" class="required">Images</label>
                     <input type="file" name="images[]" id="image" multiple required>
                 </div>
+
+                <hr>
+
+                <div class="input-group">
+                    <label for="spec_file" class="required">Files</label>
+                    <input type="file" name="spec_files[]" id="spec_file" multiple required>
+                </div>
+
+                <hr>
 
 
                 <div class="input-group">

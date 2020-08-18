@@ -33,6 +33,11 @@ class Post extends Model
         return $this->hasMany(PostImage::class);
     }
 
+    public function files()
+    {
+        return $this->hasMany(PostFile::class);
+    }
+
     public function comments()
     {
         return $this->hasMany(PostComment::class);
