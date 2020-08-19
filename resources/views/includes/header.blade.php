@@ -6,8 +6,8 @@
     <div class="container">
         <div class="parts">
             <div class="left">
-                <a href="{{ route('page.about') }}">О сайте</a>
-                <a href="{{ route('page.contact') }}">Контакты</a>
+                <a href="{{ route('pages.about') }}">О сайте</a>
+                <a href="{{ route('pages.contact') }}">Контакты</a>
             </div>
             <div class="right">
                 {{--                @guest--}}
@@ -50,7 +50,7 @@
                         @break
                     @endif
                     <div>
-                        <a href="/category/{{ $categories[$i]->slug }}">
+                        <a href="{{ route('categories.front.show', $categories[$i]) }}">
                             <span>{{ $categories[$i]->title }}</span>
                         </a>
                     </div>
@@ -58,7 +58,7 @@
                 @endfor
 
                 <div class="more-categories">
-                    <a href="/category">
+                    <a href="{{ route('categories.front.index') }}">
                         <span>Ещё</span>
                         <img src="{{ asset('images/arrow-right-white.svg')}}" width="16" height="16" alt="">
                     </a>

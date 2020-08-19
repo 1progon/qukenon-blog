@@ -9,7 +9,7 @@
             <span class="red">{{ $category->title }}, id: {{ $category->id }}</span>
         </h2>
 
-        <form action="{{ route('category.update', $category) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('categories.update', $category) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 

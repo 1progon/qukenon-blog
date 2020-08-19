@@ -1,9 +1,10 @@
 // Show Button To Top
-
 let button = document.getElementsByClassName('to-top-button')[0];
 
 function showToTopButton() {
-    let scrolledHeight = document.body.scrollTop;
+    removeEventListener('load', this)
+
+    let scrolledHeight = document.documentElement.scrollTop;
 
     if (scrolledHeight > 200) {
         button.classList.add('show');
@@ -12,5 +13,6 @@ function showToTopButton() {
     }
 }
 
-document.body.addEventListener('scroll', showToTopButton);
+window.addEventListener('load', showToTopButton);
+window.addEventListener('scroll', showToTopButton);
 

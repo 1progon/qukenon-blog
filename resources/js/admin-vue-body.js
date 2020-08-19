@@ -9,6 +9,9 @@ let bodyApp = new Vue({
         message: '',
         timeId: null,
 
+        // admin user - change password
+        changePassword: false,
+
     },
 
     created() {

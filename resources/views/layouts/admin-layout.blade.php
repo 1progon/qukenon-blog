@@ -22,9 +22,7 @@
 
 <header>
     <a target="_blank" href="/">На главную сайта | </a>
-
     <input class="link" type="submit" name="" id="" value="Выйти" form="logout-form">
-
 
     <form id="logout-form" action="{{ route('logout') }}" method="post">
         @csrf

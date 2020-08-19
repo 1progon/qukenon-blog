@@ -37,12 +37,12 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->title }}</td>
                     <td>
-                        <a target="_blank" href="{{ route('category.show', $category) }}">Открыть</a>
+                        <a target="_blank" href="{{ route('categories.front.show', $category) }}">Открыть</a>
                     </td>
 
                     {{--Edit--}}
                     <td>
-                        <a href="{{ route('category.edit', $category) }}">Редактировать</a>
+                        <a href="{{ route('categories.edit', $category) }}">Редактировать</a>
                     </td>
 
                     <td>{{ $category->created_at }}</td>
@@ -55,7 +55,7 @@
                     <td>
                         <form id="form-{{ $category->id }}"
                               v-on:submit.prevent="showConfirmNotify($event)"
-                              action="{{ route('category.destroy', $category)}}"
+                              action="{{ route('categories.destroy', $category)}}"
                               method="post">
 
                             @csrf

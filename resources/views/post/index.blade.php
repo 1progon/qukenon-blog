@@ -7,7 +7,7 @@
 @section('meta_description', 'Все записи, которые были написаны Ютубером Кукенон об играх и из мира игр. Интересные и
  полезные. Сделано с душой')
 
-@section('canonical', url('/post'))
+@section('canonical', route('posts.front.index'))
 
 @section('main')
 

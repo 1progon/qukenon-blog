@@ -3,8 +3,8 @@
 <div class="container">
     <div class="widgets">
         <div>
-            <div><a href="{{ route('page.about') }}">О сайте</a></div>
-            <div><a href="{{ route('page.contact') }}">Контакты</a></div>
+            <div><a href="{{ route('pages.about') }}">О сайте</a></div>
+            <div><a href="{{ route('pages.contact') }}">Контакты</a></div>
 
         </div>
 
@@ -17,13 +17,13 @@
 
             @auth
                 <div><a href="{{ route('dashboard') }}">Аккаунт</a></div>
-                <div><a href="/logout">Выйти</a></div>
+                <div><a href="{{ route('logout') }}">Выйти</a></div>
             @endauth
         </div>
 
         <div>
-            <div><a href="/post">Все записи</a></div>
-            <div><a href="/category">Все категории</a></div>
+            <div><a href="{{ route('posts.front.index') }}">Все записи</a></div>
+            <div><a href="{{ route('categories.front.index') }}">Все категории</a></div>
         </div>
     </div>
 

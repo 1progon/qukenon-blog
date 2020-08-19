@@ -50,7 +50,7 @@ class CategoriesController extends Controller
 
         $user->categories()->save($cat);
 
-        return redirect()->route('category.index');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -102,7 +102,7 @@ class CategoriesController extends Controller
 
         $category->save();
 
-        return redirect()->route('category.index');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -139,6 +139,6 @@ class CategoriesController extends Controller
 
         $category->delete();
 
-        return redirect()->route('category.index');
+        return redirect()->route('categories.index');
     }
 }

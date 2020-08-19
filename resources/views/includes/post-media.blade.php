@@ -1,5 +1,5 @@
 <div class="media">
-    <a href="{{ route('post.front.show', [$post, $post->id]) }}">
+    <a href="{{ route('posts.front.show', [$post, $post->id]) }}">
         <h1 class="subtitle">{{ $post->title }}</h1>
     </a>
 
@@ -9,7 +9,7 @@
             <div class="thumbnail">
 
 
-                <a href="{{ route('post.front.show', [$post, $post->id]) }}">
+                <a href="{{ route('posts.front.show', [$post, $post->id]) }}">
 
                     @php
                         $firstImage = $post->images()->first()
@@ -57,7 +57,7 @@
 
         {{--Read post button--}}
         <div class="read-post-button">
-            <a class="btn" href="{{ route('post.front.show', [$post, $post->id]) }}">
+            <a class="btn" href="{{ route('posts.front.show', [$post, $post->id]) }}">
                 <img src="{{ asset('/images/arrow-right-white.svg') }}" alt="">
             </a>
         </div>

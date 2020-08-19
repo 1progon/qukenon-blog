@@ -19,12 +19,21 @@ class TagController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @return void
      */
     public function index(Request $request)
     {
 
-        //
+
+        if ($request->query('group')) {
+            $tags = Tag::where('group', '=', $request->query('group'))
+                ->latest()->paginate();
+
+        } else {
+            $tags = Tag::latest()->paginate();
+        }
+
+
+        return view('tags.index', compact('tags'));
     }
 
     /**
@@ -73,7 +82,7 @@ class TagController extends Controller
 
         $tag->save();
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -89,7 +98,9 @@ class TagController extends Controller
 
         }
 
-        return view('tags.show', compact('tag'));
+        $relatedTags = Tag::where('group', '=', 'download-minecraft-skins')->inRandomOrder()->limit(4)->get();
+
+        return view('tags.show', compact('tag', 'relatedTags'));
     }
 
     /**
@@ -129,7 +140,7 @@ class TagController extends Controller
         $tag->fill($validated);
         $tag->save();
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -145,6 +156,6 @@ class TagController extends Controller
         $tag->delete();
 
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tags.index');
     }
 }

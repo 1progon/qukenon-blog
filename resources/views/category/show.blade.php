@@ -4,7 +4,7 @@
 
 @section('meta_keys', $category->meta_keys)
 @section('meta_description', $category->description)
-@section('canonical', url('category/' . $category->slug))
+@section('canonical', route('categories.front.show', $category))
 
 @section('main')
     <div class="post-media-list">

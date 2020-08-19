@@ -128,7 +128,7 @@ class PostsController extends Controller
 
         }
 
-        return redirect()->route('post.index');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -145,7 +145,7 @@ class PostsController extends Controller
         //TODO Move hardcoded tag group and tag category to separate env constant
         if ($post->category()->first()->id === 12) {
             return redirect()
-                ->route('tag.show',
+                ->route('tags.front.show',
                     [
                         $post->tags()
                             ->where('group', '=', 'download-minecraft-skins')
@@ -247,7 +247,7 @@ class PostsController extends Controller
         }
 
 
-        return redirect()->route('post.index');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -284,7 +284,7 @@ class PostsController extends Controller
         $post->tags()->sync([]);
         $post->delete();
 
-        return redirect()->route('post.index');
+        return redirect()->route('posts.index');
     }
 
 

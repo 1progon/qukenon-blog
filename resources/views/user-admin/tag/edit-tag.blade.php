@@ -6,7 +6,7 @@
 
         <h2>Редактировать тег</h2>
 
-        <form action="{{ route('tag.update', $tag) }}" method="post">
+        <form action="{{ route('tags.update', $tag) }}" method="post">
             @csrf
             @method('PATCH')
 

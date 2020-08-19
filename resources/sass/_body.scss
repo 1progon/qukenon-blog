@@ -1,21 +1,15 @@
 @use "variables" as *;
+
 html, body {
     height: 100%;
-}
-
-html {
-    overflow-y: hidden;
 }
 
 body {
     overflow-y: scroll;
     font-family: "Open Sans", sans-serif;
     background-color: $dark-deep;
-
     color: $secondary;
     font-size: $size-double;
-
-
 }
 
 .bg-image {

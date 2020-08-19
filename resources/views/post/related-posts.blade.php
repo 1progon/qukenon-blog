@@ -1,5 +1,5 @@
 <div id="related-posts" class="related-posts container">
-    @if($relatedPosts->count() > 0)
+    @if( $relatedPosts->count() > 0)
         <h2>Что ещё почитать из мира геймеров и интернета</h2>
     @endif
 

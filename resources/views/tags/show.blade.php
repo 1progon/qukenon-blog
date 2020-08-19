@@ -4,7 +4,7 @@
 
 {{--@section('meta_keys', $tag->meta_keys)--}}
 @section('meta_description', $tag->description)
-@section('canonical', url('tag/' . $tag->slug))
+@section('canonical', route('tags.front.show', $tag))
 
 @section('head')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
@@ -22,6 +22,8 @@
             @endphp
 
 
+            <a href="{{ route('tags.front.index', ['group'=>'download-minecraft-skins']) }}">Все скины</a>
+
 
             @forelse( $posts as $post)
                 @if( $tag->group === 'download-minecraft-skins')
@@ -33,6 +35,9 @@
             @endforelse
 
             {{ $posts->links() }}
+
+
+            @include('tags.related-tags', [$relatedTags])
 
         </div>
     </div>

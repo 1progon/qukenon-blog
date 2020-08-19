@@ -7,10 +7,10 @@
         <h2>Редактировать пост</h2>
         <div class="post-meta">
             <div class="post-title">{{ $post->title }}, id: {{ $post->id }}</div>
-            <a class="link" target="_blank" href="{{ route('post.front.show', [$post, $post->id]) }}">Открыть</a>
+            <a class="link" target="_blank" href="{{ route('posts.front.show', [$post, $post->id]) }}">Открыть</a>
         </div>
 
-        <form action="{{ route('post.update', $post) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('posts.update', $post) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <div class="input-group">
@@ -132,13 +132,25 @@
                             @endphp
 
                             <div class="file-info">
-                                <div><span>Type:</span> {{ mime_content_type($fullFilePath) }}</div>
-                                <div><span>Folder:</span> {{ $postFile->folder }}</div>
-                                <div><span>Name:</span> {{  $postFile->name }}</div>
-                                <div><span>Size:</span> {{ round(filesize($fullFilePath) / 1000, 2) . 'kb' }}</div>
                                 <div>
-                                    <span>Download:</span>
-                                    <a download href="{{ $filePath }}">{{ $postFile->name}}</a>
+                                    <div>Type:</div>
+                                    <div>{{ mime_content_type($fullFilePath) }}</div>
+                                </div>
+                                <div>
+                                    <div>Folder:</div>
+                                    <div>{{ $postFile->folder }}</div>
+                                </div>
+                                <div>
+                                    <div>Name:</div>
+                                    <div>{{  $postFile->name }}</div>
+                                </div>
+                                <div>
+                                    <div>Size:</div>
+                                    <div>{{ round(filesize($fullFilePath) / 1000, 2) . 'kb' }}</div>
+                                </div>
+                                <div>
+                                    <div>Download:</div>
+                                    <div><a download href="{{ $filePath }}">{{ $postFile->name}}</a></div>
                                 </div>
                             </div>
 

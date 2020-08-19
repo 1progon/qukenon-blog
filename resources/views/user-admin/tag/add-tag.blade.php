@@ -7,7 +7,7 @@
         <h2>Создать тег</h2>
 
 
-        <form action="{{ route('tag.store') }}" method="post">
+        <form action="{{ route('tags.store') }}" method="post">
             @csrf
 
             <div class="input-group">

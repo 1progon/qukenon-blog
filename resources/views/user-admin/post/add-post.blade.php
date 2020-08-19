@@ -14,7 +14,7 @@
 
 
         @else
-            <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="input-group">
                     <label for="category" class="required">Категория</label>

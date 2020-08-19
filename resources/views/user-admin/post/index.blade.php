@@ -32,10 +32,10 @@
                         <td>{{ $post->title }}</td>
 
                         <td>
-                            <a target="_blank" href="{{ route('post.front.show', [$post, $post->id]) }}">Открыть</a>
+                            <a target="_blank" href="{{ route('posts.front.show', [$post, $post->id]) }}">Открыть</a>
                         </td>
                         <td>
-                            <a href="{{ route('post.edit', [$post, $post->id])}}">Редактировать</a>
+                            <a href="{{ route('posts.edit', [$post, $post->id])}}">Редактировать</a>
                         </td>
 
 
@@ -45,7 +45,7 @@
                         <td>{{ $post->updated_at}}</td>
                         <td>
                             <form id="form-{{ $post->id }}"
-                                  action="{{ route('post.destroy', $post) }}"
+                                  action="{{ route('posts.destroy', $post) }}"
                                   v-on:submit.prevent="showConfirmNotify($event)"
                                   method="post">
                                 @csrf

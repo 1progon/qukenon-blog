@@ -5,7 +5,7 @@
     <div class="container">
         <h2>Создать категорию</h2>
 
-        <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="input-group">

@@ -27,7 +27,7 @@
 
 </head>
 <body>
-<div id="bodyAnchor"></div>
+<div id="body-anchor"></div>
 <div class="bg-image"></div>
 
 <div class="wrapper">
@@ -40,9 +40,10 @@
 
         {{--To Top Button--}}
         <div class="container">
-            <a class="to-top-button" href="#bodyAnchor">
+            <a class="to-top-button" href="#body-anchor">
                 <img src="{{ asset('images/to-top.svg') }}" alt="На верх кнопка">
-            </a></div>
+            </a>
+        </div>
     </main>
 
 
@@ -51,7 +52,7 @@
     </footer>
 </div>
 
-
+{{--Counters--}}
 @include('includes.counter')
 
 

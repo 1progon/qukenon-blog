@@ -4,7 +4,7 @@
 
 @section('meta_keys', $post->meta_keys)
 @section('meta_description', $post->description)
-@section('canonical', route('post.front.show', [$post, $post->id]))
+@section('canonical', route('posts.front.show', [$post, $post->id]))
 
 @section('head')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
@@ -28,7 +28,7 @@
         {{--Breadcrumb--}}
         <div class="breadcrumbs">
             <a href="/">Главная</a>
-            <a href="{{ route('category.show', [$post->category]) }}">{{ $post->category->title }}</a>
+            <a href="{{ route('categories.front.show', [$post->category]) }}">{{ $post->category->title }}</a>
             <span class="this-page">{{ $post->title }}</span>
         </div>
 
@@ -38,7 +38,7 @@
         {{--TODO Authorize edit--}}
         <div>
             @auth
-                <a target="_blank" href="{{ route('post.edit', $post) }}">Edit</a>
+                <a target="_blank" href="{{ route('posts.edit', $post) }}">Edit</a>
             @endauth
         </div>
 
@@ -192,7 +192,7 @@
                 <h2>Теги</h2>
                 <div>
                     @forelse( $tags as $tag)
-                        <a class="badge" href="{{ route('tag.show', $tag) }}">{{ $tag->name }}</a>
+                        <a class="badge" href="{{ route('tags.front.show', $tag) }}">{{ $tag->name }}</a>
                     @empty
                         <span>Нет тегов</span>
                     @endforelse
@@ -232,7 +232,7 @@
     {{--</div>--}}
 
 
-    @include('post.related-posts')
+    @include('post.related-posts', $relatedPosts)
 
 @endsection
 

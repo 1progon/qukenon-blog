@@ -34,12 +34,12 @@
                     <td>{{ $tag->name }}</td>
 
                     <td>
-                        <a target="_blank" href="{{ route('tag.show', $tag) }}">Открыть</a>
+                        <a target="_blank" href="{{ route('tags.front.show', $tag) }}">Открыть</a>
                     </td>
 
                     {{--Edit--}}
                     <td>
-                        <a href="{{ route('tag.edit', $tag) }}">Редактировать</a>
+                        <a href="{{ route('tags.edit', $tag) }}">Редактировать</a>
                     </td>
 
                     <td>{{ $tag->group }}</td>
@@ -53,7 +53,7 @@
                     <td>
                         <form id="form-{{ $tag->id }}"
                               v-on:submit.prevent="showConfirmNotify"
-                              action="{{ route('tag.destroy', $tag)}}"
+                              action="{{ route('tags.destroy', $tag)}}"
                               method="post">
 
                             @csrf

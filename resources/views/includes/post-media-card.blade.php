@@ -1,6 +1,6 @@
 <div class="media">
 
-    <a href="{{ route('post.front.show', [$post, $post->id]) }}">
+    <a href="{{ route('posts.front.show', [$post, $post->id]) }}">
         @if( isset($related))
             <h4 class="title">{{ $post->title }}</h4>
         @else
@@ -14,7 +14,7 @@
         <div class="thumbnail">
 
 
-            <a href="{{ route('post.front.show', [$post, $post->id]) }}">
+            <a href="{{ route('posts.front.show', [$post, $post->id]) }}">
                 @php
                     $firstImage = $post->images()->first()
                 @endphp
@@ -54,7 +54,7 @@
 
             <div>{{ Str::limit($post->description, 150) }}</div>
             <div class="read-more-link">
-                <a href="{{ route('post.front.show', [$post, $post->id]) }}">Читать...</a>
+                <a href="{{ route('posts.front.show', [$post, $post->id]) }}">Читать...</a>
             </div>
 
 
@@ -66,7 +66,7 @@
 
     {{--Read post button--}}
     <div class="read-post-button">
-        <a class="btn" href="{{ route('post.front.show', [$post, $post->id]) }}">
+        <a class="btn" href="{{ route('posts.front.show', [$post, $post->id]) }}">
             <img src="{{ asset('/images/arrow-right-white.svg') }}" alt="">
         </a>
     </div>
