@@ -14,10 +14,12 @@
 
 // Auth::routes();
 
+Route::redirect('/luchshie-ochki-virtualnoj-realnosti/000053', '/kakie-ochki-virtualnoj-realnosti-luchshe-kupit-i-skolko-stoiat/000053');
+
 Route::view('404', 'errors.404')->name('error404');
 
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register.form');
-Route::post('register', 'Auth\RegisterController@register')->name('register');
+//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register.form');
+//Route::post('register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('login123123123123', 'Auth\LoginController@showLoginForm')->name('login.form');
 Route::post('login', 'Auth\LoginController@login')->name('login');
