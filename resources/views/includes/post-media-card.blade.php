@@ -26,12 +26,12 @@
                     @endphp
 
 
-                    <img src="{{ asset('storage/' . $imagePath )}}"
+                    <img loading="lazy" src="{{ asset('storage/' . $imagePath )}}"
                          alt=""
                          width="{{ $thumb['w'] }}"
                          height="{{ $thumb['h'] }}">
                 @else
-                    <img src="{{ asset('images/default-image.jpg') }}" alt="default image">
+                    <img loading="lazy" src="{{ asset('images/default-image.jpg') }}" alt="default image">
                 @endif
 
             </a>

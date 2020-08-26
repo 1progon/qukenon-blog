@@ -22,7 +22,10 @@
             @endphp
 
 
-            <a href="{{ route('tags.front.index', ['group'=>'download-minecraft-skins']) }}">Все скины</a>
+            @if( $tag->group === 'download-minecraft-skins')
+                <a href="{{ route('tags.front.index', ['group'=>'download-minecraft-skins']) }}">Все скины</a>
+            @endif
+
 
 
             @forelse( $posts as $post)

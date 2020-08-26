@@ -15,15 +15,16 @@
     <meta name="yandex-verification" content="102b66e49de951d3"/>
     <meta name="google-site-verification" content="aKHzYLwFCQ7xuGQ0GXicAwk_4jeyAmJzR6kQE2YFGic"/>
 
-    <meta name="telderi" content="d71b4958ddfad9245a06b08e0300afb8" />
+    <meta name="telderi" content="d71b4958ddfad9245a06b08e0300afb8"/>
 
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <link rel="icon" href="{{ asset('images/ico/favicon.ico') }}" type="image/x-icon">
 
-
     @yield('head')
+
+
 
 </head>
 <body>
@@ -52,16 +53,13 @@
     </footer>
 </div>
 
-{{--Counters--}}
-@include('includes.counter')
 
-
-
-<script src="{{ asset('js/main-vue-body.js') }}"></script>
-<script src="{{ asset('js/scrollToTop.js') }}"></script>
+<script defer src="{{ asset('js/main-vue-body.js') }}"></script>
 
 @yield('script')
 
 
+{{--Counters--}}
+@include('includes.counter')
 </body>
 </html>

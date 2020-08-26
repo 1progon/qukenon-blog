@@ -6,20 +6,6 @@
 @section('meta_description', $post->description)
 @section('canonical', route('posts.front.show', [$post, $post->id]))
 
-@section('head')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
-
-    {{--Head script VK--}}
-    <script src="https://vk.com/js/api/openapi.js?168"></script>
-    <script>VK.init({apiId: 7539161, onlyWidgets: true});</script>
-
-
-    {{--Social buttons--}}
-    <script async
-            src="https://platform-api.sharethis.com/js/sharethis.js#property=5f102b37c0b69e00123ab475&product=inline-share-buttons"></script>
-
-
-@endsection
 
 @section('main')
 
@@ -98,7 +84,7 @@
 
                 <div class="thumbnail">
 
-                    <img src="{{ asset('storage/' . $firstImage->folder . '/'. $firstImage->filename) }}"
+                    <img loading="lazy" src="{{ asset('storage/' . $firstImage->folder . '/'. $firstImage->filename) }}"
                          alt="изображение для записи {{ $post->title}}"
                          width="{{ $imSize[0] }}"
                          height="{{$imSize[1] }}">
@@ -110,7 +96,7 @@
 
                         <a data-fancybox="gallery"
                            href="{{ asset('storage/' . $image->folder . '/'. $image->filename) }}">
-                            <img src="{{ asset('storage/' . $image->folder . '/'. $thumb['str'] . '_' .
+                            <img loading="lazy" src="{{ asset('storage/' . $image->folder . '/'. $thumb['str'] . '_' .
                                 $image->filename) }}"
                                  width="{{ $thumb['w'] }}"
                                  height="{{ $thumb['h'] }}"
@@ -237,27 +223,89 @@
 @endsection
 
 @section('script')
-    <script>
-        VK.Widgets.Comments("vk_comments", {
-            height: 'auto',
-            limit: 15,
-            attach: "*",
-            autoPublish: 1
-        });
-    </script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
     <script>
-        $('[data-fancybox="gallery"]').fancybox({
-            hideScrollbar: false,
-        });
+        lazyLoadYouTube();
+        lazyImages();
+
+        function lazyImages() {
+            let images = document.querySelectorAll('img');
+            images.forEach(item => {
+                item.loading = 'lazy';
+            })
+        }
+
+
+        function lazyLoadYouTube() {
+            let frameArr = document.querySelectorAll('.lazy-you');
+            frameArr.forEach((item, index) => {
+                let par = item.parentElement
+                par.id = 'video-id-' + index;
+                item.remove();
+
+
+                let addVideo = () => {
+                    removeEventListener('scroll', addVideo)
+                    let againParent = document.getElementById('video-id-' + index);
+                    againParent.appendChild(item)
+                }
+
+                window.addEventListener('scroll', addVideo)
+            })
+        }
+
+
+        function startGoogleAds() {
+            window.removeEventListener('scroll', startGoogleAds);
+
+            // Loop adv blocks
+            for (let i = 0; i < 3; i++) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        }
+
+        function startVK() {
+            window.removeEventListener('scroll', startVK);
+
+            VK.init({apiId: 7539161, onlyWidgets: true});
+            VK.Widgets.Comments("vk_comments", {
+                height: 'auto',
+                limit: 15,
+                attach: "*",
+                autoPublish: 1
+            });
+
+        }
+
+        function addFancyboxOptions() {
+            $('[data-fancybox="gallery"]')
+                .fancybox({hideScrollbar: false,});
+        }
     </script>
+
+    {{--Google Ads--}}
+    <script
+        async
+        onload="window.addEventListener('scroll', startGoogleAds)"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    {{--VK--}}
+    <script
+        async
+        onload="window.addEventListener('scroll', startVK)"
+        src="https://vk.com/js/api/openapi.js?168"></script>
+
+    {{--Social buttons--}}
+    <script async
+            src="https://platform-api.sharethis.com/js/sharethis.js#property=5f102b37c0b69e00123ab475&product=inline-share-buttons"></script>
+
+
+    {{--Fancybox--}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script defer onload="addFancyboxOptions();"
+            src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
 @endsection
