@@ -22,7 +22,7 @@
                     <label for="name" class="">Имя</label>
 
                     <input id="name" type="text"
-                           class="@error('name') is-invalid @enderror" name="name"
+                           class="ym-disable-keys @error('name') is-invalid @enderror" name="name"
                            value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                     @error('name')
@@ -37,7 +37,7 @@
                            class="">{{ __('E-Mail Address') }}</label>
 
                     <input id="email" type="email"
-                           class="@error('email') is-invalid @enderror" name="email"
+                           class="ym-disable-keys @error('email') is-invalid @enderror" name="email"
                            value="{{ old('email') }}" required autocomplete="email">
 
                     @error('email')
@@ -52,7 +52,7 @@
                            class="">{{ __('Password') }}</label>
 
                     <input id="password" type="password"
-                           class="form-control @error('password') is-invalid @enderror" name="password"
+                           class="form-control ym-disable-keys @error('password') is-invalid @enderror" name="password"
                            required autocomplete="new-password">
 
                     @error('password')
@@ -66,7 +66,7 @@
                     <label for="password-confirm"
                            class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                    <input id="password-confirm" type="password" class="form-control"
+                    <input id="password-confirm" type="password" class="form-control ym-disable-keys"
                            name="password_confirmation" required autocomplete="new-password">
                 </div>
 

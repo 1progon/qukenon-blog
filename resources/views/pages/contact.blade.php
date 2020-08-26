@@ -21,21 +21,21 @@
                 <form action="/contact" method="post">
                     <div class="input-group">
                         <label for="email">E-mail</label>
-                        <input type="text" name="email" id="email">
+                        <input class="ym-disable-keys" type="text" name="email" id="email">
                     </div>
 
                     <div class="input-group">
                         <label for="name">Имя</label>
-                        <input type="text" name="name" id="name">
+                        <input class="ym-disable-keys" type="text" name="name" id="name">
                     </div>
 
                     <div class="input-group">
                         <label for="message">Сообщение</label>
-                        <textarea name="message" id="message" rows="5"></textarea>
+                        <textarea class="ym-disable-keys" name="message" id="message" rows="5"></textarea>
                     </div>
 
                     <div class="input-group">
-                        <input type="button" name="" id="" value="Отправить">
+                        <input class="ym-disable-keys" type="button" name="" id="" value="Отправить">
                     </div>
 
 

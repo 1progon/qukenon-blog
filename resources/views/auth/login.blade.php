@@ -18,7 +18,8 @@
                 @csrf
                 <div class="input-group">
                     <label for="email">E-mail</label>
-                    <input type="text" name="email" id="email" placeholder="e-mail" value="{{ old('email') }}">
+                    <input class="ym-disable-keys" type="text" name="email" id="email" placeholder="e-mail" value="{{
+                     old('email') }}">
                     @error('email')
                     <div class='form-error-message'>{{ $message }}</div>
                     @enderror
@@ -26,7 +27,7 @@
 
                 <div class="input-group">
                     <label for="password">Пароль</label>
-                    <input type="password" name="password" id="password" placeholder="password">
+                    <input class="ym-disable-keys" type="password" name="password" id="password" placeholder="password">
                 </div>
 
 
