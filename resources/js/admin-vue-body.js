@@ -164,8 +164,6 @@ let bodyApp = new Vue({
 
 
         removePostOrCategory(catId) {
-
-
             let form = document.getElementById('form-' + catId);
             form.submit();
 
