@@ -20,3 +20,4 @@ _ide_helper_models.php
 composer.lock
 package-lock.json
 /wp-content/
+/skins-scripts/vk-check/resources/vk-users/
