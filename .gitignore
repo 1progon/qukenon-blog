@@ -21,3 +21,5 @@ composer.lock
 package-lock.json
 /wp-content/
 /skins-scripts/vk-check/resources/vk-users/
+/public/fonts/
+/public/images/
