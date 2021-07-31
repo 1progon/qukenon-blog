@@ -29,7 +29,25 @@
     </IfModule>
 
     RewriteEngine On
+    RewriteBase /
+
+
+    # PHP News block
+    RewriteCond %{REQUEST_URI} ^/n/$  [NC]
+    RewriteRule ^ n [L,R=301]
+
+    RewriteCond %{REQUEST_URI} ^/n/(.*)/$  [NC]
+    RewriteRule ^ n/%1 [L,R=301]
+
+    RewriteCond %{REQUEST_URI}   ^/n/?(.*)?$  [NC]
+    RewriteRule ^(.*)$    newsd/%1   [L]
+    # END PHP News block
+
+
     RewriteRule ^(.*)$ public/$1
+
+
+
 </IfModule>
 
 Order Allow,Deny
