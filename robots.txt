@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: */generate-sitemap
+Disallow: */admin/login
+
