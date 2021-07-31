@@ -23,14 +23,6 @@
     <link rel="icon" href="{{ asset('images/ico/favicon.ico') }}" type="image/x-icon">
 
     @yield('head')
-    
-    
-    <script type="text/javascript">
-<!--
-var _acic={dataProvider:10};(function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="//www.acint.net/aci.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()
-//-->
-</script>
-
 
 
 </head>

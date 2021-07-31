@@ -98,7 +98,7 @@
                     <img loading="lazy" src="{{ asset('storage/' . $firstImage->folder . '/'. $firstImage->filename) }}"
                          alt="изображение для записи {{ $post->title}}"
                          width="{{ $imSize[0] }}"
-                         height="{{$imSize[1] }}">
+                         height="{{ $imSize[1] }}">
                 </div>
 
                 <div class="small-images">
@@ -202,14 +202,14 @@
 
             {{--sharethis.com--}}
             <!--<div class="sharethis-inline-share-buttons"></div>-->
-            
-            
-            
-            
+
+
+
+
             <!--Yandex social Buttons-->
-            <div class="ya-share2" 
-                data-curtain 
-                data-size="l" 
+            <div class="ya-share2"
+                data-curtain
+                data-size="l"
                 data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,moimir,skype,lj,blogger,digg,reddit">
             </div>
 
@@ -318,7 +318,7 @@
 
     {{--Social buttons--}}
     <!--<script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5f102b37c0b69e00123ab475&product=inline-share-buttons"></script>-->
-    
+
     <!--Yandex social JS-->
     <script src="https://yastatic.net/share2/share.js"></script>
 
