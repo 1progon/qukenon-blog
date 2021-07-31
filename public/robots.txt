@@ -3,11 +3,14 @@ Disallow: /register*
 Disallow: /login*
 Disallow: /admin*
 Disallow: /public/
+Disallow: */admin/*
 
 User-agent: *
 Disallow: /login*
 Disallow: /admin*
 Disallow: /register*
 Disallow: /public/
+Disallow: */generate-sitemap
+Disallow: */admin/*
 
 Sitemap: https://qukenon.ru/sitemap.xml
