@@ -1,6 +1,0 @@
-#git ignore file
-.idea/
-config.php
-vendor/
-node_modules/
-Resources/Cache/
