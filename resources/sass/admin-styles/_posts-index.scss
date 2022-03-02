@@ -1,8 +1,6 @@
 @use "../variables" as *;
 .admin-posts-list {
     .posts {
-
-
         tr:nth-child(even) {
             background-color: $dark-light;
         }
