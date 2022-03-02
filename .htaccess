@@ -33,6 +33,9 @@
 
     RewriteRule ^(.*)$ public/$1
 
+    Redirect 301 /blog/prodazha-tekhniki-apple-v-rossii-polnostyu-ostanovlena-problemy-apple-pay/000061     /blog/prodazha-tekhniki-apple-v-rossii-polnostyu-ostanovlena-i-problemy-apple-pay/000061
+
+
 
 
 </IfModule>
