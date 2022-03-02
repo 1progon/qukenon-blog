@@ -260,7 +260,7 @@
         function lazyLoadYouTube() {
             let frameArr = document.querySelectorAll('.lazy-you');
             frameArr.forEach((item, index) => {
-                let par = item.parentElement
+                let par = item.parentElement;
                 par.id = 'video-id-' + index;
                 item.remove();
 
@@ -268,7 +268,7 @@
                 let addVideo = () => {
                     removeEventListener('scroll', addVideo)
                     let againParent = document.getElementById('video-id-' + index);
-                    againParent.appendChild(item)
+                    againParent.appendChild(item);
                 }
 
                 window.addEventListener('scroll', addVideo)

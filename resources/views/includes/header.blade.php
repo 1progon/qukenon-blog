@@ -8,6 +8,7 @@
             <div class="left">
                 <a href="{{ route('pages.about') }}">О сайте</a>
                 <a href="{{ route('pages.contact') }}">Контакты</a>
+                <a href="/">Скины Майнкрафт</a>
             </div>
             <div class="right">
                 {{--                @guest--}}
@@ -34,7 +35,7 @@
 <div class="main-bar">
     <div class="container">
         <div class="parts">
-            <a class="logo" href="/">
+            <a class="logo" href="/blog">
                 <img src="{{ asset('images/logo/logo-subtext.svg') }}" alt="">
             </a>
             <nav class="links" v-bind:class="{ 'open': showMobileMenu }">

@@ -13,7 +13,7 @@
     <link rel="canonical" href="@yield('canonical')"/>
 
     <meta name="yandex-verification" content="102b66e49de951d3"/>
-    <meta name="google-site-verification" content="aKHzYLwFCQ7xuGQ0GXicAwk_4jeyAmJzR6kQE2YFGic"/>
+    <meta name="google-site-verification" content="aKHzYLwFCQ7xuGQ0GXicAwk_4jeyAmJzR6kQE2YFGic" />
 
     <meta name="telderi" content="d71b4958ddfad9245a06b08e0300afb8"/>
 
